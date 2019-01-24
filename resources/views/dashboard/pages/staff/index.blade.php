@@ -106,7 +106,7 @@
                                             </label>
 
                                             <label class="label-input">
-                                                <span>Пароль</span>
+                                                <span>Новый пароль</span>
                                                 <input type="password" required>
                                                 <span class="error">Неверный пароль. Введите еще раз</span>
                                             </label>
@@ -180,7 +180,7 @@
                                             </label>
 
                                             <label class="label-input">
-                                                <span>Пароль</span>
+                                                <span>Новый пароль</span>
                                                 <input type="password" required>
                                                 <span class="error">Неверный пароль. Введите еще раз</span>
                                             </label>
@@ -254,7 +254,7 @@
                                             </label>
 
                                             <label class="label-input">
-                                                <span>Пароль</span>
+                                                <span>Новый пароль</span>
                                                 <input type="password" required>
                                                 <span class="error">Неверный пароль. Введите еще раз</span>
                                             </label>
