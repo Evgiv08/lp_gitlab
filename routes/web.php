@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Mainpage.
 
+Route::get('/', function () {
+    return view('mainpage.page');
+})->name('mainpage');
+
+Route::prefix('/mainpage')->group(function () {
+//  all routes connected with mainpage.
+});
 
 // Dashboard routes.
 
