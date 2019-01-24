@@ -112,7 +112,7 @@
                     </th>
                     <th>
                             <span>
-                               Создан
+                               Дата создания
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -136,7 +136,7 @@
                     </th>
                     <th>
                             <span>
-                               Окончание
+                               Срок
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -168,7 +168,7 @@
                     <td>12.01.18</td>
                     <td>12.01.19</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('show') }}">
+                        <a title="модерация" href="{{ route('new_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -186,7 +186,7 @@
                     <td>12.01.18</td>
                     <td>12.01.19</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('show') }}">
+                        <a title="модерация" href="{{ route('new_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -204,7 +204,7 @@
                     <td>12.01.18</td>
                     <td>12.01.19</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('show') }}">
+                        <a title="модерация" href="{{ route('new_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -222,7 +222,7 @@
                     <td>12.01.18</td>
                     <td>12.01.19</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('show') }}">
+                        <a title="модерация" href="{{ route('new_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -240,7 +240,7 @@
                     <td>12.01.18</td>
                     <td>12.01.19</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('show') }}">
+                        <a title="модерация" href="{{ route('new_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
