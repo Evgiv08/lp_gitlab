@@ -29,7 +29,7 @@
                     qui sit temporibus velit.
                 </td>
                 <td>
-                    <a href="{{ route('show') }}">1123</a>
+                    <a href="{{ route('active_show') }}">1123</a>
                 </td>
                 <td>
                     27.12.19
@@ -104,7 +104,7 @@
                     qui sit temporibus velit.
                 </td>
                 <td>
-                    <a href="{{ route('show') }}">1123</a>
+                    <a href="{{ route('active_show') }}">1123</a>
                 </td>
                 <td>
                     27.12.19
@@ -179,7 +179,7 @@
                     qui sit temporibus velit.
                 </td>
                 <td>
-                    <a href="{{ route('show') }}">1123</a>
+                    <a href="{{ route('active_show') }}">1123</a>
                 </td>
                 <td>
                     27.12.19
