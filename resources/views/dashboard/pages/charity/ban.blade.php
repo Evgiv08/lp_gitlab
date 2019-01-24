@@ -15,7 +15,7 @@
                 <tr class="title">
                     <th>
                             <span>
-                                Пользователь
+                                Автор
                             </span>
 
                         <div class="title-sort-block">
@@ -40,7 +40,7 @@
                     </th>
                     <th>
                             <span>
-                                Пациент
+                                Дата создания
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -64,7 +64,8 @@
                     </th>
                     <th>
                             <span>
-                                Категория
+                                Осталось дней
+                                (на момент бана)
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -88,7 +89,7 @@
                     </th>
                     <th>
                             <span>
-                               Сумма
+                               Дата бана
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -112,31 +113,7 @@
                     </th>
                     <th>
                             <span>
-                               Создан
-                            </span>
-                        <div class="title-sort-block">
-                            <a href="/">
-                                <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
-                                     class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 448 512">
-                                    <path
-                                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/>
-                                </svg>
-                            </a>
-
-                            <a href="/">
-                                <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
-                                     class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 448 512">
-                                    <path
-                                        d="M34.9 289.5l-22.2-22.2c-9.4-9.4-9.4-24.6 0-33.9L207 39c9.4-9.4 24.6-9.4 33.9 0l194.3 194.3c9.4 9.4 9.4 24.6 0 33.9L413 289.4c-9.5 9.5-25 9.3-34.3-.4L264 168.6V456c0 13.3-10.7 24-24 24h-32c-13.3 0-24-10.7-24-24V168.6L69.2 289.1c-9.3 9.8-24.8 10-34.3.4z"/>
-                                </svg>
-                            </a>
-                        </div>
-                    </th>
-                    <th>
-                            <span>
-                               Окончание
+                               Причина бана
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -162,11 +139,10 @@
                 </tr>
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>4</td>
+                    <td>14.01.18</td>
+                    <td>djkvndjfbvd,nvkdfnvjkdbvmbdfhbb dfjhv dfjbnhd</td>
                     <td class="button-block">
                         <a title="просмотр" href="/">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
@@ -202,11 +178,10 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>4</td>
+                    <td>14.01.18</td>
+                    <td>djkvndjfbvd,nvkdfnvjkdbvmbdfhbb dfjhv dfjbnhd</td>
                     <td class="button-block">
                         <a title="просмотр" href="/">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
@@ -242,11 +217,10 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>4</td>
+                    <td>14.01.18</td>
+                    <td>djkvndjfbvd,nvkdfnvjkdbvmbdfhbb dfjhv dfjbnhd</td>
                     <td class="button-block">
                         <a title="просмотр" href="/">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
@@ -282,11 +256,10 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>4</td>
+                    <td>14.01.18</td>
+                    <td>djkvndjfbvd,nvkdfnvjkdbvmbdfhbb dfjhv dfjbnhd</td>
                     <td class="button-block">
                         <a title="просмотр" href="/">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
@@ -322,11 +295,10 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>4</td>
+                    <td>14.01.18</td>
+                    <td>djkvndjfbvd,nvkdfnvjkdbvmbdfhbb dfjhv dfjbnhd</td>
                     <td class="button-block">
                         <a title="просмотр" href="/">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"

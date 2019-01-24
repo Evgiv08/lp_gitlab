@@ -112,7 +112,7 @@
                     </th>
                     <th>
                             <span>
-                               Создан
+                               Дата создания
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -136,7 +136,7 @@
                     </th>
                     <th>
                             <span>
-                               Окончание
+                               Срок
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
