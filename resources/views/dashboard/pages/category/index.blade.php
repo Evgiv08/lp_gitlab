@@ -1,6 +1,6 @@
 @extends('dashboard.layout.master')
 
-@section('title', 'Активные сборы')
+@section('title', 'Категории')
 
 @section('content')
     <div class="account-admin-content-block account-admin-categories">

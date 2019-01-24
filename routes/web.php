@@ -15,7 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 // Dashboard routes.
 
 // Login to dashboard.
@@ -25,48 +24,74 @@ Route::get('/doorway', function () {
 
 Route::prefix('/dashboard')->group(function () {
 
-// All new charities(drafts) in dashboard.
-    Route::get('/new', function () {
-        return view('dashboard.pages.charity.new');
-    })->name('new');
+    Route::prefix('/new')->group(function () {
+        // All new charities(drafts) in dashboard.
+        Route::get('/', function () {
+            return view('dashboard.pages.charity.new');
+        })->name('new');
 
-// All active charities in dashboard.
-    Route::get('/active', function () {
-        return view('dashboard.pages.charity.active');
-    })->name('active');
+        // Show one new charity in dashboard.
+        Route::get('/show', function () {
+            return view('dashboard.pages.charity.new_show');
+        })->name('new_show');
+    });
 
-// All completed charities in dashboard.
-    Route::get('/completed', function () {
-        return view('dashboard.pages.charity.completed');
-    })->name('completed');
 
-// All categories in dashboard.
+    Route::prefix('/active')->group(function () {
+        // All active charities in dashboard.
+        Route::get('/', function () {
+            return view('dashboard.pages.charity.active');
+        })->name('active');
+
+        // Show one active charity in dashboard.
+        Route::get('/show', function () {
+            return view('dashboard.pages.charity.active_show');
+        })->name('active_show');
+    });
+
+    Route::prefix('/completed')->group(function () {
+        // All completed charities in dashboard.
+        Route::get('/', function () {
+            return view('dashboard.pages.charity.completed');
+        })->name('completed');
+
+        // Show one completed charity in dashboard.
+        Route::get('/show', function () {
+            return view('dashboard.pages.charity.completed_show');
+        })->name('completed_show');
+    });
+
+    Route::prefix('/ban')->group(function () {
+        // All banned charities in dashboard.
+        Route::get('/', function () {
+            return view('dashboard.pages.charity.ban');
+        })->name('ban');
+
+        // Show one banned charity in dashboard.
+        Route::get('/show', function () {
+            return view('dashboard.pages.charity.ban_show');
+        })->name('ban_show');
+    });
+
+    // All categories in dashboard.
     Route::get('/category', function () {
         return view('dashboard.pages.category.index');
     })->name('category');
 
-// All appeals in dashboard.
+    // All appeals in dashboard.
     Route::get('/appeals', function () {
         return view('dashboard.pages.appeal.index');
     })->name('appeals');
 
-// All banned charities in dashboard.
-    Route::get('/ban', function () {
-        return view('dashboard.pages.charity.ban');
-    })->name('ban');
-
-// All users in dashboard.
+    // All users in dashboard.
     Route::get('/users', function () {
         return view('dashboard.pages.user.index');
     })->name('users');
 
-// All staff members in dashboard.
+    // All staff members in dashboard.
     Route::get('/staff', function () {
         return view('dashboard.pages.staff.index');
     })->name('staff');
-
-// Show one charity in dashboard.
-    Route::get('/one', function () {
-        return view('dashboard.pages.charity.show');
-    })->name('show');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');

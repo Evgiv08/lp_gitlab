@@ -15,7 +15,7 @@
                 <tr class="title">
                     <th>
                             <span>
-                                Пользователь
+                                Автор
                             </span>
 
                         <div class="title-sort-block">
@@ -40,7 +40,7 @@
                     </th>
                     <th>
                             <span>
-                                Пациент
+                                Дата создания
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -64,7 +64,7 @@
                     </th>
                     <th>
                             <span>
-                                Категория
+                                Осталось дней
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -112,7 +112,7 @@
                     </th>
                     <th>
                             <span>
-                               Создан
+                               Собрано
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -136,7 +136,7 @@
                     </th>
                     <th>
                             <span>
-                               Окончание
+                               Количество жалоб
                             </span>
                         <div class="title-sort-block">
                             <a href="/">
@@ -162,13 +162,13 @@
                 </tr>
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="просмотреть" href="{{ route('show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -180,13 +180,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="просмотреть" href="{{ route('show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -198,13 +198,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="просмотреть" href="{{ route('show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -216,13 +216,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="просмотреть" href="{{ route('show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -234,13 +234,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="просмотреть" href="{{ route('show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
