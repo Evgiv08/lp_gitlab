@@ -10,38 +10,39 @@
                 <div class="popup-content-block-wrapper">
                     <div class="popup-step">
 
-                        <form class="main-form" action="">
+                        <form class="main-form" action="{{ route('staffRegister') }}" method="post">
+                            @csrf
                             <h3>Добавить пользователя</h3>
                             <label class="label-input">
                                 <span>Имя и фамилия</span>
-                                <input type="text" required>
+                                <input type="text" name="name" value="{{ old('name') }}" required>
                                 <span class="error">Введите имя и фамилию</span>
                             </label>
 
                             <label class="label-input">
                                 <span>Email</span>
-                                <input type="email" required>
+                                <input type="email" name="email" value="{{ old('email') }}" required>
                                 <span class="error"> Некорректный email. Попробуйте еще раз</span>
                             </label>
 
                             <label class="label-select">
                                 <span>Роль в комманде</span>
-                                <select name="" id="">
-                                    <option value="">СЕО</option>
-                                    <option value="">Модератор</option>
-                                    <option value="">Администратор</option>
+                                <select name="role" id="">
+                                    <option value="SEO">СЕО</option>
+                                    <option value="Moderator">Модератор</option>
+                                    <option value="Administrator">Администратор</option>
                                 </select>
                             </label>
 
                             <label class="label-input">
                                 <span>Пароль</span>
-                                <input type="password" required>
+                                <input type="password" name="password" required>
                                 <span class="error">Неверный пароль. Введите еще раз</span>
                             </label>
 
                             <label class="label-input">
                                 <span>Повторите пароль</span>
-                                <input type="password" required>
+                                <input type="password" name="password_confirmation" required>
                                 <span class="error">Неверный пароль. Введите еще раз</span>
                             </label>
 
@@ -77,6 +78,8 @@
                     <th>Роль</th>
                     <th>Действия</th>
                 </tr>
+
+
                 <tr>
                     <td>1</td>
                     <td>Камишанченко Оксана</td>
