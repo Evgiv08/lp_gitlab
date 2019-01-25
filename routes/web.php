@@ -11,9 +11,11 @@
 |
 */
 
+// Mainpage.
+
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('mainpage.page');
+})->name('mainpage');
 
 // Dashboard routes.
 
@@ -93,5 +95,3 @@ Route::prefix('/dashboard')->group(function () {
         return view('dashboard.pages.staff.index');
     })->name('staff');
 });
-
-Route::get('/home', 'HomeController@index')->name('home');
