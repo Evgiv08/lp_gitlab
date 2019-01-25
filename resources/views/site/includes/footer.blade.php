@@ -53,7 +53,7 @@
           <a href="/">
             О нас
           </a>
-          <a href="/">
+          <a href="/faq">
             F.A.Q.
           </a>
           <a href="/">
@@ -64,7 +64,7 @@
           </a>
         </div>
         <div>
-          <a href="/">
+          <a href="/registration">
             Начать помогать
           </a>
           <a href="/">

@@ -1,4 +1,4 @@
-@extends('mainpage.layout.master')
+@extends('site.layout.master')
 
 
 @section('content')
@@ -17,12 +17,12 @@
         Сервис LifesPulse предоставляет возможность начать моментальный сбор средств на лечение.
       </p>
       <div class="button-block">
-        <a class="btn btn-orange">
+        <a class="btn btn-orange" href="/registration">
           Начать помогать
         </a>
-        <button class="btn btn-transparent">
+        <a class="btn btn-transparent" href="/charity/create">
           начать сбор средств
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -603,24 +603,5 @@
       </div>
     </li>
   </ul>
-</div>
-
-
-<div class="subscribe-block">
-  <img src="{{ asset('img/subscrible-img.jpg') }}" alt="">
-  <div class="subscribe-block-wrapper">
-    <h2>
-      Следите за новостями LIFES
-      <span>PULSE</span>
-    </h2>
-    <form action="">
-      <label>
-        <input type="email" required="" placeholder="Введите ваш e-mail">
-      </label>
-      <button class="btn" type="submit">
-        Подписаться
-      </button>
-    </form>
-  </div>
 </div>
 @endsection

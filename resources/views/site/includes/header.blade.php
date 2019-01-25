@@ -1,3 +1,4 @@
+
 <header class="main-header">
     <div class="main-header-wrapper">
         <div class="logo-side">
@@ -13,7 +14,7 @@
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="/faq">
                 F.A.Q.
               </a>
             </li>
@@ -28,7 +29,7 @@
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="/registration">
                 Начать помогать
               </a>
             </li>

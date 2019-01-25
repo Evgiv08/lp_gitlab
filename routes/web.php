@@ -12,10 +12,47 @@
 */
 
 // Mainpage.
-
 Route::get('/', function () {
-    return view('mainpage.page');
+    return view('site.mainpage');
 })->name('mainpage');
+
+// Registration
+Route::get('registration', function () {
+  return view('site.pages.reg');
+})->name('registration');
+
+// Slug
+Route::get('slug', function () {
+  return view('site.pages.slug');
+})->name('slug');
+
+// Search
+Route::get('search', function () {
+  return view('site.pages.search');
+})->name('search');
+
+// User
+Route::get('user', function () {
+  return view('site.pages.user');
+})->name('user');
+
+// how it works (faq)
+Route::get('faq', function () {
+  return view('site.pages.faq');
+})->name('user');
+
+// Charityes
+Route::prefix('/charity')->group(function () {
+
+  Route::get('/create', function () {
+      return view('site.pages.charity_create');
+  })->name('charity_create');
+
+  Route::get('/faq', function () {
+      return view('site.pages.charity_faq');
+  })->name('charity_create');
+
+});
 
 // Dashboard routes.
 

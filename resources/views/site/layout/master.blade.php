@@ -9,11 +9,17 @@
 </head>
 <body>
 
-  @include('mainpage.includes.header')
+  @include('site.includes.popups')
+
+  @include('site.includes.header')
 
   @yield('content')
 
-  @include('mainpage.includes.footer')
+  @include('site.includes.subscribe')
+
+  @include('site.includes.footer')
+
+  <script src="{{ asset('js/index.js') }}"></script>
 
 </body>
 </html>
