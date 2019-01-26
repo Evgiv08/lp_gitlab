@@ -11,12 +11,6 @@
 |
 */
 
-// Mainpage.
-
-Route::get('/', function () {
-    return view('mainpage.page');
-})->name('mainpage');
-
 // Dashboard routes.
 
 // Login to dashboard.
