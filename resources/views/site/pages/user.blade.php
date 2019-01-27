@@ -51,7 +51,7 @@
                 <button type="button" class=" follow active">Я слежу</button>
                 <button type="button" class="my-campaign ">Мои публикации</button>
 
-                <a href="/">
+                <a href="/charity/create">
                     <div class="add-icon"></div>
                     <span>Добавить новую публикацию</span>
                 </a>
@@ -61,7 +61,7 @@
                     <div class="card-block">
                         <ul class="card-block-list">
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card1.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -129,7 +129,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card2.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -197,7 +197,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card3.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -265,7 +265,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card1.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -333,7 +333,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card2.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -401,7 +401,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/" class="single-card">
+                                <a href="/slug" class="single-card">
                                   <img src="{{ asset('img/card3.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -539,7 +539,7 @@
                                             Закончить сбор средств
                                         </button>
 
-                                        <a href="/" class="btn btn-transparent">
+                                        <a href="/slug" class="btn btn-transparent">
                                             Подробнее
                                         </a>
 
@@ -561,7 +561,7 @@
                                 </div>
                             </li>
                             <li class="m--add-new">
-                                <a href="/">
+                                <a href="/charity/create">
                                     <div class="add-icon m--large"></div>
                                     <span>Добавить новую публикацию</span>
                                 </a>

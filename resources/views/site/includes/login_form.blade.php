@@ -38,7 +38,7 @@
                     </div>
 
                 </form>
-                <a href="/" class="no-account">
+                <a href="/registration" class="no-account">
                     Нет аккаунта?
                 </a>
 

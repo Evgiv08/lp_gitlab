@@ -53,7 +53,7 @@
           <a href="/">
             О нас
           </a>
-          <a href="/faq">
+          <a href="/">
             F.A.Q.
           </a>
           <a href="/">
@@ -64,10 +64,10 @@
           </a>
         </div>
         <div>
-          <a href="/registration">
+          <a href="/search">
             Начать помогать
           </a>
-          <a href="/">
+          <a href="/user">
             Подать заявку
           </a>
           <a href="/">

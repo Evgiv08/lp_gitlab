@@ -13,44 +13,35 @@
 
 // Mainpage.
 Route::get('/', function () {
-    return view('site.mainpage');
+    return view('site.pages.mainpage');
 })->name('mainpage');
 
 // Registration
-Route::get('registration', function () {
-  return view('site.pages.reg');
+Route::get('/registration', function () {
+    return view('site.pages.registration');
 })->name('registration');
 
 // Slug
-Route::get('slug', function () {
-  return view('site.pages.slug');
+Route::get('/slug', function () {
+    return view('site.pages.show');
 })->name('slug');
 
 // Search
-Route::get('search', function () {
-  return view('site.pages.search');
+Route::get('/search', function () {
+    return view('site.pages.search_results');
 })->name('search');
 
 // User
-Route::get('user', function () {
-  return view('site.pages.user');
-})->name('user');
-
-// how it works (faq)
-Route::get('faq', function () {
-  return view('site.pages.faq');
+Route::get('/user', function () {
+    return view('site.pages.user');
 })->name('user');
 
 // Charityes
 Route::prefix('/charity')->group(function () {
 
-  Route::get('/create', function () {
-      return view('site.pages.charity_create');
-  })->name('charity_create');
-
-  Route::get('/faq', function () {
-      return view('site.pages.charity_faq');
-  })->name('charity_create');
+    Route::get('/create', function () {
+        return view('site.pages.charities.create');
+    })->name('charity_create');
 
 });
 

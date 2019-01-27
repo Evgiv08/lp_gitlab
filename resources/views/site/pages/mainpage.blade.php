@@ -17,7 +17,7 @@
         Сервис LifesPulse предоставляет возможность начать моментальный сбор средств на лечение.
       </p>
       <div class="button-block">
-        <a class="btn btn-orange" href="/registration">
+        <a class="btn btn-orange" href="/search">
           Начать помогать
         </a>
         <a class="btn btn-transparent" href="/charity/create">

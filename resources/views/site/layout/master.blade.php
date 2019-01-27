@@ -9,17 +9,17 @@
 </head>
 <body>
 
-  @include('site.includes.popups')
+    @include('site.includes.login_form')
 
-  @include('site.includes.header')
+    @include('site.includes.header')
 
-  @yield('content')
+    @yield('content')
 
-  @include('site.includes.subscribe')
+    @include('site.includes.subscribe')
 
-  @include('site.includes.footer')
+    @include('site.includes.footer')
 
-  <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 
 </body>
 </html>

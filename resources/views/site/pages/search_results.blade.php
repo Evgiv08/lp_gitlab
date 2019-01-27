@@ -44,7 +44,7 @@
 <div class="card-block container">
       <ul class="card-block-list">
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card1.jpg') }}" alt="">
 
                   <div class="text-block">
@@ -111,7 +111,7 @@
               </a>
           </li>
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card2.jpg') }}" alt="">
 
                   <div class="text-block">
@@ -178,7 +178,7 @@
               </a>
           </li>
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card3.jpg') }}" alt="">
 
                   <div class="text-block">
@@ -245,7 +245,7 @@
               </a>
           </li>
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card1.jpg') }}" alt="">
 
                   <div class="text-block">
@@ -312,7 +312,7 @@
               </a>
           </li>
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card2.jpg') }}" alt="">
 
                   <div class="text-block">
@@ -379,7 +379,7 @@
               </a>
           </li>
           <li>
-              <a href="/" class="single-card">
+              <a href="/slug" class="single-card">
                 <img src="{{ asset('img/card3.jpg') }}" alt="">
 
                   <div class="text-block">
