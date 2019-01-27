@@ -35,7 +35,7 @@
   </h2>
   <ul class="card-block-list">
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card1.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
@@ -97,7 +97,7 @@
       </a>
     </li>
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card2.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
@@ -159,7 +159,7 @@
       </a>
     </li>
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card3.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
