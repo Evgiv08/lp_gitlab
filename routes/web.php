@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 // Dashboard routes.
 
 // Login to dashboard.
