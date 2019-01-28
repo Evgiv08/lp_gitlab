@@ -1,13 +1,13 @@
 @extends('dashboard.layout.master')
 
-@section('title', 'Новые сборы')
+@section('title', 'Активные сборы')
 
 @section('content')
     <div class="account-admin-content-block account-admin-application">
 
         <header>
             <h1>
-                Новые сборы
+                Активные сборы
             </h1>
         </header>
         <div class="account-admin-application-wrapper">
@@ -15,11 +15,11 @@
                 <tr class="title">
                     <th>
                             <span>
-                                Пользователь
+                                Автор
                             </span>
 
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -28,7 +28,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -40,10 +40,10 @@
                     </th>
                     <th>
                             <span>
-                                Пациент
+                                Дата создания
                             </span>
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -52,7 +52,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -64,10 +64,10 @@
                     </th>
                     <th>
                             <span>
-                                Категория
+                                Осталось дней
                             </span>
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -76,7 +76,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -91,7 +91,7 @@
                                Сумма
                             </span>
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -100,7 +100,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -112,10 +112,10 @@
                     </th>
                     <th>
                             <span>
-                               Дата создания
+                               Собрано
                             </span>
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -124,7 +124,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -136,10 +136,10 @@
                     </th>
                     <th>
                             <span>
-                               Срок
+                               Количество жалоб
                             </span>
                         <div class="title-sort-block">
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -148,7 +148,7 @@
                                 </svg>
                             </a>
 
-                            <a href="/">
+                            <a href="">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="arrow-up"
                                      class="svg-inline--fa fa-arrow-up fa-w-14" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">
@@ -162,13 +162,13 @@
                 </tr>
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('new_show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -180,13 +180,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('new_show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -198,13 +198,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('new_show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -216,13 +216,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('new_show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -234,13 +234,13 @@
 
                 <tr>
                     <td>Камишанченко В.К.</td>
-                    <td>Камишанченко В.К.</td>
-                    <td class="ailment">Сердечно-сосудистые заболевания</td>
-                    <td>80 000</td>
                     <td>12.01.18</td>
-                    <td>12.01.19</td>
+                    <td>10</td>
+                    <td>80 000</td>
+                    <td>10 000</td>
+                    <td>0</td>
                     <td class="button-block">
-                        <a title="модерация" href="{{ route('new_show') }}">
+                        <a title="просмотреть" href="{{ route('active_show') }}">
                             <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                  class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 576 512">
@@ -255,11 +255,11 @@
 
             <div class="account-admin-pagination-wrapper">
                 <div class="account-admin-pagination">
-                    <a class="active" href="/">1</a>
-                    <a href="/">2</a>
-                    <a href="/">3</a>
-                    <a href="/">...</a>
-                    <a href="/">12</a>
+                    <a class="active" href="">1</a>
+                    <a href="">2</a>
+                    <a href="">3</a>
+                    <a href="">...</a>
+                    <a href="">12</a>
                 </div>
             </div>
         </div>

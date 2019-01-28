@@ -7,7 +7,7 @@
         </div>
         <div class="button-block">
             <span>aezak@mi</span>
-            <a href="/">Выйти</a>
+            <a href="">Выйти</a>
         </div>
     </div>
 </header>
