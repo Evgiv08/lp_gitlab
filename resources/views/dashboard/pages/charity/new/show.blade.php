@@ -1,6 +1,6 @@
 @extends('dashboard.layout.master')
 
-@section('title', 'Сбор')
+@section('title', 'Просмотр новой заявки')
 
 @section('content')
     <div class="popup hide-popup m--view-campaign">
@@ -69,7 +69,7 @@
 
         <header>
             <h1>
-                Просмотр завершенного сбора
+                Просмотр новой заявки на сбор
             </h1>
         </header>
         <div class="account-admin-campaign-wrapper">
@@ -150,6 +150,13 @@
                     <span> Категория заболевания</span>
                     <select disabled>
                         <option value="">Сердечно-сосудистые заболевания</option>
+                        <option value="">два</option>
+                        <option value="">три</option>
+                        <option value="">четыре</option>
+                        <option value="">пять</option>
+                        <option value="">шесть</option>
+                        <option value="">семь</option>
+                        <option value="">восемь</option>
                     </select>
                 </label>
 
@@ -172,7 +179,7 @@
                     </h3>
 
                     <div class="link-block-wrapper">
-                        <a href="/">
+                        <a href="">
                             <span>Img паспорта автора заявки:</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
@@ -182,7 +189,7 @@
                                       fill="#363636"/>
                             </svg>
                         </a>
-                        <a href="/">
+                        <a href="">
                             <span>Img паспорта реципиента (больного):</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
                                  height="512">
@@ -191,7 +198,7 @@
                                       fill="#363636"/>
                             </svg>
                         </a>
-                        <a href="/">
+                        <a href="">
                             <span>Img больничных документов:</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
                                  height="512">
@@ -204,8 +211,26 @@
 
                 </div>
 
+                <div class="button-wrapper hide">
+                    <button type="submit" class="btn">Сохранить</button>
+                </div>
+
             </form>
 
+            <div class="button-block">
+                <button class="btn btn-transparent campaign-back">
+                    на доработку
+                </button>
+                <button class="btn campaign-publish">
+                    Опубликовать
+                </button>
+                <button class="btn btn-transparent campaign-delete">
+                    Отклонить
+                </button>
+                <button class="btn btn-transparent campaign-edit">
+                    редактировать
+                </button>
+            </div>
         </div>
 
     </div>

@@ -2,16 +2,15 @@
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Site Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
 */
 
-// Dashboard routes.
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
 
 // Login to dashboard.
 Route::get('/doorway', function () {
@@ -20,52 +19,55 @@ Route::get('/doorway', function () {
 
 Route::prefix('/dashboard')->group(function () {
 
+    // All routes for new charity.
     Route::prefix('/new')->group(function () {
         // All new charities(drafts) in dashboard.
         Route::get('/', function () {
-            return view('dashboard.pages.charity.new');
+            return view('dashboard.pages.charity.new.index');
         })->name('new');
 
         // Show one new charity in dashboard.
         Route::get('/show', function () {
-            return view('dashboard.pages.charity.new_show');
+            return view('dashboard.pages.charity.new.show');
         })->name('new_show');
     });
 
-
+    // All routes for active charity.
     Route::prefix('/active')->group(function () {
         // All active charities in dashboard.
         Route::get('/', function () {
-            return view('dashboard.pages.charity.active');
+            return view('dashboard.pages.charity.active.index');
         })->name('active');
 
         // Show one active charity in dashboard.
         Route::get('/show', function () {
-            return view('dashboard.pages.charity.active_show');
+            return view('dashboard.pages.charity.active.show');
         })->name('active_show');
     });
 
+    // All routes for completed charity.
     Route::prefix('/completed')->group(function () {
         // All completed charities in dashboard.
         Route::get('/', function () {
-            return view('dashboard.pages.charity.completed');
+            return view('dashboard.pages.charity.completed.index');
         })->name('completed');
 
         // Show one completed charity in dashboard.
         Route::get('/show', function () {
-            return view('dashboard.pages.charity.completed_show');
+            return view('dashboard.pages.charity.completed.show');
         })->name('completed_show');
     });
 
+    // All routes for ban charity.
     Route::prefix('/ban')->group(function () {
         // All banned charities in dashboard.
         Route::get('/', function () {
-            return view('dashboard.pages.charity.ban');
+            return view('dashboard.pages.charity.ban.index');
         })->name('ban');
 
         // Show one banned charity in dashboard.
         Route::get('/show', function () {
-            return view('dashboard.pages.charity.ban_show');
+            return view('dashboard.pages.charity.ban.show');
         })->name('ban_show');
     });
 

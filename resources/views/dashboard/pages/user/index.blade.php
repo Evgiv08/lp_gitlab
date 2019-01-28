@@ -29,9 +29,9 @@
                     aezak@mi
                 </td>
                 <td>
-                    <a href="#">2112</a>
-                    <a href="#">12</a>
-                    <a href="#">786</a>
+                    <a href="{{ route('active_show') }}">2112</a><br>
+                    <a href="{{ route('new_show') }}">12</a><br>
+                    <a href="{{ route('ban_show') }}">786</a>
                 </td>
                 <td>
                     2 000$
@@ -40,7 +40,7 @@
                     150$
                 </td>
                 <td class="button-block">
-                    <a href="/">
+                    <a href="">
                         <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
                              class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
                              viewBox="0 0 512 512">
