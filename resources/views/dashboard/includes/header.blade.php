@@ -6,12 +6,8 @@
             </a>
         </div>
         <div class="button-block">
-            @if (Auth::check())
-                <span>{{Auth::user()->name}}</span>
-                <a href="{{ route('logout') }}">Выйти</a>
-            @else
-                <a href="{{ route('logout') }}">Войти</a>
-            @endif
+            <span>aezak@mi</span>
+            <a href="/">Выйти</a>
         </div>
     </div>
 </header>
