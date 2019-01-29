@@ -10,7 +10,7 @@
 <body>
 
 {{--check for login form--}}
-{{--@auth--}}
+@auth('staff')
 
 @include('dashboard.includes.header')
 
@@ -23,9 +23,9 @@
 
     </div>
 </main>
-{{--@else--}}
-    {{--@yield('content')--}}
-{{--@endauth--}}
+@else
+    @yield('content')
+@endauth
 
 
 <script src="{{ asset('js/index.js') }}"></script>
