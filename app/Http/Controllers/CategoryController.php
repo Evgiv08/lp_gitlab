@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Category;
 
 class CategoryController extends Controller
 {
@@ -13,7 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+
+        return view('dashboard.pages.category.index', ['categories' => $categories]);
     }
 
     /**
@@ -34,7 +37,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+        ]);
+        Category::create($request->all());
+
+        return redirect('/dashboard/category');
     }
 
     /**
@@ -43,11 +51,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function show($id)
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -68,7 +76,13 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+        ]);
+        $category = Category::find($id);
+        $category->update($request->all());
+
+        return redirect('/dashboard/category');
     }
 
     /**
@@ -79,6 +93,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+
+        return redirect('/dashboard/category');
     }
 }
