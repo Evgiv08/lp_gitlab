@@ -18,8 +18,8 @@ Route::get('/registration', function () {
 
 // Slug
 Route::get('/slug', function () {
-    return view('site.pages.show');
-})->name('slug');
+    return view('site.pages.charities.show');
+});
 
 // Search
 Route::get('/search', function () {
@@ -31,7 +31,7 @@ Route::get('/user', function () {
     return view('site.pages.user');
 })->name('user');
 
-// Charityes
+// Charity
 Route::prefix('/charity')->group(function () {
 
     Route::get('/create', function () {

@@ -322,7 +322,7 @@
   </h2>
   <ul class="card-block-list">
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card1.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
@@ -384,7 +384,7 @@
       </a>
     </li>
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card2.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
@@ -446,7 +446,7 @@
       </a>
     </li>
     <li>
-      <a class="single-card" href="/">
+      <a class="single-card" href="/slug">
         <img src="{{ asset('img/card3.jpg') }}" alt="">
         <div class="text-block">
           <div class="info-block">
@@ -534,7 +534,7 @@
           zrhoncus
           sapien nunc eget. Proin sodales pulvinar tempor.
         </h6>
-        <a href="/">Читать дальше</a>
+        <a href="/slug">Читать дальше</a>
         <div class="date">
           12.08.2018
         </div>
@@ -559,7 +559,7 @@
             сонной артерии
           </h6>
         </div>
-        <a href="/">Читать дальше</a>
+        <a href="/slug">Читать дальше</a>
       </div>
     </li>
     <li class="blog-card">
@@ -579,7 +579,7 @@
             сонной артерии
           </h6>
         </div>
-        <a href="/">Читать дальше</a>
+        <a href="/slug">Читать дальше</a>
       </div>
     </li>
     <li class="blog-card">
@@ -599,7 +599,7 @@
             сонной артерии
           </h6>
         </div>
-        <a href="/">Читать дальше</a>
+        <a href="/slug">Читать дальше</a>
       </div>
     </li>
   </ul>
