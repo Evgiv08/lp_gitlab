@@ -18,8 +18,8 @@ Route::get('/', function () {
 // Dashboard routes.
 Route::group(['prefix' => '/doorway'], function() {
     // Login to dashboard.
-    Route::get('/', 'Auth\LoginController@loginForm')->name('staffLoginForm');
-    Route::post('/', 'Auth\LoginController@login')->name('staffLogin');
+    Route::get('/', 'Auth\StaffLoginController@ShowLoginForm')->name('staffLoginForm');
+    Route::post('/', 'Auth\StaffLoginController@login')->name('staffLogin');
 });
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -96,5 +96,5 @@ Route::prefix('/dashboard')->group(function () {
     })->name('staff');
 
     // Staff register
-    Route::post('/staff', 'Auth\RegisterController@register')->name('staffRegister');
+    Route::post('/staff', 'Auth\StaffRegisterController@register')->name('staffRegister');
 });

@@ -10,7 +10,7 @@
                 <div class="popup-content-block-wrapper">
                     <div class="popup-step">
 
-                        <form class="main-form" action="{{ route('staffRegister') }}" method="post">
+                        <form class="main-form" action="{{ route('staffRegister') }}" method="POST">
                             @csrf
                             <h3>Добавить пользователя</h3>
                             <label class="label-input">

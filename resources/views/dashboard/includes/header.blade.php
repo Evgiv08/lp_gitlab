@@ -10,7 +10,7 @@
                 <span>{{Auth::user()->name}}</span>
                 <a href="{{ route('logout') }}">Выйти</a>
             @else
-                <a href="{{ route('logout') }}">Войти</a>
+                <a href="">Войти</a>
             @endif
         </div>
     </div>
