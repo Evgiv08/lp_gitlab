@@ -1,75 +1,13 @@
 @extends('dashboard.layout.master')
 
-@section('title', 'Просмотр новой заявки')
+@section('title', 'Сбор')
 
 @section('content')
-    <div class="popup hide-popup m--view-campaign">
-        <div class="popup-content-block">
-            <div class="popup-content-block-wrapper">
-
-                <div class="popup-step m--campaign-back hide-step">
-
-                    <form class="main-form" action="">
-                        <label class="label-input">
-                            <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 1"></textarea>
-                        </label>
-                        <div class="button-wrapper">
-                            <button type="submit" class="btn m--with-loader">
-                                <span>
-                                     Отправить
-                                </span>
-                                <span class="loader"></span>
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="popup-step m--campaign-publish hide-step">
-
-                    <form class="main-form" action="">
-                        <label class="label-input">
-                            <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 2"></textarea>
-                        </label>
-                        <div class="button-wrapper">
-                            <button type="submit" class="btn m--with-loader">
-                                <span>
-                                     Отправить
-                                </span>
-                                <span class="loader"></span>
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-                <div class="popup-step m--campaign-delete hide-step">
-
-                    <form class="main-form" action="">
-                        <label class="label-input">
-                            <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 3"></textarea>
-                        </label>
-                        <div class="button-wrapper">
-                            <button type="submit" class="btn m--with-loader">
-                                <span>
-                                     Отправить
-                                </span>
-                                <span class="loader"></span>
-                            </button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="account-admin-content-block account-admin-campaign">
 
         <header>
             <h1>
-                Просмотр новой заявки на сбор
+                Просмотр завершенного сбора
             </h1>
         </header>
         <div class="account-admin-campaign-wrapper">
@@ -150,13 +88,6 @@
                     <span> Категория заболевания</span>
                     <select disabled>
                         <option value="">Сердечно-сосудистые заболевания</option>
-                        <option value="">два</option>
-                        <option value="">три</option>
-                        <option value="">четыре</option>
-                        <option value="">пять</option>
-                        <option value="">шесть</option>
-                        <option value="">семь</option>
-                        <option value="">восемь</option>
                     </select>
                 </label>
 
@@ -179,7 +110,7 @@
                     </h3>
 
                     <div class="link-block-wrapper">
-                        <a href="/">
+                        <a href="">
                             <span>Img паспорта автора заявки:</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
@@ -189,7 +120,7 @@
                                       fill="#363636"/>
                             </svg>
                         </a>
-                        <a href="/">
+                        <a href="">
                             <span>Img паспорта реципиента (больного):</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
                                  height="512">
@@ -198,7 +129,7 @@
                                       fill="#363636"/>
                             </svg>
                         </a>
-                        <a href="/">
+                        <a href="">
                             <span>Img больничных документов:</span>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
                                  height="512">
@@ -211,26 +142,8 @@
 
                 </div>
 
-                <div class="button-wrapper hide">
-                    <button type="submit" class="btn">Сохранить</button>
-                </div>
-
             </form>
 
-            <div class="button-block">
-                <button class="btn btn-transparent campaign-back">
-                    на доработку
-                </button>
-                <button class="btn campaign-publish">
-                    Опубликовать
-                </button>
-                <button class="btn btn-transparent campaign-delete">
-                    Отклонить
-                </button>
-                <button class="btn btn-transparent campaign-edit">
-                    редактировать
-                </button>
-            </div>
         </div>
 
     </div>
