@@ -12,23 +12,22 @@
 
                 <div class="popup-step m--login">
 
-                    <form class="main-form" action="{{ route('staffLogin') }}" method="post">
-                        @csrf
+                    <form class="main-form" action="">
                         <label class="label-input">
                             <span>Ваша почта:</span>
-                            <input type="email" name="email" required>
+                            <input type="email" required>
                             <span class="error"> Некорректный email. Попробуйте еще раз</span>
                         </label>
                         <div class="label-password-top-block">
                             <span>Пароль:</span>
                         </div>
                         <label class="label-input">
-                            <input type="password" name="password" required>
+                            <input type="password" required>
                             <span class="error">Неверный пароль. Введите еще раз</span>
                         </label>
                         <label class="label-checkbox">
 
-                            <input type="checkbox" name="remember">
+                            <input type="checkbox">
                             <span>
                              Запомнить меня
                         </span>
