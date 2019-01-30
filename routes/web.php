@@ -72,8 +72,9 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     // All categories in dashboard.
-    Route::resource('/category', 'CategoryController',
-        ['only' => ['index','store','update','destroy']]);
+    Route::resource('/category', 'CategoryController', [
+        'only' => ['index','store','update','destroy']
+    ]);
 
     // All appeals in dashboard.
     Route::get('/appeals', function () {
