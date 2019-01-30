@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         return redirect('/dashboard/category');
     }
-    
+
     public function destroy(Category $category)
     {
         $category->delete();

@@ -9,9 +9,9 @@
             <div class="popup-content-block">
                 <div class="popup-content-block-wrapper">
                     <div class="popup-step">
-                        <form class="main-form" method="post" action="{{ route('category.store') }}">
+                        <form class="main-form" method="POST" action="{{ route('category.store') }}">
                             <h3>Добавить категорию</h3>
-                            {{ csrf_field() }}
+                            @csrf
                             <label class="label-input">
                                 <span>Название категории</span>
                                 <input type="text" name="title" required>
@@ -58,10 +58,10 @@
                                     <div class="popup-content-block-wrapper">
                                         <div class="popup-step">
 
-                                            <form class="main-form" method="post" action="{{ route('category.update', $category->id) }}">
+                                            <form class="main-form" method="POST" action="{{ route('category.update', $category->id) }}">
                                                 <h3>Изменить название категории</h3>
                                                 @method('PATCH')
-                                                {{ csrf_field() }}
+                                                @csrf
                                                 <label class="label-input">
                                                     <span>Название категории</span>
                                                     <input type="text" name="title" value="{{ $category->title }}" required>
@@ -94,16 +94,20 @@
                                 </svg>
                             </button>
 
-                            <form action="{{ route('category.destroy', $category->id)}}" method="post">
+                            <a href="{{ route('category.destroy', $category->id)}}"
+                                    onclick="event.preventDefault();
+                                    document.getElementById('delete-category-{{ $category->id }}').submit();
+                                    return confirm('Are you sure?');">
+                                <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
+                                     class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 512 512">
+                                    <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
+                                </svg>
+                            </a>
+                            <form id="delete-category-{{ $category->id }}" action="{{ route('category.destroy', $category->id)}}"
+                                  method="POST">
                                 @method('DELETE')
-                                {{ csrf_field() }}
-                                <button type="submit" onclick="return confirm('Are you sure?')">Del
-                                    <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
-                                         class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
-                                         viewBox="0 0 512 512">
-                                        <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
-                                    </svg>
-                                </button>
+                                @csrf
                             </form>
                         </td>
                     </tr>
