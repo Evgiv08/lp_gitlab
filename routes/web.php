@@ -6,11 +6,41 @@
 |--------------------------------------------------------------------------
 */
 
-/*
-|--------------------------------------------------------------------------
-| Dashboard Routes
-|--------------------------------------------------------------------------
-*/
+// Mainpage.
+Route::get('/', function () {
+    return view('site.pages.mainpage');
+})->name('mainpage');
+
+// Registration
+Route::get('/registration', function () {
+    return view('site.pages.registration');
+})->name('registration');
+
+// Slug
+Route::get('/slug', function () {
+    return view('site.pages.charities.show');
+});
+
+// Search
+Route::get('/search', function () {
+    return view('site.pages.search_results');
+})->name('search');
+
+// User
+Route::get('/user', function () {
+    return view('site.pages.user');
+})->name('user');
+
+// Charity
+Route::prefix('/charity')->group(function () {
+
+    Route::get('/create', function () {
+        return view('site.pages.charities.create');
+    })->name('charity_create');
+
+});
+
+// Dashboard routes.
 
 // Login to dashboard.
 Route::get('/doorway', function () {
