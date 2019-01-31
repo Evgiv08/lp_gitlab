@@ -40,7 +40,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:staff');
+        $this->middleware('guest:staff')->except('createStaff');
     }
 
     /**
@@ -64,12 +64,12 @@ class RegisterController extends Controller
         $this->validator($request->all())->validate();
 
         $admin = Staff::create([
-            'full_name' => $request['full_name'],
+            'name'  => $request['full_name'],
             'email' => $request['email'],
             'role' => $request['role'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('/dashboard/staff');
+        return redirect()->route('staff');
     }
 
     /**
