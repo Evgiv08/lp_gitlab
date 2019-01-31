@@ -97,7 +97,7 @@
                             <a href="{{ route('category.destroy', $category->id)}}"
                                     onclick="event.preventDefault();
                                     document.getElementById('delete-category-{{ $category->id }}').submit();
-                                    return confirm('Are you sure?');">
+                                    ">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
                                      class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 512 512">
