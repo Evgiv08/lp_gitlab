@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-// Mainpage.
+// Main page.
 Route::get('/', function () {
     return view('site.pages.mainpage');
 })->name('mainpage');
@@ -40,11 +40,15 @@ Route::prefix('/charity')->group(function () {
 
 });
 
-// Dashboard routes.
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
 
 // Login to dashboard.
 Route::get('/doorway', function () {
-    return view('dashboard.login');
+    return view('dashboard.pages.login');
 })->name('doorway');
 
 Route::prefix('/dashboard')->group(function () {

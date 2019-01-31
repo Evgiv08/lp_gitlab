@@ -24,7 +24,7 @@ $factory->define(App\Charity::class, function (Faker\Generator $faker) {
         'term' => $faker->numberBetween(14,86),
         'start_date' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
         'finish_date' => $faker->dateTimeThisYear($max = '2019-11-27 20:52:14', $timezone = null),
-        'slug' => $faker->unique()->text(10),
+        'slug' => $faker->numberBetween(10000,40000),
         'created_at' => Carbon::now()
     ];
 });
