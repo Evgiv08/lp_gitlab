@@ -1,0 +1,30 @@
+<?php
+
+use Carbon\Carbon;
+
+/*
+|--------------------------------------------------------------------------
+    Charity Factory
+|--------------------------------------------------------------------------
+*/
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Charity::class, function (Faker\Generator $faker) {
+    return [
+        'client_id' => $faker->numberBetween(1,4),
+        'full_name' => $faker->unique()->name,
+        'phone' => $faker->unique()->phoneNumber,
+        'locality' => $faker->unique()->city,
+        'address' => $faker->unique()->address,
+        'birth_date' => $faker->dateTimeBetween('-50 years', '-1 year'),
+        'purpose' => $faker->unique()->text(150),
+        'about' => $faker->unique()->text(500),
+        'category_id' => $faker->numberBetween(1,4),
+        'sum' => $faker->numberBetween(100000,1000),
+        'term' => $faker->numberBetween(14,86),
+        'start_date' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
+        'finish_date' => $faker->dateTimeThisYear($max = '2019-11-27 20:52:14', $timezone = null),
+        'slug' => $faker->unique()->text(10),
+        'created_at' => Carbon::now()
+    ];
+});
