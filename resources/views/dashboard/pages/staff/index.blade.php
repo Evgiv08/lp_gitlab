@@ -10,27 +10,27 @@
                 <div class="popup-content-block-wrapper">
                     <div class="popup-step">
 
-                        <form class="main-form" action="{{ route('staffRegister') }}" method="POST">
+                        <form class="main-form" method="POST" action="{{ route('register') }}">
                             @csrf
                             <h3>Добавить пользователя</h3>
                             <label class="label-input">
                                 <span>Имя и фамилия</span>
-                                <input type="text" name="name" value="{{ old('name') }}" required>
+                                <input type="text" name="full_name" required>
                                 <span class="error">Введите имя и фамилию</span>
                             </label>
 
                             <label class="label-input">
                                 <span>Email</span>
-                                <input type="email" name="email" value="{{ old('email') }}" required>
+                                <input type="email" name="email" required>
                                 <span class="error"> Некорректный email. Попробуйте еще раз</span>
                             </label>
 
                             <label class="label-select">
                                 <span>Роль в комманде</span>
                                 <select name="role" id="">
-                                    <option value="SEO">СЕО</option>
+                                    <option value="CEO">СЕО</option>
                                     <option value="Moderator">Модератор</option>
-                                    <option value="Administrator">Администратор</option>
+                                    <option value="Admin">Администратор</option>
                                 </select>
                             </label>
 

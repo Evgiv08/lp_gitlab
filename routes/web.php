@@ -12,18 +12,14 @@
 |--------------------------------------------------------------------------
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-// Login to dashboard.
-Route::group(['prefix' => '/doorway'], function() {
-    // Login to dashboard.
-    Route::get('/', 'Auth\StaffLoginController@ShowLoginForm')->name('staffLoginForm');
-    Route::post('/', 'Auth\StaffLoginController@login')->name('staffLogin');
+// Auth, logout, register for staff
+Route::group([], function () {
+    Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
+    Route::post('/login/staff', 'Auth\LoginController@staffLogin')->name('staff_login');
+    Route::post('/logout/staff', 'Auth\LoginController@staffLogout')->name('staff_logout');
+    Route::post('/doorway/staff/register', 'Auth\RegisterController@createStaff')->name('register');
 });
-
-Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::prefix('/dashboard')->group(function () {
 

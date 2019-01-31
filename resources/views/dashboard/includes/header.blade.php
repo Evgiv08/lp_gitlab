@@ -6,12 +6,19 @@
             </a>
         </div>
         <div class="button-block">
-            @if (Auth::check())
-                <span>{{Auth::user()->name}}</span>
-                <a href="{{ route('logout') }}">Выйти</a>
-            @else
-                <a href="">Войти</a>
-            @endif
+            @auth('staff')
+                <span>{{ Auth::guard('staff')->user()->email }}</span>
+
+                <a class="dropdown-item" href="{{ route('staff_logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    Выйти
+                </a>
+                
+                <form id="logout-form" action="{{ route('staff_logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            @endauth
         </div>
     </div>
 </header>
