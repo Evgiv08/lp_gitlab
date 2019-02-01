@@ -9,7 +9,7 @@
 </div>
 <div class="titleCard container">
   <h1 class="titleCard-fullName">
-      эрика волошинец
+      {{ $charity->full_name }}
   </h1>
   <p class="titleCard-shortDiagnosis">
       Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии
@@ -51,12 +51,12 @@
         </div>
     </div>
     <div class="shortInfoBlock">
-        <p class="shortInfoBlock-age">Возраст: <span>38 лет</span></p>
+        <p class="shortInfoBlock-age">Возраст: <span>{{ $charity->age }}</span></p>
         <p class="shortInfoBlock-gender">Пол: <span>женский</span></p>
-        <p class="shortInfoBlock-locations">Место проживания: <span>Торецк, Донецкая область</span></p>
-        <p class="shortInfoBlock-category">Категория: <span>Онкология</span></p>
-        <p class="shortInfoBlock-startFund">Начало сборов: 24.05.2018</p>
-        <p class="shortInfoBlock-endFund">Окончание сборов: 25.06.2018</p>
+        <p class="shortInfoBlock-locations">Место проживания: <span>{{ $charity->address }}</span></p>
+        <p class="shortInfoBlock-category">Категория: <span>{{ $charity->category_id }}</span></p>
+        <p class="shortInfoBlock-startFund">Начало сборов: {{ $charity->start_date }}</p>
+        <p class="shortInfoBlock-endFund">Окончание сборов: {{ $charity->finish_date }}</p>
         <div class="info-block">
             <div class="like">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">

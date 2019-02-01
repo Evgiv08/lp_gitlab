@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Charity;
 
 class CharityController extends Controller
 {
@@ -45,7 +46,9 @@ class CharityController extends Controller
      */
     public function show($id)
     {
-        //
+      $charity = Charity::where('slug', $id)->firstOrFail();
+
+      return view('site.pages.charities.show', compact('charity'));
     }
 
     /**

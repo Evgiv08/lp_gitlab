@@ -17,9 +17,7 @@ Route::get('/registration', function () {
 })->name('registration');
 
 // Slug
-Route::get('/slug', function () {
-    return view('site.pages.charities.show');
-});
+Route::get('/{id}', 'CharityController@show')->name('charity_show');
 
 // Search
 Route::get('/search', function () {

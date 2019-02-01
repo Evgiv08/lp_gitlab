@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Charity extends Model
 {
@@ -23,4 +24,9 @@ class Charity extends Model
         'slug',
         'img_path'
     ];
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birth_date'])->age;
+    }
 }
