@@ -104,9 +104,9 @@ Route::prefix('/dashboard')->group(function () {
     });
 
     // All categories in dashboard.
-    Route::get('/category', function () {
-        return view('dashboard.pages.category.index');
-    })->name('category');
+    Route::resource('/category', 'CategoryController', [
+        'only' => ['index','store','update','destroy']
+    ]);
 
     // All appeals in dashboard.
     Route::get('/appeals', function () {

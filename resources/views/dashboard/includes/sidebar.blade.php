@@ -23,7 +23,7 @@
         </li>
 
         <li class="{{ Request::is('dashboard/category*') ? 'active' : '' }}">
-            <a href="{{ route('category')}}">Категория</a>
+            <a href="{{ route('category.index')}}">Категория</a>
         </li>
 
         <li class="{{ Request::is('dashboard/appeals*') ? 'active' : '' }}">
