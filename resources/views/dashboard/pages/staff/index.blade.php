@@ -15,7 +15,7 @@
                             <h3>Добавить пользователя</h3>
                             <label class="label-input">
                                 <span>Имя и фамилия</span>
-                                <input type="text" name="full_name" required>
+                                <input type="text" name="name" required>
                                 <span class="error">Введите имя и фамилию</span>
                             </label>
 

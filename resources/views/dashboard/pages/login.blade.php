@@ -16,7 +16,7 @@
                         @csrf
                         <label class="label-input">
                             <span>Ваша почта:</span>
-                            <input type="email" name="email" required>
+                            <input type="email" name="email" value="{{old('email')}}" required>
                             <span class="error"> Некорректный email. Попробуйте еще раз</span>
                         </label>
                         <div class="label-password-top-block">
@@ -28,7 +28,7 @@
                         </label>
                         {{-- <label class="label-checkbox">
 
-                            <input type="checkbox">
+                            <input type="checkbox" name="remember" value="{{old('remember')}}">
                             <span>
                              Запомнить меня
                         </span>

@@ -40,9 +40,6 @@ Route::prefix('/charity')->group(function () {
 
 });
 
-// Dashboard routes.
-
-
 // Auth, logout, register for staff
 Route::group([], function () {
     Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
@@ -51,6 +48,7 @@ Route::group([], function () {
     Route::post('/doorway/staff/register', 'Auth\RegisterController@createStaff')->name('register');
 });
 
+// Dashboard routes.
 Route::prefix('/dashboard')->group(function () {
 
     // All routes for new charity.
