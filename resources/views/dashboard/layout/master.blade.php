@@ -10,22 +10,22 @@
 <body>
 
 {{--check for login form--}}
-@auth('staff')
+{{--@auth('staff')--}}
 
-@include('dashboard.includes.header')
+{{--@include('dashboard.includes.header')--}}
 
-<main class="account-admin-block">
-    <div class="account-admin-block-wrapper">
+{{--<main class="account-admin-block">--}}
+    {{--<div class="account-admin-block-wrapper">--}}
 
-        @include('dashboard.includes.sidebar')
+        {{--@include('dashboard.includes.sidebar')--}}
 
-        @yield('content')
+        {{--@yield('content')--}}
 
-    </div>
-</main>
-@else
-    @yield('content')
-@endauth
+    {{--</div>--}}
+{{--</main>--}}
+{{--@else--}}
+    {{--@yield('content')--}}
+{{--@endauth--}}
 
 
 <script src="{{ asset('js/index.js') }}"></script>
