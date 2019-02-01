@@ -152,15 +152,12 @@
 
               <label class="label-select">
                   <span> Категория заболевания</span>
-                  <select>
-                      <option value="">Сердечно-сосудистые заболевания</option>
-                      <option value="">два</option>
-                      <option value="">три</option>
-                      <option value="">четыре</option>
-                      <option value="">пять</option>
-                      <option value="">шесть</option>
-                      <option value="">семь</option>
-                      <option value="">восемь</option>
+                  <select name="category_id">
+                      @if ($categories->count())
+                          @foreach($categories as $category)
+                              <option value="{{ $category->id }}">{{ $category->title }}</option>
+                          @endforeach
+                      @endif
                   </select>
               </label>
 

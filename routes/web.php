@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 */
 
-// Mainpage.
+// Main page.
 Route::get('/', function () {
     return view('site.pages.mainpage');
 })->name('mainpage');
@@ -33,11 +33,7 @@ Route::get('/user', function () {
 
 // Charity
 Route::prefix('/charity')->group(function () {
-
-    Route::get('/create', function () {
-        return view('site.pages.charities.create');
-    })->name('charity_create');
-
+    Route::get('/create', 'CategoryController@show')->name('charity_create');
 });
 
 // Auth, logout, register for staff
@@ -48,7 +44,11 @@ Route::group([], function () {
     Route::post('/doorway/staff/register', 'Auth\RegisterController@createStaff')->name('register');
 });
 
-// Dashboard routes.
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
 Route::prefix('/dashboard')->group(function () {
 
     // All routes for new charity.
@@ -122,7 +122,4 @@ Route::prefix('/dashboard')->group(function () {
     Route::get('/staff', function () {
         return view('dashboard.pages.staff.index');
     })->name('staff');
-
-    // Staff register
-    Route::post('/staff', 'Auth\StaffRegisterController@register')->name('staffRegister');
 });

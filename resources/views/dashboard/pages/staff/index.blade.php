@@ -15,13 +15,13 @@
                             <h3>Добавить пользователя</h3>
                             <label class="label-input">
                                 <span>Имя и фамилия</span>
-                                <input type="text" name="name" required>
+                                <input type="text" name="name" value="{{ old('name') }}" required>
                                 <span class="error">Введите имя и фамилию</span>
                             </label>
 
                             <label class="label-input">
                                 <span>Email</span>
-                                <input type="email" name="email" required>
+                                <input type="email" name="email" value="{{ old('email') }}" required>
                                 <span class="error"> Некорректный email. Попробуйте еще раз</span>
                             </label>
 
