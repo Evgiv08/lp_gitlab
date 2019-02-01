@@ -70,4 +70,17 @@ class CategoryController extends Controller
 
         return redirect('/dashboard/category');
     }
+
+    /**
+     * Shows dropdown categories on the charity create page.
+     *
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show()
+    {
+        $categories = $this->category->all();
+
+        return view('site.pages.charities.create', compact('categories'));
+    }
 }

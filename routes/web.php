@@ -33,11 +33,7 @@ Route::get('/user', function () {
 
 // Charity
 Route::prefix('/charity')->group(function () {
-
-    Route::get('/create', function () {
-        return view('site.pages.charities.create');
-    })->name('charity_create');
-
+    Route::get('/create', 'CategoryController@show')->name('charity_create');
 });
 
 // Dashboard routes.
