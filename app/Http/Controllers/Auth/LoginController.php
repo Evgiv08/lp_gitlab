@@ -23,18 +23,12 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     * @var string
-     */
-    // protected $redirectTo = '/home';
-
-    /**
      * Create a new controller instance.
+     *
      * @return void
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
         $this->middleware('guest:staff')->except('staffLogout');
     }
 
@@ -55,7 +49,7 @@ class LoginController extends Controller
             'password' => $request->password],
             $request->get('remember'))) {
 
-            return redirect('/dashboard/staff');
+            return redirect()->route('staff');
         }
 
         return back()->withInput($request->only('email', 'remember'));

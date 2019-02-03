@@ -33,15 +33,7 @@ Route::get('/user', function () {
 
 // Charity
 Route::prefix('/charity')->group(function () {
-    Route::get('/create', 'CategoryController@show')->name('charity_create');
-});
-
-// Auth, logout, register for staff
-Route::group([], function () {
-    Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
-    Route::post('/login/staff', 'Auth\LoginController@staffLogin')->name('staff_login');
-    Route::post('/logout/staff', 'Auth\LoginController@staffLogout')->name('staff_logout');
-    Route::post('/doorway/staff/register', 'Auth\RegisterController@createStaff')->name('register');
+    Route::get('/create', 'CategoryController@show')->name('charity.show');
 });
 
 /*
@@ -49,6 +41,13 @@ Route::group([], function () {
 | Dashboard Routes
 |--------------------------------------------------------------------------
 */
+
+// Auth, logout, register for staff
+Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
+Route::post('/staff/login', 'Auth\LoginController@staffLogin')->name('staff.login');
+Route::post('/staff/logout', 'Auth\LoginController@staffLogout')->name('staff.logout');
+Route::post('/staff/create', 'Auth\RegisterController@createStaff')->name('staff.create');
+
 Route::prefix('/dashboard')->group(function () {
 
     // All routes for new charity.
