@@ -33,7 +33,7 @@ Route::get('/user', function () {
 
 // Charity
 Route::prefix('/charity')->group(function () {
-    Route::get('/create', 'CategoryController@show')->name('charity_create');
+    Route::get('/create', 'CategoryController@show')->name('charity.show');
 });
 
 /*
@@ -42,10 +42,11 @@ Route::prefix('/charity')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-// Login to dashboard.
-Route::get('/doorway', function () {
-    return view('dashboard.pages.login');
-})->name('doorway');
+// Auth, logout, register for staff
+Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
+Route::post('/staff/login', 'Auth\LoginController@staffLogin')->name('staff.login');
+Route::post('/staff/logout', 'Auth\LoginController@staffLogout')->name('staff.logout');
+Route::post('/staff/create', 'Auth\RegisterController@createStaff')->name('staff.create');
 
 Route::prefix('/dashboard')->group(function () {
 

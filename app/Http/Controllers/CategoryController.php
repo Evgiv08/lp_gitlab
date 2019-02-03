@@ -6,6 +6,7 @@ use App\Category;
 
 class CategoryController extends Controller
 {
+    protected $category;
 
     /**
      * Initialise model Category.
@@ -20,7 +21,7 @@ class CategoryController extends Controller
     /**
      * Show all categories in admin panel.
      *
-     * @return \Illuminate\Http\Response
+     * @return array $categories
      */
     public function index()
     {
@@ -39,6 +40,7 @@ class CategoryController extends Controller
         request()->validate([
             'title' => 'required',
         ]);
+
         $this->category->create(request()->all());
 
         return redirect('/dashboard/category');
@@ -47,6 +49,7 @@ class CategoryController extends Controller
     /**
      * Update the category resource in admin panel.
      *
+     * @param Category $category
      * @return \Illuminate\Http\Response
      */
     public function update(Category $category)
@@ -54,6 +57,7 @@ class CategoryController extends Controller
         request()->validate([
             'title' => 'required',
         ]);
+
         $category->update(request()->all());
 
         return redirect('/dashboard/category');
@@ -62,7 +66,9 @@ class CategoryController extends Controller
     /**
      * Remove the category resource from admin panel.
      *
+     * @param Category $category
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Category $category)
     {
@@ -72,10 +78,9 @@ class CategoryController extends Controller
     }
 
     /**
-     * Shows dropdown categories on the charity create page.
+     * Show categories on the charity create page.
      *
-     *
-     * @return \Illuminate\Http\Response
+     * @return array $categories
      */
     public function show()
     {
