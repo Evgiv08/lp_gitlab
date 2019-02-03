@@ -12,7 +12,7 @@
 
                 <div class="popup-step m--login">
 
-                    <form class="main-form" method="POST" action="{{ route('staff_login')}}">
+                    <form class="main-form" method="POST" action="{{ route('staff.login')}}">
                         @csrf
                         <label class="label-input">
                             <span>Ваша почта:</span>
