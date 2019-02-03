@@ -49,7 +49,7 @@ class LoginController extends Controller
             'password' => $request->password],
             $request->get('remember'))) {
 
-            return redirect()->route('staff');
+            return redirect()->route('staff.index');
         }
 
         return back()->withInput($request->only('email', 'remember'));
