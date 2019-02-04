@@ -10,7 +10,7 @@
 <body>
 
 {{--check for login form--}}
-{{--@auth--}}
+{{--@auth('staff')--}}
 
 @include('dashboard.includes.header')
 
