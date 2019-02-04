@@ -16,17 +16,8 @@ class Staff extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function getRole()
+    public function scopeGetStaff($query)
     {
-        if (strtolower($this->role) != null) {
-            switch (strtolower($this->role)) {
-                case 'seo':
-                    return 'СЕО';
-                case 'admin':
-                    return 'Администратор';
-                case 'moderator':
-                    return 'Модератор';
-            }
-        }
+        return $query->latest()->get();
     }
 }

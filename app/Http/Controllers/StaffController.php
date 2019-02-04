@@ -8,17 +8,15 @@ use Illuminate\Validation\Rule;
 
 class StaffController extends Controller
 {
-//    protected $employee;
-//
-//    /**
-//     * Initialise model Staff.
-//     *
-//     * @param Category $staff
-//     */
-//    public function __construct(Category $category)
-//    {
-//        $this->category = $category;
-//    }
+    /**
+     * Initialise model Staff.
+     *
+     * @param Category $staff
+     */
+    public function __construct(Staff $staff)
+    {
+        $this->staff = $staff;
+    }
 
     /**
      * Display a listing of the resource.
@@ -26,7 +24,7 @@ class StaffController extends Controller
      */
     public function index()
     {
-        $staff = Staff::orderBy('id', 'asc')->get();
+        $staff = $this->staff->scopeGetStaff($this->staff);
 
         return view('dashboard.pages.staff.index', compact('staff'));
     }
@@ -41,16 +39,12 @@ class StaffController extends Controller
      */
     public function update(Request $request, Staff $staff)
     {
-        $this->validate($request, [
-            'email'    => [
-                'required',
-                'email',
-                Rule::unique('staff')->ignore($staff->id)],
+        request()->validate([
+            'email' => ['required', 'email', 'unique:staff,email,'.$staff->id],
             'role'     => 'required',
             'password' => 'nullable|string|min:6|confirmed',
         ]);
 
-//        $staff->name = $request->get('name');
         $staff->email = $request->get('email');
         $staff->role = $request->get('role');
 
