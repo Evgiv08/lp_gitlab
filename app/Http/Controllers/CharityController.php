@@ -7,14 +7,26 @@ use App\Charity;
 
 class CharityController extends Controller
 {
+    protected $charity;
+
+    /**
+      * Initialise model Charity.
+      *
+      * @param Category $charity
+      */
+    public function __construct(Charity $charity)
+    {
+        $this->charity = $charity;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Charity $charity)
+    public function index()
     {
-      $charities = $charity->all();
+      $charities = $this->charity->all();
 
       return view('site.pages.mainpage', compact('charities'));
     }
