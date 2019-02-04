@@ -25,6 +25,11 @@ class Charity extends Model
         'img_path'
     ];
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function getAgeAttribute()
     {
         return Carbon::parse($this->attributes['birth_date'])->age;

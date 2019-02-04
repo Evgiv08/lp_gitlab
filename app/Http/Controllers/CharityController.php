@@ -12,9 +12,11 @@ class CharityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Charity $charity)
     {
-        //
+      $charities = $charity->all();
+
+      return view('site.pages.mainpage', compact('charities'));
     }
 
     /**
@@ -44,10 +46,8 @@ class CharityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Charity $charity)
     {
-      $charity = Charity::where('slug', $id)->firstOrFail();
-
       return view('site.pages.charities.show', compact('charity'));
     }
 
