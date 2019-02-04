@@ -12,7 +12,7 @@ class CharityController extends Controller
     /**
       * Initialise model Charity.
       *
-      * @param Category $charity
+      * @param Charity $charity
       */
     public function __construct(Charity $charity)
     {
