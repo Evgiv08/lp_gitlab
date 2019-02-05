@@ -46,7 +46,7 @@
         </li>
 
         <li class="{{ Request::is('dashboard/staff*') ? 'active' : '' }}">
-            <a href="{{ route('staff')}}">Команда</a>
+            <a href="{{ route('staff.index')}}">Команда</a>
         </li>
     </ul>
 </div>
