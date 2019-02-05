@@ -118,7 +118,7 @@ Route::prefix('/dashboard')->group(function () {
     })->name('users');
 
     // All staff members in dashboard.
-    Route::get('/staff', function () {
-        return view('dashboard.pages.staff.index');
-    })->name('staff');
+    Route::resource('/staff', 'StaffController', [
+        'only' => ['index', 'update', 'destroy']
+    ]);
 });
