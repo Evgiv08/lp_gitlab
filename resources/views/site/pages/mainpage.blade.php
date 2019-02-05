@@ -34,10 +34,10 @@
     Популярные компании
   </h2>
   <ul class="card-block-list">
-    @for($carder=1, $random=rand(0, count($charities)-4), $i=$random; $i<$random+3; $i++, $carder++)
+    @forelse($charities as $key=>$charity)
       <li>
-      <a class="single-card" href="/{{ $charities[$i]->slug }}">
-        <img src="{{ asset('img/card' . $carder . '.jpg')}}" alt="">
+      <a class="single-card" href="/{{ $charity->slug }}">
+        <img src="{{ asset('img/card' . intval($key+1) . '.jpg')}}" alt="">
         <div class="text-block">
           <div class="info-block">
             <div class="like">
@@ -76,14 +76,14 @@
             </div>
           </div>
           <h4>
-            {{ $charities[$i]->full_name }}
+            {{ $charity->full_name }}
           </h4>
           <h6>
-            {{ $charities[$i]->about }}
+            {{ $charity->about }}
           </h6>
           <div class="money-count">
             <div class="money-diagram">
-              <div class="top-line" data-money-diagram="75" style="width: 75%"></div>
+              <div class="top-line" data-money-diagram="{{ rand(1, 99) }}" style="width: 100%"></div>
             </div>
             <div class="money-how">
               <p>
@@ -97,7 +97,11 @@
         </div>
       </a>
       </li>
-    @endfor
+      @empty
+      <p>
+        NO DATA
+      </p>
+    @endforelse
   </ul>
   <div class="link-wrapper">
     <a href="/">
@@ -199,10 +203,10 @@
     Помогать легко
   </h2>
   <ul class="card-block-list">
-    @for($carder=1, $random=rand(0, count($charities)-4), $i=$random; $i<$random+3; $i++, $carder++)
+    @forelse($charities as $key=>$charity)
       <li>
-      <a class="single-card" href="/{{ $charities[$i]->slug }}">
-        <img src="{{ asset('img/card' . $carder . '.jpg')}}" alt="">
+      <a class="single-card" href="/{{ $charity->slug }}">
+        <img src="{{ asset('img/card' . intval($key+1) . '.jpg')}}" alt="">
         <div class="text-block">
           <div class="info-block">
             <div class="like">
@@ -241,14 +245,14 @@
             </div>
           </div>
           <h4>
-            {{ $charities[$i]->full_name }}
+            {{ $charity->full_name }}
           </h4>
           <h6>
-            {{ $charities[$i]->about }}
+            {{ $charity->about }}
           </h6>
           <div class="money-count">
             <div class="money-diagram">
-              <div class="top-line" data-money-diagram="75" style="width: 75%"></div>
+              <div class="top-line" data-money-diagram="{{ rand(1, 99) }}" style="width: 100%"></div>
             </div>
             <div class="money-how">
               <p>
@@ -262,7 +266,11 @@
         </div>
       </a>
       </li>
-    @endfor
+      @empty
+      <p>
+        NO DATA
+      </p>
+    @endforelse
   </ul>
   <div class="link-wrapper">
     <a href="/">
