@@ -7,19 +7,13 @@
 */
 
 // Main page.
-Route::get('/', function () {
-    return view('site.pages.mainpage');
-})->name('mainpage');
+Route::get('/', 'CharityController@index')->name('mainpage');
 
 // Registration
 Route::get('/registration', function () {
     return view('site.pages.registration');
 })->name('registration');
 
-// Slug
-Route::get('/slug', function () {
-    return view('site.pages.charities.show');
-});
 
 // Search
 Route::get('/search', function () {
@@ -30,6 +24,9 @@ Route::get('/search', function () {
 Route::get('/user', function () {
     return view('site.pages.user');
 })->name('user');
+
+// Slug
+Route::get('/{charity}', 'CharityController@show')->name('charity.show');
 
 // Charity
 Route::prefix('/charity')->group(function () {

@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Charity;
 
 class CharityController extends Controller
 {
+    protected $charity;
+
+    /**
+      * Initialise model Charity.
+      *
+      * @param Charity $charity
+      */
+    public function __construct(Charity $charity)
+    {
+        $this->charity = $charity;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,9 @@ class CharityController extends Controller
      */
     public function index()
     {
-        //
+      $charities = $this->charity->RandomCards(3)->get();
+
+      return view('site.pages.mainpage', compact('charities'));
     }
 
     /**
@@ -43,9 +58,9 @@ class CharityController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Charity $charity)
     {
-        //
+      return view('site.pages.charities.show', compact('charity'));
     }
 
     /**
