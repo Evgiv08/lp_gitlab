@@ -28,7 +28,6 @@
     </div>
     <div class="shortInfoBlock">
         <p class="shortInfoBlock-age">Возраст: <span>{{ $charity->age }}</span></p>
-        <p class="shortInfoBlock-gender">Пол: <span>женский</span></p>
         <p class="shortInfoBlock-locations">Место проживания: <span>{{ $charity->address }}</span></p>
         <p class="shortInfoBlock-category">Категория: <span>{{ $charity->category_id }}</span></p>
         <p class="shortInfoBlock-startFund">Начало сборов: {{ $charity->start_date }}</p>

@@ -15,7 +15,7 @@ Route::get('/registration', function () {
 })->name('registration');
 
 // Slug
-Route::get('/{charity}', 'CharityController@show')->name('charity_show');
+Route::get('/{charity}', 'CharityController@show')->name('charity.show');
 
 // Search
 Route::get('/search', function () {

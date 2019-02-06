@@ -22,7 +22,7 @@ class CharityController extends Controller
     /**
       * Initialise model Charity.
       *
-      * @param Category $charity
+      * @param Charity $charity
       */
     public function __construct(Charity $charity)
     {
@@ -36,11 +36,7 @@ class CharityController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
       $charities = $this->charity::RandCards(3)->get();
-=======
-      $charities = $this->charity->all();
->>>>>>> 398fd35516196d963fc5ed389a51619f7c67e046
 
       return view('site.pages.mainpage', compact('charities'));
     }
