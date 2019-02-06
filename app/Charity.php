@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Charity extends Model
 {
@@ -23,4 +24,20 @@ class Charity extends Model
         'slug',
         'img_path'
     ];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function getAgeAttribute()
+    {
+        return Carbon::parse($this->attributes['birth_date'])->age;
+    }
+
+    public function scopeRandomCards($query, $number)
+    {
+        return $query->inRandomOrder()
+                      ->take($number);
+    }
 }
