@@ -35,9 +35,9 @@ class Charity extends Model
         return Carbon::parse($this->attributes['birth_date'])->age;
     }
 
-    public function scopeRandCards($query, $number)
+    public function scopeRandomCards($query, $number)
     {
-        return $query->orderByRaw('RAND()')
+        return $query->inRandomOrder()
                       ->take($number);
     }
 }

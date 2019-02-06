@@ -20,23 +20,13 @@ class CharityController extends Controller
     }
 
     /**
-      * Initialise model Charity.
-      *
-      * @param Charity $charity
-      */
-    public function __construct(Charity $charity)
-    {
-        $this->charity = $charity;
-    }
-
-    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-      $charities = $this->charity::RandCards(3)->get();
+      $charities = $this->charity->RandomCards(3)->get();
 
       return view('site.pages.mainpage', compact('charities'));
     }
