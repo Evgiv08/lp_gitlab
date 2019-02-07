@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = ['title'];
+
+    // show all categories
+    public function scopeGetAllCategories($query)
+    {
+        return $query->get();
+    }
 }

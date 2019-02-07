@@ -8,12 +8,15 @@
               новая публикация
           </h1>
 
-          <form action="" class="main-form new-campaign-form">
-
+          <form action="{{ route('charity.store') }}" method="POST" class="main-form new-campaign-form"
+                enctype="multipart/form-data">
+            @csrf
               <div class="header-block">
                   <label class="label-input">
                       <span>Укажите цель сбора средств:</span>
-                      <textarea placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии"></textarea>
+                      <textarea name="purpose" placeholder="Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной артерии внутренней сонной артерии">
+                          {{ old('purpose')}}
+                      </textarea>
                       <span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>
                       <span class="error">some error</span>
                   </label>
@@ -21,7 +24,7 @@
                   <label class="label-input label-number">
                       <span>Укажите сумму сбора</span>
                       <span class="currency">ГРН</span>
-                      <input placeholder="100 000" type="number">
+                      <input placeholder="100 000" name="sum" type="number" value="{{ old('sum')}}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -31,7 +34,8 @@
 
               <label class="label-input">
                   <span>Ваше ФИО</span>
-                  <input placeholder="Василий Васильев Васильевич" type="text">
+                  <input name="client_name" value="Здесь будет имя клиента" type="text">
+                  <input type="hidden" name="client_id" value="1">
                   <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                   <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
               </label>
@@ -39,36 +43,36 @@
               <div class="bank-details">
                   <label class="label-input">
                       <span>Номер счета</span>
-                      <input placeholder="Номер счета в Украинском банке" type="number">
+                      <input placeholder="Номер счета в Украинском банке" name="account_number" type="number"
+                             value="{{ old('account_number') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
                   <label class="label-input">
                       <span>Полное название банка</span>
-                      <input placeholder="АО КБ «ПРИВАТБАНК»" type="text">
+                      <input placeholder="АО КБ «ПРИВАТБАНК»" name="bank_title" type="text" value="{{ old('bank_title')}}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
                   <label class="label-input">
                       <span>МФО банка</span>
-                      <input placeholder="305299" type="number">
+                      <input placeholder="305299" name="mfo" type="number" value="{{ old('mfo') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
               </div>
 
-
               <div class="phone-inn">
                   <label class="label-input">
                       <span>Ваш номер телефона</span>
-                      <input type="tel" placeholder="+38  (096) 33 33 333">
+                      <input type="tel" placeholder="+38  (096) 33 33 333" name="phone" value="{{ old('phone') }}">
                       <!--<span class="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
                       <span>Идентификационный код</span>
-                      <input placeholder="0987654321" type="number">
+                      <input placeholder="0987654321" name="inn" type="number" value="{{ old('inn') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -90,7 +94,8 @@
                   </div>
                   <label class="label-input" id="another-recipient" style="display: none;">
                       <span>Для кого собираются средства?</span>
-                      <input placeholder="Василий Васильев Васильевич" type="text">
+                      <input placeholder="Василий Васильев Васильевич" name="full_name" type="text" value="{{ old
+                      ('full_name') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -99,21 +104,21 @@
               <div class="address-birth">
                   <label class="label-input">
                       <span>Населенный пункт</span>
-                      <input placeholder="c. Григорьевка" type="text">
+                      <input placeholder="c. Григорьевка" name="locality" type="text" value="{{ old('locality') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
                       <span>Адрес</span>
-                      <input placeholder="ул. Бунина, 17, кв. 12" type="text">
+                      <input placeholder="ул. Бунина, 17, кв. 12" name="address" type="text" value="{{ old('address')}}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
                       <span>Дата рождения</span>
-                      <input placeholder="13.07.2012" type="date">
+                      <input placeholder="13.07.2012" name="birth_date" type="date" value="{{ old('birth_date') }}">
                       <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -127,22 +132,22 @@
 
                   <div class="campaign-duration-wrapper">
                       <label class="label-radio">
-                          <input type="radio" name="duration" checked="">
+                          <input type="radio" name="term" value="14" checked="">
                           <span>2 недели</span>
                       </label>
 
                       <label class="label-radio">
-                          <input type="radio" name="duration">
+                          <input type="radio" name="term" value="28">
                           <span>4 недели</span>
                       </label>
 
                       <label class="label-radio">
-                          <input type="radio" name="duration">
+                          <input type="radio" name="term" value="56">
                           <span>8 недель</span>
                       </label>
 
                       <label class="label-radio">
-                          <input type="radio" name="duration">
+                          <input type="radio" name="term" value="168">
                           <span>8-24 недели</span>
                       </label>
                   </div>
@@ -163,8 +168,26 @@
 
               <label class="label-input label-textarea">
                   <span>Опишите свою ситуацию</span>
-                  <textarea placeholder="Опишите свою ситуацию"></textarea>
+                  <textarea placeholder="Опишите свою ситуацию" name="about">{{ old('about') }}</textarea>
               </label>
+
+              <div class="block-line"></div>
+
+              <div class="document-block">
+                  <h3>
+                      Загрузите фотографию для вашего сбора
+                  </h3>
+
+                  <h5>
+                      Она будет доступна всем пользователям сайта.
+                  </h5>
+
+                  <label class="label-file">
+                      <span class="btn btn-transparent">ВЫБРАТЬ</span>
+                      <input type="file" name="img">
+                  </label>
+
+              </div>
 
               <div class="block-line"></div>
 
@@ -183,7 +206,7 @@
                   </h6>
                   <label class="label-file">
                       <span class="btn btn-transparent">ВЫБРАТЬ</span>
-                      <input type="file">
+                      <input type="file" name="document[client_passport]">
                   </label>
 
                   <div id="another-recipient-foto" style="display: none;">
@@ -191,7 +214,7 @@
 
                       <label class="label-file">
                           <span class="btn btn-transparent">ВЫБРАТЬ</span>
-                          <input type="file">
+                          <input type="file" name="document[passport]">
                       </label>
                   </div>
 
@@ -200,7 +223,7 @@
 
                   <label class="label-file">
                       <span class="btn btn-transparent">ВЫБРАТЬ</span>
-                      <input type="file">
+                      <input type="file" name="document[]" multiple>
                   </label>
               </div>
 

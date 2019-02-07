@@ -40,4 +40,74 @@ class Charity extends Model
         return $query->inRandomOrder()
                       ->take($number);
     }
+
+    // store new charity to db
+    public function storeCharity($request)
+    {
+        $this->client_id = $request->client_id;
+
+        $full_name = $request->client_name;
+
+        // check if charity for other person
+        if ($request->full_name) {
+            $full_name = $request->full_name;
+        }
+
+        $this->full_name = $full_name;
+        $this->phone = $request->phone;
+        $this->locality = $request->locality;
+        $this->address = $request->address;
+        $this->birth_date = $request->birth_date;
+        $this->purpose = $request->purpose;
+        $this->about = $request->about;
+        $this->category_id = $request->category_id;
+        $this->sum = $request->sum;
+        $this->term = $request->term;
+
+        // create slug from full_name
+        $this->slug = $this->createSlug($full_name);
+
+        // check if img isset
+        if ($request->file('img')) {
+            $this->img_path = $this->storeImage($request, $this->slug);
+        }
+
+        $this->save();
+
+        // return newly created object
+        return $this;
+    }
+
+    // check count of same slug
+    // TODO: fix it
+    public function createSlug($full_name)
+    {
+        $slug = str_slug($full_name);
+
+        $check_slug =  $this->where('slug', $slug)->count();
+
+        if ($check_slug >= 1) {
+            $i = ++$check_slug;
+            $slug = $slug . '-' . $i;
+        }
+
+        return $slug;
+    }
+
+    // store image for charity in storage
+    public function storeImage($request, $slug)
+    {
+        $img = $request->file('img');
+        $extension = $img->getClientOriginalExtension();
+        $title = uniqid('lp_', false) . '.' . $extension;
+
+        if ($img) {
+            $img->move(storage_path() . '/app/public/'.$slug.'/', $title);
+        }
+
+        $path = $slug.'/'.$title;
+
+        return $path;
+    }
 }
+
