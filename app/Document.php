@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Document extends Model
 {
@@ -14,18 +15,32 @@ class Document extends Model
         'file_path'
     ];
 
-    // store new documets to db
-    public function scopeStore($charity_id, $title, $path)
+    // move new documets to storage
+    public function storeDocuments($request, $charity_id, $slug)
     {
-        $this->charity_id = $charity_id;
-        $this->title = $title;
-        $this->file_path = $path;
-        $this->save();
+        $files = $request->file('document');
+
+        foreach ($files as $title => $file) {
+            $extension = $file->getClientOriginalExtension();
+            $title = uniqid($title.'_', false) . '.' . $extension;
+
+            $file->move(storage_path() . '/app/public/'.$slug.'/documents/', $title);
+
+            $path = $slug.'/documents/'.$title;
+
+            $this->storeDocumentsInfo($charity_id, $title, $path);
+        }
     }
 
-    // delete all charity documents from db
-    public function scopeDeleteAll($charity_id)
+    // store new document information in db from loop
+    public function storeDocumentsInfo($charity_id, $title, $path)
     {
-        $query->delete()->where('charity_id', $charity_id);
+        $this->insert([
+            'charity_id' => $charity_id,
+            'title' => $title,
+            'file_path' => $path,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
     }
 }

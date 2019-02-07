@@ -19,15 +19,15 @@ class CreateCharitiesTable extends Migration
             $table->string('full_name');
             $table->string('phone');
             $table->string('locality');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->date('birth_date');
             $table->text('purpose');
             $table->text('about');
             $table->integer('category_id');
             $table->decimal('sum');
             $table->integer('term');
-            $table->date('start_date');
-            $table->date('finish_date');
+            $table->date('start_date')->nullable();
+            $table->date('finish_date')->nullable();
             $table->string('slug');
             $table->string('img_path')->nullable();
             $table->timestamps();

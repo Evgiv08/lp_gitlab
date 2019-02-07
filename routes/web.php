@@ -30,7 +30,8 @@ Route::get('/{charity}', 'CharityController@show')->name('charity.show');
 
 // Charity
 Route::prefix('/charity')->group(function () {
-    Route::get('/create', 'CategoryController@show')->name('charity.show');
+    Route::get('/create', 'CharityController@create')->name('charity.create');
+    Route::post('/store', 'CharityController@store')->name('charity.store');
 });
 
 /*

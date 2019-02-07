@@ -2,21 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Charity;
+use App\Document;
+use App\BanksInfo;
+use App\CharityStatuses;
+use App\Category;
+use Illuminate\Http\Request;
 
 class CharityController extends Controller
 {
     protected $charity;
+    protected $document;
+    protected $banksInfo;
+    protected $status;
+    protected $category;
 
-    /**
-      * Initialise model Charity.
-      *
-      * @param Charity $charity
-      */
-    public function __construct(Charity $charity)
+    public function __construct(Charity $charity, Document $document, BanksInfo $banksInfo, CharityStatuses $status,
+                                Category $category)
     {
         $this->charity = $charity;
+        $this->document= $document;
+        $this->banksInfo = $banksInfo;
+        $this->status = $status;
+        $this->category = $category;
     }
 
     /**
@@ -38,7 +46,8 @@ class CharityController extends Controller
      */
     public function create()
     {
-        //
+        $categories = $this->category->getAllCategories();
+        return view('site.pages.charities.create', compact('categories'));
     }
 
     /**
@@ -49,7 +58,12 @@ class CharityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $charity = $this->charity->storeCharity($request);
+        $this->document->storeDocuments($request, $charity->id, $charity->slug);
+        $this->banksInfo->storeBanksInfo($charity->id, $request);
+        $this->status->storeDraftStatus($charity->id);
+
+        return redirect('/user');
     }
 
     /**
