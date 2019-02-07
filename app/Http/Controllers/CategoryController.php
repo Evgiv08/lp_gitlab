@@ -84,8 +84,8 @@ class CategoryController extends Controller
      */
     public function show()
     {
-        $categories = $this->category->all();
-
-        return view('site.pages.charities.create', compact('categories'));
+//        $categories = $this->category->all();
+//
+//        return view('site.pages.charities.create', compact('categories'));
     }
 }
