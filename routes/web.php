@@ -2,40 +2,6 @@
 
 /*
 |--------------------------------------------------------------------------
-| Site Routes
-|--------------------------------------------------------------------------
-*/
-
-// Main page.
-Route::get('/', 'CharityController@index')->name('mainpage');
-
-// Registration
-Route::get('/registration', function () {
-    return view('site.pages.registration');
-})->name('registration');
-
-
-// Search
-Route::get('/search', function () {
-    return view('site.pages.search_results');
-})->name('search');
-
-// User
-Route::get('/user', function () {
-    return view('site.pages.user');
-})->name('user');
-
-// Slug
-Route::get('/{charity}', 'CharityController@show')->name('charity.show');
-
-// Charity
-Route::prefix('/charity')->group(function () {
-    Route::get('/create', 'CharityController@create')->name('charity.create');
-    Route::post('/store', 'CharityController@store')->name('charity.store');
-});
-
-/*
-|--------------------------------------------------------------------------
 | Dashboard Routes
 |--------------------------------------------------------------------------
 */
@@ -120,3 +86,38 @@ Route::prefix('/dashboard')->group(function () {
         'only' => ['index', 'update', 'destroy']
     ]);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Site Routes
+|--------------------------------------------------------------------------
+*/
+
+// Main page.
+Route::get('/', 'CharityController@index')->name('mainpage');
+
+// Registration
+Route::get('/registration', function () {
+    return view('site.pages.registration');
+})->name('registration');
+
+
+// Search
+Route::get('/search', function () {
+    return view('site.pages.search_results');
+})->name('search');
+
+// User
+Route::get('/user', function () {
+    return view('site.pages.user');
+})->name('user');
+
+// Slug
+Route::get('/{charity}', 'CharityController@show')->name('charity.show');
+
+// Charity
+Route::prefix('/charity')->group(function () {
+    Route::get('/create', 'CharityController@create')->name('charity.create');
+    Route::post('/store', 'CharityController@store')->name('charity.store');
+});
+
