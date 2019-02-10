@@ -78,7 +78,7 @@
                     <th>Роль</th>
                     <th>Действия</th>
                 </tr>
-                @foreach($staff as $employee)
+                @forelse($staff as $employee)
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }}</td>
@@ -174,7 +174,9 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr><td colspan="4">Комманды нет...</td></tr>
+                @endforelse
 
             </table>
         </div>
