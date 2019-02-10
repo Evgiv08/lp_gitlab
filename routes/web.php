@@ -17,9 +17,7 @@ Route::prefix('/dashboard')->group(function () {
     // All routes for new charity.
     Route::prefix('/new')->group(function () {
         // All new charities(drafts) in dashboard.
-        Route::get('/', function () {
-            return view('dashboard.pages.charity.new.index');
-        })->name('new');
+        Route::get('/', 'NewCharityController@index')->name('new');
 
         // Show one new charity in dashboard.
         Route::get('/show', function () {

@@ -7,6 +7,7 @@ use Carbon\Carbon;
 
 class Charity extends Model
 {
+
     protected $fillable = [
         'client_id',
         'full_name',
@@ -19,10 +20,13 @@ class Charity extends Model
         'category_id',
         'sum',
         'term',
-        'start_date',
-        'finish_date',
         'slug',
         'img_path'
+    ];
+
+    protected $dates = [
+        'start_date',
+        'finish_date',
     ];
 
     public function getRouteKeyName()
@@ -108,6 +112,16 @@ class Charity extends Model
         $path = $slug.'/'.$title;
 
         return $path;
+    }
+
+    public function status()
+    {
+        return $this->hasOne('App\CharityStatuses');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }
 

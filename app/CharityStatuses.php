@@ -23,4 +23,10 @@ class CharityStatuses extends Model
 
         $this->save();
     }
+
+    public function charity()
+    {
+        return $this->belongsTo('App\Charity');
+    }
+
 }
