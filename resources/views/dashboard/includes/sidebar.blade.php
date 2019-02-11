@@ -4,7 +4,7 @@
             <a href="#">Сборы</a>
             <ul>
                 <li class="{{ Request::is('dashboard/new*') ? 'active' : '' }}">
-                    <a href="{{ route('new')}}">
+                    <a href="{{ route('new.charity.index')}}">
                                 <span>
                                     Новые
                                 </span>
@@ -14,10 +14,10 @@
                     </a>
                 </li>
                 <li class="{{ Request::is('dashboard/active*') ? 'active' : '' }}">
-                    <a href="{{ route('active')}}">Активные</a>
+                    <a href="{{ route('active.charity.index')}}">Активные</a>
                 </li>
                 <li class="{{ Request::is('dashboard/completed*') ? 'active' : '' }}">
-                    <a href="{{ route('completed')}}">Завершенные </a>
+                    <a href="{{ route('completed.charity.index')}}">Завершенные </a>
                 </li>
             </ul>
         </li>
@@ -38,7 +38,7 @@
         </li>
 
         <li class="{{ Request::is('dashboard/ban*') ? 'active' : '' }}">
-            <a href="{{ route('ban')}}">Бан</a>
+            <a href="{{ route('ban.charity.index')}}">Бан</a>
         </li>
 
         <li class="{{ Request::is('dashboard/users*') ? 'active' : '' }}">

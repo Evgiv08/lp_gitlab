@@ -24,9 +24,34 @@ class CharityStatuses extends Model
         $this->save();
     }
 
+    // get all new charities
+    public function scopeGetNewCharity($query)
+    {
+        return $query->get()->where('draft', 1);
+    }
+
+    //gel all active charities
+    public function scopeGetActiveCharity($query)
+    {
+        return $query->get()->where('active', 1);
+    }
+
+    //get all completed charities
+    public function scopeGetCompletedCharity($query)
+    {
+        return $query->get()->where('done', 1);
+    }
+
+    //get all baned charities
+    public function scopeGetBanCharity($query)
+    {
+        return $query->get()->where('ban', 1);
+    }
+
+    //status belongs to charity
     public function charity()
     {
-        return $this->belongsTo('App\Charity');
+        return $this->belongsTo(Charity::class);
     }
 
 }

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CharityStatuses;
 
-class NewCharityController extends Controller
+class ActiveCharityController extends Controller
 {
     protected $status;
 
@@ -14,11 +14,11 @@ class NewCharityController extends Controller
         $this->status = $charityStatuses;
     }
 
-    // show all new charities
+    // show all active charities
     public function index()
     {
-        $charities = $this->status->getNewCharity();
+        $charities = $this->status->getActiveCharity();
 
-        return view('dashboard.pages.charity.new.index', compact('charities'));
+        return view('dashboard.pages.charity.active.index', compact('charities'));
     }
 }

@@ -5,9 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Charity extends Model
 {
-
     protected $fillable = [
         'client_id',
         'full_name',
@@ -20,13 +20,10 @@ class Charity extends Model
         'category_id',
         'sum',
         'term',
-        'slug',
-        'img_path'
-    ];
-
-    protected $dates = [
         'start_date',
         'finish_date',
+        'slug',
+        'img_path'
     ];
 
     public function getRouteKeyName()
@@ -114,14 +111,18 @@ class Charity extends Model
         return $path;
     }
 
-    public function status()
+    //charity has one status
+    public function charityStatus()
     {
-        return $this->hasOne('App\CharityStatuses');
+        return $this->hasOne(CharityStatuses::class);
     }
 
+    //charity belongs to category
     public function category()
     {
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo(Category::class);
     }
+
+
 }
 

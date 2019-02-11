@@ -160,14 +160,14 @@
                     </th>
                     <th>Действия</th>
                 </tr>
-                @foreach ($charityStatuses as $status)
+                @forelse ($charities as $charity)
                     <tr>
-                        <td>{{ $status->charity->client_id }}</td>
+                        <td>{{ $charity->charity->client_id }}</td>
                         <td>Камишанченко В.К.</td>
-                        <td class="ailment">{{ $status->charity->category->title }}</td>
+                        <td class="ailment">{{ $charity->charity->category_id }}</td>
                         <td>80 000</td>
-                        <td>{{ $status->charity->created_at->format('d/m/Y') }}</td>
-                        <td>{{ $status->charity->finish_date->format('d/m/Y') }}</td>
+                        <td>{{ $charity->charity->created_at->format('d/m/Y') }}</td>
+                        <td></td>
                         <td class="button-block">
                             <a title="модерация" href="{{ route('new_show') }}">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
@@ -178,7 +178,12 @@
                             </a>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    {{--todo display if don't have any new charity--}}
+                    <tr>
+                        <td>Все здоровы!! Этот сайт больше не нужен! Расходимся...</td>
+                    </tr>
+                @endforelse
             </table>
 
             <div class="account-admin-pagination-wrapper">
