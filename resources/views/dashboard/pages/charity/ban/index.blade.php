@@ -141,7 +141,7 @@
                 @forelse ($charities as $charity)
                 <tr>
                     <td>{{ $charity->charity->client_id }}</td>
-                    <td>12.01.18</td>
+                    <td>{{ $charity->created_at->format('d/m/y') }}</td>
                     <td>{{ Carbon\Carbon::parse($charity->updated_at)->diffInDays($charity->charity->finish_date) }}</td>
                     <td>{{ $charity->updated_at->format('d/m/y') }}</td>
                     <td>{{ $charity->reason }}</td>

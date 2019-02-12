@@ -165,10 +165,10 @@
                 @forelse ($charities as $charity)
                     <tr>
                         <td>{{ $charity->charity->client_id }}</td>
-                        <td>12.01.18</td>
-                        <td>10</td>
-                        <td>80 000</td>
-                        <td>10 000</td>
+                        <td>{{ $charity->created_at->format('d/m/y') }}</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
                         <td>0</td>
                         <td class="button-block">
                             <a title="просмотреть" href="{{ route('active_show') }}">

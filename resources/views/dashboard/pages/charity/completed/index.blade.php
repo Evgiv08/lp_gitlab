@@ -164,11 +164,11 @@
                 @forelse ($charities as $charity)
                     <tr>
                         <td>{{ $charity->charity->client_id }}</td>
-                        <td>Камишанченко В.К.</td>
-                        <td class="ailment">{{ $charity->charity->category_id }}</td>
-                        <td>80 000</td>
-                        <td>12.01.18</td>
-                        <td>12.01.19</td>
+                        <td>{{ $charity->charity->full_name }}</td>
+                        <td class="ailment">{{ $charity->charity->category->title }}</td>
+                        <td>0</td>
+                        <td>{{ $charity->charity->created_at->format('d/m/Y') }}</td>
+                        <td>0</td>
                         <td class="button-block">
                             <a title="просмотр" href="{{ route('completed_show') }}">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
