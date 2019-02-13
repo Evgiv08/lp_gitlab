@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Client;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -29,7 +28,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest:client')->except('logout');
         $this->middleware('guest:staff')->except('staffLogout');
     }
 
@@ -45,11 +44,13 @@ class LoginController extends Controller
             'password' => 'required|min:6',
         ]);
 
-        if (Auth::guard('staff')->attempt([
+        $credentials = [
             'email'    => strtolower($request->email),
-            'password' => $request->password],
-            $request->get('remember'))) {
+            'password' => $request->password,
+        ];
+        $remember = $request->get('remember');
 
+        if (Auth::guard('staff')->attempt($credentials, $remember)) {
             return redirect()->route('staff.index');
         }
 
@@ -83,7 +84,7 @@ class LoginController extends Controller
         return back()->withInput($request->only('email', 'remember'));
     }
 
-    public function userLogout()
+    public function clientLogout()
     {
         Auth::guard('client')->logout();
 

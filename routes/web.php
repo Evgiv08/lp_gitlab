@@ -100,11 +100,11 @@ Route::get('/', 'CharityController@index')->name('mainpage');
 Route::get('/registration', 'Auth\ClientRegisterController@index')->name('show.client.register.form');
 
 // Client register method
-Route::post('/registration', 'Auth\ClientRegisterController@createClient')->name('user.register');
+Route::post('/registration', 'Auth\ClientRegisterController@createClient')->name('client.register');
 
 // Login/logout for clients
 Route::post('/', 'Auth\LoginController@clientLogin')->name('client.login');
-Route::get('/logout', 'Auth\LoginController@userLogout')->name('client.logout');
+Route::post('/logout', 'Auth\LoginController@clientLogout')->name('client.logout');
 
 // Client show, edit, update, delete
 Route::get('client/{client}', 'ClientController@show')->name('client.show');

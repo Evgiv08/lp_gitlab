@@ -31,7 +31,7 @@
               или зарегистрироваться через email
           </h3>
 
-          <form action="{{ route('user.register') }}" method="post" class="main-form m--registration">
+          <form action="{{ route('client.register') }}" method="post" class="main-form m--registration">
               @csrf
               <div class="input-wrapper">
                   <label class="label-input">

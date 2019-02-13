@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Client;
-use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -40,7 +39,7 @@ class ClientRegisterController extends Controller
      */
     public function __construct(Client $client)
     {
-        $this->middleware('guest');
+        $this->middleware('guest:client');
         $this->client = $client;
     }
 
@@ -60,7 +59,7 @@ class ClientRegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name'     => ['nullable', 'string', 'max:255'],
+            'name'     => ['required','nullable', 'string', 'max:255'],
             'surname'  => ['nullable', 'string', 'max:255'],
             'email'    => ['required', 'unique:clients', 'string', 'email', 'max:255'],
             'phone'    => ['nullable', 'string', 'max:255'],
@@ -81,7 +80,7 @@ class ClientRegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
-        $client = Client::create([
+        $client = $this->client::create([
             'name'     => $request['name'],
             'surname'  => $request['surname'],
             'email'    => $request['email'],
@@ -92,6 +91,6 @@ class ClientRegisterController extends Controller
 
         $this->guard()->login($client);
 
-        return redirect()->intended(route('client.show', $client->id));
+        return redirect()->route('client.show', $client->id);
     }
 }

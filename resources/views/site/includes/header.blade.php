@@ -55,8 +55,16 @@
                 <li><a href="{{ route('client.show', Auth::guard('client')->user()->id) }}">{{ Auth::guard('client')
                 ->user()->name
                 }}</a></li>
-              <li><a href="{{ route('client.logout') }}">Выйти</a></li>
+{{--              <li><a href="{{ route('client.logout') }}">Выйти</a></li>--}}
+              <li><a href="{{ route('client.logout')}}"
+                     onclick="event.preventDefault();
+                             document.getElementById('logout').submit();">Выйти</a></li>
               </ul>
+
+              <form id="logout" action="{{ route('client.logout')}}"
+                    method="POST">
+                @csrf
+              </form>
             @else
               <button class="header-login-popup">
                 <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
