@@ -162,12 +162,12 @@
                 </tr>
 
 
-                @forelse ($charities as $charity)
+                @forelse ($statuses as $status)
                     <tr>
-                        <td>{{ $charity->charity->client_id }}</td>
-                        <td>{{ $charity->created_at->format('d/m/y') }}</td>
+                        <td>{{ $status->charity->client_id }}</td>
+                        <td>{{ $status->created_at->format('d/m/y') }}</td>
                         <td>0</td>
-                        <td>0</td>
+                        <td>{{ $status->charity->sum }}</td>
                         <td>0</td>
                         <td>0</td>
                         <td class="button-block">

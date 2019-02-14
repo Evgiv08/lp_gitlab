@@ -161,13 +161,13 @@
                     <th>Действия</th>
                 </tr>
 
-                @forelse ($charities as $charity)
+                @forelse ($statuses as $status)
                     <tr>
-                        <td>{{ $charity->charity->client_id }}</td>
-                        <td>{{ $charity->charity->full_name }}</td>
-                        <td class="ailment">{{ $charity->charity->category->title }}</td>
-                        <td>0</td>
-                        <td>{{ $charity->charity->created_at->format('d/m/Y') }}</td>
+                        <td>{{ $status->charity->client_id }}</td>
+                        <td>{{ $status->charity->full_name }}</td>
+                        <td class="ailment">{{ $status->charity->category->title }}</td>
+                        <td>{{ $status->charity->sum }}</td>
+                        <td>{{ $status->charity->created_at->format('d/m/Y') }}</td>
                         <td>0</td>
                         <td class="button-block">
                             <a title="просмотр" href="{{ route('completed_show') }}">

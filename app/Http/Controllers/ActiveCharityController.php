@@ -2,23 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\CharityStatuses;
 
 class ActiveCharityController extends Controller
 {
     protected $status;
 
-    public function __construct(CharityStatuses $charityStatuses)
+    public function __construct(CharityStatuses $status)
     {
-        $this->status = $charityStatuses;
+        $this->status = $status;
     }
 
     // show all active charities
     public function index()
     {
-        $charities = $this->status->getActiveCharity();
+        $statuses = $this->status->getActiveCharity();
 
-        return view('dashboard.pages.charity.active.index', compact('charities'));
+        return view('dashboard.pages.charity.active.index', compact('statuses'));
     }
 }
