@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Charity extends Model
 {
     protected $fillable = [
@@ -109,5 +110,19 @@ class Charity extends Model
 
         return $path;
     }
+
+    //charity has one status
+    public function charityStatus()
+    {
+        return $this->hasOne(CharityStatuses::class);
+    }
+
+    //charity belongs to category
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+
 }
 
