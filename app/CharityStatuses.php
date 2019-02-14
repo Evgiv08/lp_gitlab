@@ -27,25 +27,25 @@ class CharityStatuses extends Model
     // get all new charities
     public function scopeGetNewCharity($query)
     {
-        return $query->get()->where('draft', 1);
+        return $query->where('draft', 1)->paginate(1);
     }
 
     //gel all active charities
     public function scopeGetActiveCharity($query)
     {
-        return $query->get()->where('active', 1);
+        return $query->where('active', 1)->paginate(1);
     }
 
     //get all completed charities
     public function scopeGetCompletedCharity($query)
     {
-        return $query->get()->where('done', 1);
+        return $query->where('done', 1)->paginate(1);
     }
 
     //get all baned charities
     public function scopeGetBanCharity($query)
     {
-        return $query->get()->where('ban', 1);
+        return $query->where('ban', 1)->paginate(1);
     }
 
     //status belongs to charity
