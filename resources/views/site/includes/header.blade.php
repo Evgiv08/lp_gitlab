@@ -50,8 +50,24 @@
                 </g>
               </svg>
             </button>
-            <button class="header-login-popup">
-              <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+            @if (Auth::guard('client')->check())
+              <ul class="navigation">
+                <li><a href="{{ route('client.show', Auth::guard('client')->user()->id) }}">{{ Auth::guard('client')
+                ->user()->name
+                }}</a></li>
+{{--              <li><a href="{{ route('client.logout') }}">Выйти</a></li>--}}
+              <li><a href="{{ route('client.logout')}}"
+                     onclick="event.preventDefault();
+                             document.getElementById('logout').submit();">Выйти</a></li>
+              </ul>
+
+              <form id="logout" action="{{ route('client.logout')}}"
+                    method="POST">
+                @csrf
+              </form>
+            @else
+              <button class="header-login-popup">
+                <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
                 <g>
                   <path class="st0" d="M512,256C512,114.8,397.2,0,256,0S0,114.8,0,256c0,74.6,32.1,141.8,83.1,188.6l-0.2,0.2l8.3,7
 		                                   c0.5,0.5,1.1,0.8,1.7,1.3c4.4,3.7,9,7.1,13.6,10.5c1.5,1.1,3,2.2,4.6,3.2c5,3.4,10.1,6.7,15.3,9.8c1.1,0.7,2.3,1.3,3.4,2
@@ -78,7 +94,10 @@
                   </path>
                 </g>
               </svg>
-            </button>
+              </button>
+            @endif
+
+            
           </div>
         </div>
     </div>
