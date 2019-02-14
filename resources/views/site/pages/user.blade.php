@@ -8,10 +8,10 @@
             мой профиль
         </h1>
         <div class="user-account-top-block">
-            <div class="image-block">
-                <div class="back-layer"></div>
-                <img src="{{ asset('img/card1.jpg') }}" alt="">
-            </div>
+            {{--<div class="image-block">--}}
+                {{--<div class="back-layer"></div>--}}
+                {{--<img src="{{ asset('img/card1.jpg') }}" alt="">--}}
+            {{--</div>--}}
             <div class="text-block">
                 <div>
                     <div class="top-block">
@@ -51,7 +51,7 @@
                 <button type="button" class=" follow active">Я слежу</button>
                 <button type="button" class="my-campaign ">Мои публикации</button>
 
-                <a href="/charity/create">
+                <a href="{{ route('charity.create') }}">
                     <div class="add-icon"></div>
                     <span>Добавить новую публикацию</span>
                 </a>
@@ -265,7 +265,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="/slug" class="single-card">
+                                <a href="#" class="single-card">
                                   <img src="{{ asset('img/card1.jpg') }}" alt="">
 
                                     <div class="text-block">
@@ -561,7 +561,7 @@
                                 </div>
                             </li>
                             <li class="m--add-new">
-                                <a href="/charity/create">
+                                <a href="{{ route('charity.create') }}">
                                     <div class="add-icon m--large"></div>
                                     <span>Добавить новую публикацию</span>
                                 </a>
