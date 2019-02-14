@@ -63,7 +63,7 @@ class CharityController extends Controller
         $this->banksInfo->storeBanksInfo($charity->id, $request);
         $this->status->storeDraftStatus($charity->id);
 
-        return redirect('/user');
+        return redirect('/');
     }
 
     /**

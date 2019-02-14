@@ -98,14 +98,14 @@ Route::post('/registration', 'Auth\ClientRegisterController@createClient')->name
 Route::post('/', 'Auth\LoginController@clientLogin')->name('client.login');
 Route::post('/logout', 'Auth\LoginController@clientLogout')->name('client.logout');
 
+// Search
+Route::prefix('/search')->group(function () {
+    Route::get('/', 'SearchController@index')->name('search');
+    Route::get('/{search_text}', 'SearchController@show');
+});
+
 // Client show, edit, update, delete
 Route::get('client/{client}', 'ClientController@show')->name('client.show');
-
-// Search
-Route::get('/search', function () {
-    return view('site.pages.search_results');
-})->name('search');
-
 
 // Slug
 Route::get('/{charity}', 'CharityController@show')->name('charity.show');
@@ -115,4 +115,3 @@ Route::prefix('/charity')->group(function () {
     Route::get('/create', 'CharityController@create')->name('charity.create');
     Route::post('/store', 'CharityController@store')->name('charity.store');
 });
-

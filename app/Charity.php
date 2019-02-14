@@ -123,6 +123,11 @@ class Charity extends Model
         return $this->belongsTo(Category::class);
     }
 
-
+    // scope for search
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('searchtext @@ to_tsquery(\'russian\', ?)', [$search])
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'russian\', ?))', [$search]);
+    }
 }
 
