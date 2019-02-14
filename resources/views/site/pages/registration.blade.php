@@ -31,30 +31,33 @@
               или зарегистрироваться через email
           </h3>
 
-          <form action="" class="main-form m--registration">
+          <form action="{{ route('client.register') }}" method="post" class="main-form m--registration">
+              @csrf
               <div class="input-wrapper">
                   <label class="label-input">
                       <span>Имя:</span>
-                      <input type="text" required="" placeholder="Василий">
+                      <input type="text" required="" placeholder="Василий" name="name" value="{{ old('name') }}">
                       <span class="error"> Поле не заполнено</span>
                   </label>
 
                   <label class="label-input">
                       <span>Фамилия (опционально):</span>
-                      <input type="text" placeholder="Васильев">
+                      <input type="text" placeholder="Васильев" name="surname" value="{{ old('surname') }}">
                   </label>
               </div>
 
               <div class="input-wrapper">
                   <label class="label-input">
                       <span>Ваша почта:</span>
-                      <input type="email" required="" placeholder="vasiliy@lifespulse.com">
+                      <input type="email" required="" placeholder="vasiliy@lifespulse.com"  name="email" value="{{ old
+                      ('email') }}">
                       <span class="error"> Некорректный email. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
                       <span>Ваш номер телефона (опционально):</span>
-                      <input type="tel" placeholder="+38  (096) 33 33 333">
+                      <input type="tel" placeholder="+38  (096) 33 33 333" name="phone" value="{{ old
+                      ('phone') }}">
                       <span class="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -62,20 +65,20 @@
 
               <label class="label-input m--password">
                   <span>Пароль:</span>
-                  <input type="password" required="" placeholder="Введите пароль">
+                  <input type="password" required="" placeholder="Введите пароль" name="password">
                   <span class="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
                   <span class="error"> Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
               </label>
 
               <label class="label-input m--password">
                   <span>Повторите пароль:</span>
-                  <input type="password" required="" placeholder="Введите пароль">
+                  <input type="password" required="" placeholder="Введите пароль" name="password_confirmation">
                   <span class="error"> Пароли не совпадают. Повторите еще раз</span>
               </label>
 
               <label class="label-checkbox">
 
-                  <input type="checkbox">
+                  <input type="checkbox" name="confirm">
                   <span>
                       <span>
                             Я соглашаюсь с <a href="/"> Политикой конфиденциальности</a> и <a href="/">Правилами пользования сайтом</a>

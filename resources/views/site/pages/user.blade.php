@@ -15,14 +15,14 @@
             <div class="text-block">
                 <div>
                     <div class="top-block">
-                        <h2>камишанченко оксана</h2>
-                        <a href="/">Редактировать профиль</a>
+                        <h2>{{ $client->name .' '. $client->surname }}</h2>
+                        <a href="#">Редактировать профиль</a>
                     </div>
                     <h4>
-                        Почта: <span>vasiliy@lifespulse.com</span>
+                        Почта: <span>{{ $client->email }}</span>
                     </h4>
                     <h4>
-                        Номер телефона: <span>не указан</span>
+                        Номер телефона: <span> {{$client->phone == null? 'не указан' : $client->phone }} </span>
                     </h4>
                 </div>
                 <div class="block-line"></div>

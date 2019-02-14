@@ -4,10 +4,11 @@
 
             <div class="popup-step m--login">
 
-                <form class="main-form" action="">
+                <form class="main-form" action="{{ route('client.login') }}" method="post">
+                    @csrf
                     <label class="label-input">
                         <span>Ваша почта:</span>
-                        <input type="email" required>
+                        <input type="email" name="email" value="{{ old('email') }}" required>
                         <span class="error"> Некорректный email. Попробуйте еще раз</span>
                     </label>
                     <div class="label-password-top-block">
@@ -17,24 +18,24 @@
                         </button>
                     </div>
                     <label class="label-input">
-                        <input type="password" required>
+                        <input type="password" name="password"  required>
                         <span class="error">Неверный пароль. Введите еще раз</span>
                     </label>
                     <label class="label-checkbox">
 
-                        <input type="checkbox">
+                        <input type="checkbox" name="remember">
                         <span>
                              Запомнить меня
                         </span>
                     </label>
 
                     <div class="button-wrapper">
-                        <a type="submit" class="btn m--with-loader" href="/user">
+                        <button type="submit" class="btn m--with-loader">
                                 <span>
                                      войти
                                 </span>
                             <span class="loader"></span>
-                        </a>
+                        </button>
                     </div>
 
                 </form>

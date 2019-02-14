@@ -88,21 +88,24 @@ Route::prefix('/dashboard')->group(function () {
 // Main page.
 Route::get('/', 'CharityController@index')->name('mainpage');
 
-// Registration
-Route::get('/registration', function () {
-    return view('site.pages.registration');
-})->name('registration');
+// Show client register form
+Route::get('/registration', 'Auth\ClientRegisterController@index')->name('show.client.register.form');
 
+// Client register method
+Route::post('/registration', 'Auth\ClientRegisterController@createClient')->name('client.register');
+
+// Login/logout for clients
+Route::post('/', 'Auth\LoginController@clientLogin')->name('client.login');
+Route::post('/logout', 'Auth\LoginController@clientLogout')->name('client.logout');
+
+// Client show, edit, update, delete
+Route::get('client/{client}', 'ClientController@show')->name('client.show');
 
 // Search
 Route::get('/search', function () {
     return view('site.pages.search_results');
 })->name('search');
 
-// User
-Route::get('/user', function () {
-    return view('site.pages.user');
-})->name('user');
 
 // Slug
 Route::get('/{charity}', 'CharityController@show')->name('charity.show');
