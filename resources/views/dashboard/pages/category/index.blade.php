@@ -47,7 +47,7 @@
                     <th>Действия</th>
                 </tr>
 
-                @foreach($categories as $category)
+                @forelse($categories as $category)
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->title}}</td>
@@ -111,7 +111,12 @@
                             </form>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    {{--todo display if don't have category--}}
+                    <tr>
+                        <td>Все здоровы!! Этот сайт больше не нужен! Расходимся...</td>
+                    </tr>
+                @endforelse
 
             </table>
         </div>

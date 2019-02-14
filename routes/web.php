@@ -17,9 +17,7 @@ Route::prefix('/dashboard')->group(function () {
     // All routes for new charity.
     Route::prefix('/new')->group(function () {
         // All new charities(drafts) in dashboard.
-        Route::get('/', function () {
-            return view('dashboard.pages.charity.new.index');
-        })->name('new');
+        Route::get('/', 'NewCharityController@index')->name('new.charity.index');
 
         // Show one new charity in dashboard.
         Route::get('/show', function () {
@@ -30,9 +28,7 @@ Route::prefix('/dashboard')->group(function () {
     // All routes for active charity.
     Route::prefix('/active')->group(function () {
         // All active charities in dashboard.
-        Route::get('/', function () {
-            return view('dashboard.pages.charity.active.index');
-        })->name('active');
+        Route::get('/', 'ActiveCharityController@index')->name('active.charity.index');
 
         // Show one active charity in dashboard.
         Route::get('/show', function () {
@@ -43,9 +39,7 @@ Route::prefix('/dashboard')->group(function () {
     // All routes for completed charity.
     Route::prefix('/completed')->group(function () {
         // All completed charities in dashboard.
-        Route::get('/', function () {
-            return view('dashboard.pages.charity.completed.index');
-        })->name('completed');
+        Route::get('/', 'CompletedCharityController@index')->name('completed.charity.index');
 
         // Show one completed charity in dashboard.
         Route::get('/show', function () {
@@ -56,9 +50,7 @@ Route::prefix('/dashboard')->group(function () {
     // All routes for ban charity.
     Route::prefix('/ban')->group(function () {
         // All banned charities in dashboard.
-        Route::get('/', function () {
-            return view('dashboard.pages.charity.ban.index');
-        })->name('ban');
+        Route::get('/', 'BanCharityController@index')->name('ban.charity.index');
 
         // Show one banned charity in dashboard.
         Route::get('/show', function () {
