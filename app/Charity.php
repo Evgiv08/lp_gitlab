@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 
+
 class Charity extends Model
 {
     protected $fillable = [
@@ -108,6 +109,25 @@ class Charity extends Model
         $path = $slug.'/'.$title;
 
         return $path;
+    }
+
+    //charity has one status
+    public function charityStatus()
+    {
+        return $this->hasOne(CharityStatuses::class);
+    }
+
+    //charity belongs to category
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    // scope for search
+    public function scopeSearch($query, $search)
+    {
+        return $query->whereRaw('searchtext @@ to_tsquery(\'russian\', ?)', [$search])
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'russian\', ?))', [$search]);
     }
 }
 
