@@ -64,10 +64,10 @@
           </a>
         </div>
         <div>
-          <a href="/search">
+          <a href="{{ route('search') }}">
             Начать помогать
           </a>
-          <a href="/user">
+          <a href="{{ route('charity.create') }}">
             Подать заявку
           </a>
           <a href="/">

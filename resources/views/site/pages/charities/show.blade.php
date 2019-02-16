@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="previousPageBlock container">
-  <a href="/" class="previousPageLink">
+  <a href="{{ url()->previous() }}" class="previousPageLink">
       Вернуться назад
   </a>
 </div>
@@ -12,13 +12,14 @@
       {{ $charity->full_name }}
   </h1>
   <p class="titleCard-shortDiagnosis">
-    {{ $charity->purpose }}
+      {{ $charity->purpose }}
   </p>
 </div>
 <div class="allInfoBlock container">
     <div class="allHistoryBlock">
         <div class="allHistoryBlock-imgBlock">
-          <img src="{{ asset('img/victoria-gonzales.jpg') }}" alt="">
+            <img src="{{ asset('storage/'. $charity->img_path)}}" alt="{{ $charity->full_name }}" title="{{
+        $charity->full_name }}">
         </div>
         <div class="customUserBlock">
             <p>
@@ -28,10 +29,10 @@
     </div>
     <div class="shortInfoBlock">
         <p class="shortInfoBlock-age">Возраст: <span>{{ $charity->age }}</span></p>
-        <p class="shortInfoBlock-locations">Место проживания: <span>{{ $charity->address }}</span></p>
-        <p class="shortInfoBlock-category">Категория: <span>{{ $charity->category_id }}</span></p>
-        <p class="shortInfoBlock-startFund">Начало сборов: {{ $charity->start_date }}</p>
-        <p class="shortInfoBlock-endFund">Окончание сборов: {{ $charity->finish_date }}</p>
+        <p class="shortInfoBlock-locations">Место проживания: <span>{{ $charity->locality}}</span></p>
+        <p class="shortInfoBlock-category">Категория: <span>{{ $category->title }}</span></p>
+        <p class="shortInfoBlock-startFund">Начало сбора: {{ $charity->start_date }}</p>
+        <p class="shortInfoBlock-endFund">Окончание сбора: {{ $charity->finish_date }}</p>
         <div class="info-block">
             <div class="like">
                 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
@@ -76,10 +77,10 @@
 
             <div class="money-how">
                 <p>
-                    Собрали 20 000 грн
+                    Собрали 0 грн
                 </p>
                 <p>
-                    из 30 000 грн
+                    из {{ $charity->sum }} грн
                 </p>
             </div>
         </div>

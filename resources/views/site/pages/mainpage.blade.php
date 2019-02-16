@@ -1,6 +1,5 @@
 @extends('site.layout.master')
 
-
 @section('content')
 <div class="jumbotron">
   <div class="container">
@@ -17,10 +16,10 @@
         Сервис LifesPulse предоставляет возможность начать моментальный сбор средств на лечение.
       </p>
       <div class="button-block">
-        <a class="btn btn-orange" href="/search">
+        <a class="btn btn-orange" href="{{ route('search') }}">
           Начать помогать
         </a>
-        <a class="btn btn-transparent" href="/charity/create">
+        <a class="btn btn-transparent" href="{{ route('charity.create') }}">
           начать сбор средств
         </a>
       </div>
@@ -28,16 +27,16 @@
   </div>
 </div>
 
-
 <div class="card-block container">
   <h2 class="h2Underline">
-    Популярные компании
+    Популярные кампании
   </h2>
   <ul class="card-block-list">
-    @forelse($charities as $key=>$charity)
+    @forelse($charities as $charity)
       <li>
       <a class="single-card" href="/{{ $charity->slug }}">
-        <img src="{{ asset('img/card' . intval($key+1) . '.jpg')}}" alt="">
+        <img src="{{ asset('storage/'. $charity->img_path)}}" alt="{{ $charity->full_name }}" title="{{
+        $charity->full_name }}">
         <div class="text-block">
           <div class="info-block">
             <div class="like">
@@ -79,7 +78,7 @@
             {{ $charity->full_name }}
           </h4>
           <h6>
-            {{ $charity->about }}
+            {{ $charity->purpose }}
           </h6>
           <div class="money-count">
             <div class="money-diagram">
@@ -87,10 +86,10 @@
             </div>
             <div class="money-how">
               <p>
-                Собрали 20 000 грн
+                Собрали 0 грн
               </p>
               <p>
-                из 30 000 грн
+                из {{ $charity->sum }} грн
               </p>
             </div>
           </div>
@@ -99,7 +98,7 @@
       </li>
       @empty
       <p>
-        NO DATA
+        На данный момент доступных сборов нет.
       </p>
     @endforelse
   </ul>
@@ -109,7 +108,6 @@
     </a>
   </div>
 </div>
-
 
 <div class="how-it-work-block">
   <div class="container">
@@ -121,7 +119,6 @@
     <img src="{{ asset('img/how-it-work.jpg') }}" alt="">
   </div>
 </div>
-
 
 <div class="marketing-block container">
   <h2 class="h2Underline">
@@ -197,16 +194,16 @@
   </ul>
 </div>
 
-
 <div class="card-block container">
   <h2 class="h2Underline">
     Помогать легко
   </h2>
   <ul class="card-block-list">
-    @forelse($charities as $key=>$charity)
+    @forelse($charities as $charity)
       <li>
       <a class="single-card" href="/{{ $charity->slug }}">
-        <img src="{{ asset('img/card' . intval($key+1) . '.jpg')}}" alt="">
+          <img src="{{ asset('storage/'. $charity->img_path)}}" alt="{{ $charity->full_name }}" title="{{
+        $charity->full_name }}">
         <div class="text-block">
           <div class="info-block">
             <div class="like">
@@ -248,7 +245,7 @@
             {{ $charity->full_name }}
           </h4>
           <h6>
-            {{ $charity->about }}
+            {{ $charity->purpose }}
           </h6>
           <div class="money-count">
             <div class="money-diagram">
@@ -256,10 +253,10 @@
             </div>
             <div class="money-how">
               <p>
-                Собрали 20 000 грн
+                Собрали 0 грн
               </p>
               <p>
-                из 30 000 грн
+                из {{ $charity->sum }} грн
               </p>
             </div>
           </div>
@@ -268,7 +265,7 @@
       </li>
       @empty
       <p>
-        NO DATA
+          На данный момент доступных сборов нет.
       </p>
     @endforelse
   </ul>
@@ -278,7 +275,6 @@
     </a>
   </div>
 </div>
-
 
 <div class="homepage-blog-section container">
   <h2 class="h2Underline">

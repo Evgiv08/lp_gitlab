@@ -13,4 +13,9 @@ class Category extends Model
     {
         return $query->get();
     }
+
+    public function scopeGetOneCategoryById($query, $id)
+    {
+        return $query->find($id)->first();
+    }
 }

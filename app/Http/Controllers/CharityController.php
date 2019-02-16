@@ -74,7 +74,8 @@ class CharityController extends Controller
      */
     public function show(Charity $charity)
     {
-      return view('site.pages.charities.show', compact('charity'));
+        $category = $this->category->getOneCategoryById($charity->category_id);
+        return view('site.pages.charities.show', compact('charity', 'category'));
     }
 
     /**
