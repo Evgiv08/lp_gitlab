@@ -28,12 +28,12 @@
               </a>
             </li>
             <li>
-              <a href="/search">
+              <a href="{{ route('search') }}">
                 Начать помогать
               </a>
             </li>
             <li>
-              <a href="/">
+              <a href="{{ route('charity.create') }}">
                 Подать заявку
               </a>
             </li>
@@ -104,7 +104,6 @@
               </button>
             @endif
 
-            
           </div>
         </div>
     </div>
