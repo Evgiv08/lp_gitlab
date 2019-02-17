@@ -22,7 +22,7 @@
                         Почта: <span>{{ $client->email }}</span>
                     </h4>
                     <h4>
-                        Номер телефона: <span> {{$client->phone == null? 'не указан' : $client->phone }} </span>
+                        Номер телефона: <span> {{$client->phone ? $client->phone : 'не указан' }} </span>
                     </h4>
                 </div>
                 <div class="block-line"></div>
@@ -484,6 +484,9 @@
                 <div class="my-campaign ">
                     <div class="card-block">
                         <ul class="card-block-list">
+
+
+
                             <li>
                                 <div class="single-card m--my-campaign">
                                   <img src="{{ asset('img/card1.jpg') }}" alt="">
@@ -560,6 +563,9 @@
                                     </div>
                                 </div>
                             </li>
+
+
+
                             <li class="m--add-new">
                                 <a href="{{ route('charity.create') }}">
                                     <div class="add-icon m--large"></div>
