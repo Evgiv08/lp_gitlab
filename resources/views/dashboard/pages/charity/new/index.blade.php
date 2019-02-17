@@ -188,11 +188,7 @@
 
             <div class="account-admin-pagination-wrapper">
                 <div class="account-admin-pagination">
-                    <a class="active" href="">1</a>
-                    <a href="">2</a>
-                    <a href="">3</a>
-                    <a href="">...</a>
-                    <a href="">12</a>
+                    {{ $statuses->links() }}
                 </div>
             </div>
         </div>
