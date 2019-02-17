@@ -127,7 +127,7 @@ class Charity extends Model
     public function scopeSearch($query, $search)
     {
         return $query->whereRaw('searchtext @@ to_tsquery(\'russian\', ?)', [$search])
-            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'russian\', ?))', [$search]);
+            ->orderByRaw('ts_rank(searchtext, to_tsquery(\'russian\', ?)) DESC', [$search]);
     }
 }
 
