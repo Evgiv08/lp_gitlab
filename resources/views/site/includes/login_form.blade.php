@@ -39,7 +39,7 @@
                     </div>
 
                 </form>
-                <a href="/registration" class="no-account">
+                <a href="{{ route('show.client.register.form') }}" class="no-account">
                     Нет аккаунта?
                 </a>
 
