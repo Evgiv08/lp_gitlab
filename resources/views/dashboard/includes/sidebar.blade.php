@@ -45,8 +45,10 @@
             <a href="{{ route('users')}}">Пользователи</a>
         </li>
 
-        <li class="{{ Request::is('dashboard/staff*') ? 'active' : '' }}">
-            <a href="{{ route('staff.index')}}">Команда</a>
-        </li>
+        @if(optional(Auth::guard('staff')->user())->role == 'Admin' AND Auth::guard('staff')->check())
+            <li class="{{ Request::is('dashboard/staff*') ? 'active' : '' }}">
+                <a href="{{ route('staff.index')}}">Команда</a>
+            </li>
+        @endif
     </ul>
 </div>
