@@ -76,7 +76,7 @@ Route::prefix('/dashboard')->group(function () {
     // All staff members in dashboard.
     Route::resource('/staff', 'StaffController', [
         'only' => ['index', 'update', 'destroy']
-    ]);
+    ])->middleware('admin');
 });
 
 /*
