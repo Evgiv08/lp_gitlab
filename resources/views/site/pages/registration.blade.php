@@ -1,6 +1,5 @@
 @extends('site.layout.master')
 
-
 @section('content')
 <div class="registration-block">
   <div class="registration-block-wrapper container">
@@ -25,13 +24,12 @@
       </div>
 
       <div class="block-line"></div>
-
       <div class="registration-block-main-form">
           <h3>
               или зарегистрироваться через email
           </h3>
 
-          <form action="{{ route('client.register') }}" method="post" class="main-form m--registration">
+          <form action="{{ route('client.register') }}" method="POST" class="main-form m--registration">
               @csrf
               <div class="input-wrapper">
                   <label class="label-input">
@@ -49,15 +47,15 @@
               <div class="input-wrapper">
                   <label class="label-input">
                       <span>Ваша почта:</span>
-                      <input type="email" required="" placeholder="vasiliy@lifespulse.com"  name="email" value="{{ old
-                      ('email') }}">
+                      <input type="email" required="" placeholder="vasiliy@lifespulse.com"  name="email"
+                             value="{{ old('email') }}"
+                      >
                       <span class="error"> Некорректный email. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
                       <span>Ваш номер телефона (опционально):</span>
-                      <input type="tel" placeholder="+38  (096) 33 33 333" name="phone" value="{{ old
-                      ('phone') }}">
+                      <input type="tel" placeholder="+38  (096) 33 33 333" name="phone" value="{{ old('phone') }}">
                       <span class="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
                       <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
@@ -77,22 +75,18 @@
               </label>
 
               <label class="label-checkbox">
-
                   <input type="checkbox" name="confirm">
                   <span>
                       <span>
-                            Я соглашаюсь с <a href="/"> Политикой конфиденциальности</a> и <a href="/">Правилами пользования сайтом</a>
+                            Я соглашаюсь с <a href=""> Политикой конфиденциальности</a> и <a href="">Правилами пользования сайтом</a>
                       </span>
                   </span>
               </label>
 
               <div class="button-wrapper">
                   <button class="btn m--with-loader" type="submit">
-
                       <span>создать профиль</span>
-
                       <span class="loader"></span>
-
                   </button>
               </div>
           </form>
@@ -104,7 +98,7 @@
           </div>
 
           <div>
-              <a href="/">Уже есть аккаунт?</a>
+              <a href="">Уже есть аккаунт?</a>
           </div>
       </div>
   </div>

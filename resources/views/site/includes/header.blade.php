@@ -5,78 +5,87 @@
                 <img src="{{ asset('img/img-logo.png') }}" alt="">
             </a>
         </div>
-        <div class="navigation-side">
-          <ul class="navigation">
-            <li>
-              <a href="/">
-                О нас
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                F.A.Q.
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                Успешные сборы
-              </a>
-            </li>
-            <li>
-              <a href="/">
-                Блог
-              </a>
-            </li>
-            <li>
-              <a href="{{ route('search') }}">
-                Начать помогать
-              </a>
-            </li>
-            <li>
-              <a href="{{ route('charity.create') }}">
-                Подать заявку
-              </a>
-            </li>
-          </ul>
-          <div class="button-block">
-              <button class="header-search">
-                  <a href="{{ route('search') }}">
-                  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                       viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-<style type="text/css">
-    .st0 {
-        fill: #E5E5E5;
-    }
-</style>
-                      <g>
-                          <path class="st0" d="M495.6,466.4L373.8,339.6c31.3-37.2,48.5-84.1,48.5-132.9C422.3,92.7,329.5,0,215.6,0S8.8,92.7,8.8,206.7
-		s92.7,206.7,206.7,206.7c42.8,0,83.6-12.9,118.4-37.4l122.8,127.7c5.1,5.3,12,8.3,19.4,8.3c7,0,13.6-2.7,18.7-7.5
-		C505.6,494.2,506,477.1,495.6,466.4z M215.6,53.9c84.3,0,152.8,68.5,152.8,152.8s-68.5,152.8-152.8,152.8S62.8,291,62.8,206.7
-		S131.3,53.9,215.6,53.9z"/>
-                      </g>
-</svg>
-                  </a>
-              </button>
-            @if (Auth::guard('client')->check())
-              <ul class="navigation">
-                <li><a href="{{ route('client.show', Auth::guard('client')->user()->id) }}">{{ Auth::guard('client')
-                ->user()->name
-                }}</a></li>
-{{--              <li><a href="{{ route('client.logout') }}">Выйти</a></li>--}}
-              <li><a href="{{ route('client.logout')}}"
-                     onclick="event.preventDefault();
-                             document.getElementById('logout').submit();">Выйти</a></li>
-              </ul>
 
-              <form id="logout" action="{{ route('client.logout')}}"
-                    method="POST">
-                @csrf
-              </form>
+        <div class="navigation-side">
+            <ul class="navigation">
+                <li>
+                    <a href="/">
+                        О нас
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/">
+                        F.A.Q.
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/">
+                        Успешные сборы
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/">
+                        Блог
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ route('search') }}">
+                        Начать помогать
+                    </a>
+                </li>
+
+                <li>
+                    @if (auth('client')->check())
+                        <a href="{{ route('charity.create') }}">
+                            Подать заявку
+                        </a>
+                    @endif
+                </li>
+            </ul>
+
+            <div class="button-block">
+                <button class="header-search">
+                    <a href="{{ route('search') }}">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: #E5E5E5;
+                                }
+                            </style>
+                            <g>
+                                <path class="st0" d="M495.6,466.4L373.8,339.6c31.3-37.2,48.5-84.1,48.5-132.9C422.3,92.7,329.5,0,215.6,0S8.8,92.7,8.8,206.7s92.7,206.7,206.7,206.7c42.8,0,83.6-12.9,118.4-37.4l122.8,127.7c5.1,5.3,12,8.3,19.4,8.3c7,0,13.6-2.7,18.7-7.5C505.6,494.2,506,477.1,495.6,466.4z M215.6,53.9c84.3,0,152.8,68.5,152.8,152.8s-68.5,152.8-152.8,152.8S62.8,291,62.8,206.7S131.3,53.9,215.6,53.9z"/>
+                            </g>
+                        </svg>
+                    </a>
+            </button>
+
+            @if (auth('client')->check())
+                    <ul class="navigation">
+                        <li>
+                            <a href="{{ route('client.show', auth('client')->user()->id) }}">
+                                {{ auth('client')->user()->name}}
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('client.logout')}}" onclick="event.preventDefault();
+                             document.getElementById('logout').submit();">Выйти
+                            </a>
+                        </li>
+                    </ul>
+
+                    <form id="logout" action="{{ route('client.logout')}}" method="POST">
+                        @csrf
+                    </form>
             @else
-              <button class="header-login-popup">
-                <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                <g>
-                  <path class="st0" d="M512,256C512,114.8,397.2,0,256,0S0,114.8,0,256c0,74.6,32.1,141.8,83.1,188.6l-0.2,0.2l8.3,7
+                  <button class="header-login-popup">
+                      <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                          <g>
+                              <path class="st0" d="M512,256C512,114.8,397.2,0,256,0S0,114.8,0,256c0,74.6,32.1,141.8,83.1,188.6l-0.2,0.2l8.3,7
 		                                   c0.5,0.5,1.1,0.8,1.7,1.3c4.4,3.7,9,7.1,13.6,10.5c1.5,1.1,3,2.2,4.6,3.2c5,3.4,10.1,6.7,15.3,9.8c1.1,0.7,2.3,1.3,3.4,2
 		                                   c5.7,3.2,11.5,6.3,17.5,9.1c0.4,0.2,0.9,0.4,1.3,0.6c19.4,9,40.2,15.7,61.9,19.6c0.6,0.1,1.1,0.2,1.7,0.3
 		                                   c6.7,1.2,13.6,2.1,20.5,2.7c0.8,0.1,1.7,0.1,2.5,0.2c6.9,0.6,13.8,0.9,20.9,0.9c7,0,13.9-0.4,20.7-0.9c0.9-0.1,1.7-0.1,2.6-0.2
@@ -98,10 +107,10 @@
 		                                   c15.8,17.8,13.2,40.6,13.2,40.8l-0.1,53.1l3.1,2.8c3.3,3,5.2,7.1,5.2,11.4v33c0,6.6-4.5,12.7-11,14.7l-4.6,1.4l-1.5,4.6
 		                                   c-5.5,17.1-13.3,32.8-23.2,46.8c-2.4,3.4-4.8,6.5-6.9,8.8l-2.3,2.6v34.4c0,15,8.3,28.5,21.8,35.2l78.8,39.4c0.5,0.3,1,0.5,1.5,0.8
 		                                   C397.3,446.6,396.3,447.3,395.3,448.1z">
-                  </path>
-                </g>
-              </svg>
-              </button>
+                                </path>
+                            </g>
+                      </svg>
+                  </button>
             @endif
 
           </div>

@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Staff;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\StaffRequest;
 
 class StaffController extends Controller
 {
+    protected $staff;
+
     /**
      * Initialise model Staff.
      *
-     * @param Category $staff
+     * @param Staff $staff
      */
     public function __construct(Staff $staff)
     {
@@ -19,38 +20,29 @@ class StaffController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
-     * @return \Illuminate\Http\Response
+     * Display all existing staff.
+     *
+     * @return \Illuminate\View\View $staff array
      */
     public function index()
     {
-        $staff = $this->staff->scopeGetStaff($this->staff);
+        $staff = $this->staff->getStaff();
 
         return view('dashboard.pages.staff.index', compact('staff'));
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Staff.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Staff               $staff
-     *
+     * @param  StaffRequest $request
+     * @param  \App\Staff   $staff
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Staff $staff)
+    public function update(StaffRequest $request, Staff $staff)
     {
-        request()->validate([
-            'email' => ['required', 'email', 'unique:staff,email,'.$staff->id],
-            'role'     => 'required',
-            'password' => 'nullable|string|min:6|confirmed',
-        ]);
+        $staff['role'] = $request['role'];
+        $staff['password'] = bcrypt($request['password']);
 
-        $staff->email = $request->get('email');
-        $staff->role = $request->get('role');
-
-        if ($request->get('password') != null) {
-            $staff->password = bcrypt($request->get('password'));
-        }
         $staff->save();
 
         return redirect()->route('staff.index');
@@ -60,8 +52,8 @@ class StaffController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Staff $staff
-     *
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Staff $staff)
     {
