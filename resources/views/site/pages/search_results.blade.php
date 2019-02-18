@@ -5,7 +5,7 @@
 <div class="search-input-block container">
   <form method="GET">
       <label>
-          <input type="search" id="search_field" required="" placeholder="{{ isset($search_text)? $search_text
+          <input type="search" id="search_field" placeholder="{{ isset($search_text)? $search_text
            : 'Что Вы хотите найти?' }}">
           <button class="header-search" onclick='this.form.action="/search/" + document.getElementById("search_field")
           .value;'>
@@ -20,16 +20,21 @@
                   </svg>
           </button>
       </label>
-      <select name="" id="">
-          <option value="">Сердечно-сосудистые заболевания</option>
+      <select name="category_id" id="category">
+          <option selected disabled>Поиск во всех категориях</option>
+          @forelse( $categories as $category)
+          <option value="{{ $category->id }}">{{ $category->title }}</option>
+          @empty
+          <option>Нет доступных категорий.</option>
+          @endforelse
       </select>
       <div class="search-result-navigation">
           <h2>
               Результаты поиска
           </h2>
           <div class="search-result-sort">
-              <button>Популярные</button>
-              <button>Завершаются</button>
+              <button disabled>Популярные</button>
+              <button disabled>Завершаются</button>
               <button>Новые вверху</button>
               <button>Старые вверху</button>
           </div>
@@ -108,10 +113,9 @@
               </a>
           </li>
           @empty
-              Пожалуйста, начните поиск.
+                  <li>По вашему запросу ничего не найдено.</li>
           @endforelse
       @endisset
-
       </ul>
       <div class="link-wrapper">
           <a href="/">Посмотреть еще</a>
