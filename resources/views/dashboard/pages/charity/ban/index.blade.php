@@ -156,19 +156,15 @@
                         </td>
                     </tr>
                 @empty
-                    {{--todo display if don't have any baned charity--}}
                     <tr>
-                        <td>Все здоровы!! Этот сайт больше не нужен! Расходимся...</td>
+                        <td>Не найдено сборов с данным статусом.</td>
                     </tr>
                 @endforelse
 
             </table>
 
-            <div class="account-admin-pagination-wrapper">
-                <div class="account-admin-pagination">
-                    {{ $statuses->links() }}
-                </div>
-            </div>
+            @include('dashboard.includes.pagination')
+
         </div>
 
     </div>
