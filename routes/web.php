@@ -1,18 +1,17 @@
 <?php
 
+// Login/Logout to Dashboard page
+Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
+    Route::post('/staff/login', 'Auth\LoginController@staffLogin')->name('staff.login');
+    Route::post('/staff/logout', 'Auth\LoginController@staffLogout')->name('staff.logout');
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
 |--------------------------------------------------------------------------
 */
-
-// Auth, logout, register for staff
-Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
-Route::post('/staff/login', 'Auth\LoginController@staffLogin')->name('staff.login');
-Route::post('/staff/logout', 'Auth\LoginController@staffLogout')->name('staff.logout');
-Route::post('/staff/create', 'Auth\RegisterController@createStaff')->name('staff.create');
-
-Route::prefix('/dashboard')->group(function () {
+Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function () {
+//Route::group(['prefix' => 'dashboard'], function () {
 
     // All routes for new charity.
     Route::prefix('/new')->group(function () {
@@ -73,10 +72,15 @@ Route::prefix('/dashboard')->group(function () {
         return view('dashboard.pages.user.index');
     })->name('users');
 
-    // All staff members in dashboard.
-    Route::resource('/staff', 'StaffController', [
-        'only' => ['index', 'update', 'destroy']
-    ])->middleware('admin');
+    /**
+     * Staff
+     */
+    Route::group(['prefix' => 'staff','middleware' => ['admin']], function () {
+        Route::get('/', 'StaffController@index')->name('staff.index');
+        Route::post('/create', 'Auth\StaffRegisterController@createStaff')->name('staff.create');
+        Route::patch('/{staff}/update', 'StaffController@update')->name('staff.update');
+        Route::delete('/{staff}/delete', 'StaffController@destroy')->name('staff.destroy');
+    });
 });
 
 /*
@@ -88,14 +92,12 @@ Route::prefix('/dashboard')->group(function () {
 // Main page.
 Route::get('/', 'CharityController@index')->name('mainpage');
 
-// Show client register form
-Route::get('/registration', 'Auth\ClientRegisterController@index')->name('show.client.register.form');
-
-// Client register method
+/**
+ * Register/Login/Logout
+ */
+Route::get('/registration', 'Auth\ClientRegisterController@index')->name('client.create_form');
 Route::post('/registration', 'Auth\ClientRegisterController@createClient')->name('client.register');
-
-// Login/logout for clients
-Route::post('/', 'Auth\LoginController@clientLogin')->name('client.login');
+Route::post('/login', 'Auth\LoginController@clientLogin')->name('client.login');
 Route::post('/logout', 'Auth\LoginController@clientLogout')->name('client.logout');
 
 // Search
@@ -104,7 +106,7 @@ Route::prefix('/search')->group(function () {
     Route::get('/{search_text}', 'SearchController@show');
 });
 
-// Client show, edit, update, delete
+// Client show
 Route::get('client/{client}', 'ClientController@show')->name('client.show');
 
 // Slug
@@ -112,6 +114,6 @@ Route::get('/{charity}', 'CharityController@show')->name('charity.show');
 
 // Charity
 Route::prefix('/charity')->group(function () {
-    Route::get('/create', 'CharityController@create')->name('charity.create');
+    Route::get('/create', 'CharityController@create')->name('charity.create')->middleware('client');
     Route::post('/store', 'CharityController@store')->name('charity.store');
 });

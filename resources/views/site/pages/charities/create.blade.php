@@ -31,9 +31,11 @@
 
               <label class="label-input">
                   <span>Ваше ФИО</span>
-                  <input name="client_name" value="{{ Auth::guard('client')->user()->name .' '. Auth::guard('client')
-                  ->user()->surname }}" type="text" required>
-                  <input type="hidden" name="client_id" value="{{ Auth::guard('client')->user()->id }}">
+                  <input name="client_name"
+                         value="{{ auth('client')->user()->name .' '. auth('client')->user()->surname }}"
+                         type="text" required
+                  >
+                  <input type="hidden" name="client_id" value="{{ auth('client')->user()->id }}">
                   <!--<span class="info">Вы можете ввести не меньше 80 и не больше 130 знаков, включая пробелы</span>-->
                   <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
               </label>
