@@ -3,14 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Charity;
+use App\Category;
 
 class SearchController extends Controller
 {
     protected $charity;
+    protected $category;
 
-    public function __construct(Charity $charity)
+    public function __construct(Charity $charity, Category $category)
     {
         $this->charity = $charity;
+        $this->category = $category;
     }
 
     /**
@@ -20,7 +23,8 @@ class SearchController extends Controller
      */
     public function index()
     {
-        return view('site.pages.search_results');
+        $categories = $this->category->getAllCategories();
+        return view('site.pages.search_results', compact('categories'));
     }
 
     /**
@@ -31,8 +35,13 @@ class SearchController extends Controller
      */
     public function show($search_text)
     {
-        $charities = $this->charity->search($search_text)->get();
-
-        return view('site.pages.search_results', compact('search_text', 'charities'));
+        if (request()->get('category_id') !== null) {
+            $category_id = request()->get('category_id');
+            $charities = $this->charity->search($search_text)->where('category_id', $category_id)->get();
+        } else {
+            $charities = $this->charity->search($search_text)->get();
+        }
+        $categories = $this->category->getAllCategories();
+        return view('site.pages.search_results', compact('search_text', 'charities', 'categories'));
     }
 }
