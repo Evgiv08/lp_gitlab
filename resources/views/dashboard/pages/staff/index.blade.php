@@ -4,15 +4,16 @@
 
 @section('content')
     <div class="account-admin-content-block account-admin-staff">
-
+        {{--Popup Window--}}
         <div class="popup m--admin-add-new-staff hide-popup">
             <div class="popup-content-block">
                 <div class="popup-content-block-wrapper">
                     <div class="popup-step">
-
+                        {{--Create new member of Staff--}}
                         <form class="main-form" method="POST" action="{{ route('staff.create') }}">
                             @csrf
                             <h3>Добавить пользователя</h3>
+
                             <label class="label-input">
                                 <span>Имя и фамилия</span>
                                 <input type="text" name="name" value="{{ old('name') }}" required>
@@ -28,9 +29,9 @@
                             <label class="label-select">
                                 <span>Роль в комманде</span>
                                 <select name="role" id="">
-                                    <option value="SEO">СЕО</option>
-                                    <option value="Moderator">Модератор</option>
-                                    <option value="Admin">Администратор</option>
+                                    <option value="{{__('app.SEO')}}">СЕО</option>
+                                    <option value="{{__('app.Moderator')}}">Модератор</option>
+                                    <option value="{{__('app.Admin')}}">Администратор</option>
                                 </select>
                             </label>
 
@@ -48,21 +49,20 @@
 
                             <div class="button-wrapper">
                                 <button type="submit" class="btn m--with-loader">
-                                        <span>
-                                            Сохранить
-                                        </span>
+                                    <span>
+                                        Сохранить
+                                    </span>
                                     <span class="loader"></span>
                                 </button>
                             </div>
-
                         </form>
-
                     </div>
                 </div>
-
             </div>
         </div>
+        {{--Popup Window end--}}
 
+        {{--Table Content--}}
         <header>
             <h1>
                 Команда
@@ -70,6 +70,7 @@
 
             <button type="button" class="account-admin-new-staff">Добавить пользователя</button>
         </header>
+
         <div class="account-admin-staff-wrapper">
             <table class="account-admin-table">
                 <tr class="title">
@@ -78,10 +79,11 @@
                     <th>Роль</th>
                     <th>Действия</th>
                 </tr>
+
                 @forelse($staff as $employee)
                     <tr>
                         <td>{{ $employee->id }}</td>
-                        <td>{{ $employee->name }}</td>
+                        <td>{{ $employee->name }} - {{ $employee->email }}</td>
                         <td>{{ $employee->role }}</td>
                         <td class="button-block">
                             <div class="popup m--admin-edit-staff hide-popup">
@@ -89,31 +91,37 @@
                                     <div class="popup-content-block-wrapper">
                                         <div class="popup-step">
 
-                                            <form class="main-form" method="POST" action="{{ route('staff.update', $employee->id) }}">
+                                            {{--Update Staff--}}
+                                            <form class="main-form" method="POST"
+                                                  action="{{ route('staff.update', $employee->id) }}"
+                                            >
                                                 @method('PATCH')
                                                 @csrf
                                                 <h3>Изменить профиль</h3>
 
-                                                <label class="label-input">
-                                                    <span>Email</span>
-                                                    <input type="email" name="email" value="{{ $employee->email }}"
-                                                           required>
-                                                    <span class="error"> Некорректный email. Попробуйте еще раз</span>
-                                                </label>
+                                                {{--<label class="label-input">--}}
+                                                    {{--<span>Email</span>--}}
+                                                    {{--<input type="email" name="email" value="{{ $employee->email }}"--}}
+                                                           {{--disabled>--}}
+                                                {{--</label>--}}
 
                                                 <label class="label-select">
                                                     <span>Роль в комманде</span>
                                                     <select name="role">
-                                                        <option value="SEO" {{ $employee->role == 'SEO' ? 'selected' : ''}}>
+                                                        <option value="{{__('app.SEO')}}"
+                                                                {{ $employee->role == __('app.SEO') ? 'selected' : ''}}
+                                                        >
                                                             СЕО
                                                         </option>
 
-                                                        <option value="Moderator"
-                                                                {{ $employee->role == 'Moderator' ? 'selected' : ''}}>
+                                                        <option value="{{__('app.Moderator')}}"
+                                                                {{ $employee->role == __('app.Moderator') ? 'selected' : ''}}>
                                                             Модератор
                                                         </option>
 
-                                                        <option value="Admin" {{ $employee->role == 'Admin' ? 'selected' : ''}}>
+                                                        <option value="{{__('app.Admin')}}"
+                                                                {{ $employee->role == __('app.Admin') ? 'selected' : ''}}
+                                                        >
                                                             Администратор
                                                         </option>
                                                     </select>
@@ -139,15 +147,11 @@
                                                         <span class="loader"></span>
                                                     </button>
                                                 </div>
-
                                             </form>
-
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
-
 
                             <button class="admin-edit-staff">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"
@@ -157,6 +161,7 @@
                                 </svg>
                             </button>
 
+                            {{--Delete Staff--}}
                             <a href="{{ route('staff.destroy', $employee->id)}}"
                                onclick="event.preventDefault();
                                        document.getElementById('delete-staff-{{ $employee->id }}').submit();">
@@ -180,6 +185,5 @@
 
             </table>
         </div>
-
     </div>
 @endsection

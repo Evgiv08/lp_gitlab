@@ -2,13 +2,12 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
-use Illuminate\Support\Facades\Auth;
+use Closure;;
 
-class AdminMiddleware
+class AdminRouteControl
 {
     /**
-     * Handle an incoming request.
+     * Specified  routes  for admin only.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -16,9 +15,10 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::guard('staff')->user()->role != 'Admin') {
-            return redirect()->back();
-        };
+        if (auth('staff')->user()->role != __('app.Admin')) {
+            return back();
+        }
+
         return $next($request);
     }
 }
