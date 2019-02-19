@@ -162,12 +162,12 @@
                 </tr>
 
 
-                @forelse ($statuses as $status)
+                @forelse ($charities as $charity)
                     <tr>
-                        <td>{{ $status->charity->client_id }}</td>
-                        <td>{{ $status->created_at->format('d/m/y') }}</td>
+                        <td>{{ $charity->client->name }}</td>
+                        <td>{{ $charity->created_at->format('d/m/y') }}</td>
                         <td>0</td>
-                        <td>{{ $status->charity->sum }}</td>
+                        <td>{{ $charity->sum }}</td>
                         <td>0</td>
                         <td>0</td>
                         <td class="button-block">
@@ -181,6 +181,7 @@
                         </td>
                     </tr>
                 @empty
+                    {{--todo display if don't have any active charity--}}
                     <tr>
                         <td>Не найдено сборов с данным статусом.</td>
                     </tr>
