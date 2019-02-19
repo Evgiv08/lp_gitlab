@@ -28,19 +28,19 @@ class CharityController extends Controller
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the active charities.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-      $charities = $this->charity->RandomCards(3)->get();
+      $charities = $this->status->getActiveCharitiesForMainPage();
 
       return view('site.pages.mainpage', compact('charities'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new charity.
      *
      * @return \Illuminate\Http\Response
      */
@@ -51,7 +51,7 @@ class CharityController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created charity in bd and storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -61,15 +61,14 @@ class CharityController extends Controller
         $charity = $this->charity->storeCharity($request);
         $this->document->storeDocuments($request, $charity->id, $charity->slug);
         $this->banksInfo->storeBanksInfo($charity->id, $request);
-        $this->status->storeDraftStatus($charity->id);
 
-        return redirect('/');
+        return redirect('/client/'.$request->client_id);
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified charity.
      *
-     * @param  int  $id
+     * @param  Charity  $charity
      * @return \Illuminate\Http\Response
      */
     public function show(Charity $charity)

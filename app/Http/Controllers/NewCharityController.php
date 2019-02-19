@@ -13,11 +13,15 @@ class NewCharityController extends Controller
         $this->status = $status;
     }
 
-    // show all new charities
+    /**
+     * Display a listing of the new charities in dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $statuses = $this->status->getNewCharity();
+        $charities = $this->status->getNewCharities();
 
-        return view('dashboard.pages.charity.new.index', compact('statuses'));
+        return view('dashboard.pages.charity.new.index', compact('charities'));
     }
 }

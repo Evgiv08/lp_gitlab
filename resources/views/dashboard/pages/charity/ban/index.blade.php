@@ -138,13 +138,13 @@
                     <th>Действия</th>
                 </tr>
 
-                @forelse ($statuses as $status)
+                @forelse ($charities as $charity)
                     <tr>
-                        <td>{{ $status->charity->client_id }}</td>
-                        <td>{{ $status->created_at->format('d/m/y') }}</td>
-                        <td>{{ Carbon\Carbon::parse($status->updated_at)->diffInDays($status->charity->finish_date) }}</td>
-                        <td>{{ $status->updated_at->format('d/m/y') }}</td>
-                        <td>{{ $status->reason }}</td>
+                        <td>{{ $charity->client_id }}</td>
+                        <td>{{ $charity->start_date->format('d/m/y') }}</td>
+                        <td>{{ Carbon\Carbon::parse($charity->ban_date)->diffInDays($charity->finish_date) }}</td>
+                        <td>{{ $charity->ban_date->format('d/m/y') }}</td>
+                        <td>{{ $charity->ban_reason }}</td>
                         <td class="button-block">
                             <a title="просмотр" href="{{ route('ban_show') }}">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="eye"

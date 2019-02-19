@@ -13,11 +13,15 @@ class BanCharityController extends Controller
         $this->status = $status;
     }
 
-    // show all baned charities
+    /**
+     * Display a listing of the banned charities in dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $statuses = $this->status->getBanCharity();
+        $charities = $this->status->getBannedCharities();
 
-        return view('dashboard.pages.charity.ban.index', compact('statuses'));
+        return view('dashboard.pages.charity.ban.index', compact('charities'));
     }
 }

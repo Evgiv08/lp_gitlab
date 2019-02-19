@@ -7,51 +7,42 @@ use Illuminate\Database\Eloquent\Model;
 class CharityStatuses extends Model
 {
     protected $fillable = [
-        'charity_id',
-        'draft',
-        'active',
-        'ban',
-        'done',
-        'reason'
+        'status'
     ];
 
-    // store new draft CharityStatus into db
-    public function storeDraftStatus($charity_id)
+    //status has many charities
+    public function charities()
     {
-        $this->charity_id = $charity_id;
-        $this->draft = 1;
-
-        $this->save();
+        return $this->hasMany('App\Charity', 'status_id');
     }
 
-    // get all new charities
-    public function scopeGetNewCharity($query)
+    // get all active charities for main page
+    public function getActiveCharitiesForMainPage()
     {
-        return $query->where('draft', 1)->paginate(1);
+        return $this->where('status', 'active')->first()->charities;
     }
 
-    //gel all active charities
-    public function scopeGetActiveCharity($query)
+    // get all new charities for dashboard with pagination
+    public function getNewCharities()
     {
-        return $query->where('active', 1)->paginate(1);
+        return $this->where('status', 'draft')->first()->charities()->paginate(5);
     }
 
-    //get all completed charities
-    public function scopeGetCompletedCharity($query)
+    // get all active charities for dashboard with pagination
+    public function getActiveCharities()
     {
-        return $query->where('done', 1)->paginate(1);
+        return $this->where('status', 'active')->first()->charities()->paginate(5);
     }
 
-    //get all baned charities
-    public function scopeGetBanCharity($query)
+    // get all completed charities for dashboard with pagination
+    public function getCompletedCharities()
     {
-        return $query->where('ban', 1)->paginate(1);
+        return $this->where('status', 'done')->first()->charities()->paginate(5);
     }
 
-    //status belongs to charity
-    public function charity()
+    // get all banned charities for dashboard with pagination
+    public function getBannedCharities()
     {
-        return $this->belongsTo(Charity::class);
+        return $this->where('status', 'ban')->first()->charities()->paginate(5);
     }
-
 }

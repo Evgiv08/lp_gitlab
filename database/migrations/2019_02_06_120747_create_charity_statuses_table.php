@@ -15,17 +15,7 @@ class CreateCharityStatusesTable extends Migration
     {
         Schema::create('charity_statuses', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('charity_id');
-            $table->boolean('draft')->default(0);
-            $table->boolean('active')->default(0);
-            $table->boolean('ban')->default(0);
-            $table->boolean('done')->default(0);
-            $table->text('reason')->nullable();
-            $table->timestamps();
-
-            $table->foreign('charity_id')
-                ->references('id')->on('charities')
-                ->onDelete('cascade');
+            $table->string('status');
         });
     }
 

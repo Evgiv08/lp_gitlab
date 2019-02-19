@@ -15,6 +15,14 @@ class Document extends Model
         'file_path'
     ];
 
+    //TODO: test this
+    // one docoment for one charity
+    public function charity()
+    {
+        return $this->belongsTo('App\Charity', 'charity_id');
+    }
+
+    // TODO: refactor
     // move new documets to storage
     public function storeDocuments($request, $charity_id, $slug)
     {
@@ -32,6 +40,7 @@ class Document extends Model
         }
     }
 
+    // TODO: refactor
     // store new document information in db from loop
     public function storeDocumentsInfo($charity_id, $title, $path)
     {
