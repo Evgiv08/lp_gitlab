@@ -23,12 +23,41 @@ class Charity extends Model
         'start_date',
         'finish_date',
         'slug',
-        'img_path'
+        'img_path',
+        'status_id',
+        'ban_reason',
+        'ban_date'
     ];
 
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    // get charities for client
+    public function client()
+    {
+        return $this->belongsTo('App\Client', 'client_id');
+    }
+
+    // charity has ONLY one status
+    public function status()
+    {
+        return $this->hasOne('App\CharityStatuses', 'status_id');
+    }
+
+    //TODO: test this
+    // charity has one bank information
+    public function banks_info()
+    {
+        return $this->hasOne('App\BanksInfo');
+    }
+
+    //TODO: test this
+    // charity has one or more documents
+    public function documents()
+    {
+        return $this->hasMany('App\Document');
     }
 
     public function getAgeAttribute()
@@ -64,6 +93,7 @@ class Charity extends Model
         $this->category_id = $request->category_id;
         $this->sum = $request->sum;
         $this->term = $request->term;
+        $this->status_id = 1;
 
         // create slug from full_name
         $this->slug = $this->createSlug($full_name);
@@ -109,12 +139,6 @@ class Charity extends Model
         $path = $slug.'/'.$title;
 
         return $path;
-    }
-
-    //charity has one status
-    public function charityStatus()
-    {
-        return $this->hasOne(CharityStatuses::class);
     }
 
     //charity belongs to category

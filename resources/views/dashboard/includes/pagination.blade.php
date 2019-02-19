@@ -1,16 +1,16 @@
 <div class="account-admin-pagination-wrapper">
     <div class="account-admin-pagination">
-        @if( $statuses->onFirstPage())
-            <a class="active" href="#">{{ $statuses->currentPage() }}</a>
+        @if( $charities->onFirstPage())
+            <a class="active" href="#">{{ $charities->currentPage() }}</a>
         @else
             <a href="{{ Request::url() }}?page=1"><<</a>
-            <a href="{{ $statuses->previousPageUrl() }}"><</a>
-            <a class="active" href="#">{{ $statuses->currentPage() }}</a>
+            <a href="{{ $charities->previousPageUrl() }}"><</a>
+            <a class="active" href="#">{{ $charities->currentPage() }}</a>
         @endif
 
-        @if( $statuses->hasMorePages() )
-            <a href="{{ $statuses->nextPageUrl() }}">></a>
-            <a href="{{ Request::url() }}?page={{ $statuses->lastPage() }}">>></a>
+        @if( $charities->hasMorePages() )
+            <a href="{{ $charities->nextPageUrl() }}">></a>
+            <a href="{{ Request::url() }}?page={{ $charities->lastPage() }}">>></a>
         @endif
     </div>
 </div>

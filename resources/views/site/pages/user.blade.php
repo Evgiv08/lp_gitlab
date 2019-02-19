@@ -51,10 +51,12 @@
                 <button type="button" class=" follow active">Я слежу</button>
                 <button type="button" class="my-campaign ">Мои публикации</button>
 
+                @if( count($charities) > 0 )
                 <a href="{{ route('charity.create') }}">
                     <div class="add-icon"></div>
                     <span>Добавить новую публикацию</span>
                 </a>
+                @endif
             </div>
             <div class="user-account-main-block-container">
                 <div class="follow active ">
@@ -484,13 +486,11 @@
                 <div class="my-campaign ">
                     <div class="card-block">
                         <ul class="card-block-list">
-
-
-
+                @forelse( $charities as $charity )
                             <li>
                                 <div class="single-card m--my-campaign">
-                                  <img src="{{ asset('img/card1.jpg') }}" alt="">
-
+                                    <img src="{{ asset('storage/'. $charity->img_path)}}" alt="{{ $charity->full_name }}" title="{{
+        $charity->full_name }}">
                                     <div class="text-block">
                                         <div class="info-block">
                                             <div class="like">
@@ -531,18 +531,17 @@
                                             </div>
                                         </div>
                                         <h4>
-                                            Камишанченко Оксана
+                                            {{ $charity->full_name }}
                                         </h4>
                                         <h6>
-                                            Острое нарушение мозгового кровообращения по ишемическому типу в басейне левой внутренней сонной
-                                            артерии
+                                            {{ $charity->purpose }}
                                         </h6>
 
                                         <button class="btn btn-transparent m--noactive">
                                             Закончить сбор средств
                                         </button>
 
-                                        <a href="/slug" class="btn btn-transparent">
+                                        <a href="/{{ $charity->slug }}" class="btn btn-transparent">
                                             Подробнее
                                         </a>
 
@@ -553,25 +552,24 @@
 
                                             <div class="money-how">
                                                 <p>
-                                                    Собрали 20 000 грн
+                                                    Собрали 0 грн
                                                 </p>
                                                 <p>
-                                                    из 30 000 грн
+                                                    из {{ $charity->sum }} грн
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-
-
-
-                            <li class="m--add-new">
-                                <a href="{{ route('charity.create') }}">
-                                    <div class="add-icon m--large"></div>
-                                    <span>Добавить новую публикацию</span>
-                                </a>
-                            </li>
+            @empty
+                                <li class="m--add-new">
+                                    <a href="{{ route('charity.create') }}">
+                                        <div class="add-icon m--large"></div>
+                                        <span>Добавить новую публикацию</span>
+                                    </a>
+                                </li>
+            @endforelse
                         </ul>
                     </div>
                 </div>

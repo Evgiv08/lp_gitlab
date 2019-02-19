@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\App;
 
 class Client extends Authenticatable
 {
@@ -16,11 +17,17 @@ class Client extends Authenticatable
         'remember_token', 'password'
     ];
 
+    // get charities for client
     public function charities()
     {
-        return $this->hasMany(Charity::class, 'client_id');
+        return $this->hasMany('App\Charity');
     }
 
+    // get all client charities
+    public function getClientCharities($client)
+    {
+        return $client->charities;
+    }
 //    public function appeals()
 //    {
 //        return $this->hasMany(Appeals::class, 'client_id');
