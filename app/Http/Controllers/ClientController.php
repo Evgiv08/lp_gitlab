@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ClientController extends Controller
 {
+    protected $client;
+
+    public function __construct(Client $client)
+    {
+        $this->client = $client;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +53,8 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('site.pages.user', compact('client'));
+        $charities = $this->client->getClientCharities($client);
+        return view('site.pages.user', compact('client', 'charities'));
     }
 
     /**

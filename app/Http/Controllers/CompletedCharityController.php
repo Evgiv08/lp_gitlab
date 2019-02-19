@@ -13,11 +13,15 @@ class CompletedCharityController extends Controller
         $this->status = $status;
     }
 
-    // show all completed charities
+    /**
+     * Display a listing of the completed charities in dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $statuses = $this->status->getCompletedCharity();
+        $charities = $this->status->getCompletedCharities();
 
-        return view('dashboard.pages.charity.completed.index', compact('statuses'));
+        return view('dashboard.pages.charity.completed.index', compact('charities'));
     }
 }

@@ -13,11 +13,15 @@ class ActiveCharityController extends Controller
         $this->status = $status;
     }
 
-    // show all active charities
+    /**
+     * Display a listing of the active charities in dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $statuses = $this->status->getActiveCharity();
+        $charities = $this->status->getActiveCharities();
 
-        return view('dashboard.pages.charity.active.index', compact('statuses'));
+        return view('dashboard.pages.charity.active.index', compact('charities'));
     }
 }

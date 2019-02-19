@@ -18,6 +18,13 @@ class BanksInfo extends Model
         'inn'
     ];
 
+    //TODO: test this
+    // one information for one charity
+    public function charity()
+    {
+        return $this->belongsTo('App\Charity', 'charity_id');
+    }
+
     // store new BanksInfo in db
     public function storeBanksInfo($charity_id, $request)
     {
