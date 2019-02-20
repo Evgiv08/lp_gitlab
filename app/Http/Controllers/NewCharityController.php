@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CharityStatuses;
+use App\Charity;
 
 class NewCharityController extends Controller
 {
@@ -23,5 +24,15 @@ class NewCharityController extends Controller
         $charities = $this->status->getNewCharities();
 
         return view('dashboard.pages.charity.new.index', compact('charities'));
+    }
+
+    /**
+     * Certan charity in display.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Charity $charity)
+    {
+        return view('dashboard.pages.charity.new.show', compact('charity'));
     }
 }

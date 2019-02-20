@@ -19,9 +19,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         Route::get('/', 'NewCharityController@index')->name('new.charity.index');
 
         // Show one new charity in dashboard.
-        Route::get('/show', function () {
-            return view('dashboard.pages.charity.new.show');
-        })->name('new_show');
+        Route::get('/{charity}/show/', 'NewCharityController@show')->name('new.charity.show');
     });
 
     // All routes for active charity.
@@ -30,9 +28,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         Route::get('/', 'ActiveCharityController@index')->name('active.charity.index');
 
         // Show one active charity in dashboard.
-        Route::get('/show', function () {
-            return view('dashboard.pages.charity.active.show');
-        })->name('active_show');
+        Route::get('{charity}/show', 'ActiveCharityController@show')->name('active.charity.show');
     });
 
     // All routes for completed charity.
