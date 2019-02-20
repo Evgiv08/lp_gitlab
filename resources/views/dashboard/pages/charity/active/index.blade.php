@@ -171,7 +171,7 @@
                         <td>0</td>
                         <td>0</td>
                         <td class="button-block">
-                            <a title="просмотреть" href="{{ route('active_show') }}">
+                            <a title="просмотреть" href="{{ route('active.charity.show', $charity->slug) }}">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                      class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 576 512">
