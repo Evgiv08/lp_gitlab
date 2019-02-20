@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
-
+use Illuminate\Support\Facades\Storage;
 
 class Charity extends Model
 {
@@ -43,10 +43,9 @@ class Charity extends Model
     // charity has ONLY one status
     public function status()
     {
-        return $this->hasOne('App\CharityStatuses', 'status_id');
+        return $this->belongsTo('App\CharityStatuses', 'status_id');
     }
 
-    //TODO: test this
     // charity has one bank information
     public function banks_info()
     {
@@ -93,7 +92,7 @@ class Charity extends Model
         $this->category_id = $request->category_id;
         $this->sum = $request->sum;
         $this->term = $request->term;
-        $this->status_id = 1;
+        $this->status_id = config('constants.draft');
 
         // create slug from full_name
         $this->slug = $this->createSlug($full_name);
@@ -141,6 +140,12 @@ class Charity extends Model
         return $path;
     }
 
+    // delete image from storage
+    public function deleteImage($img_path)
+    {
+        Storage::disk('public')->delete($img_path);
+    }
+
     //charity belongs to category
     public function category()
     {
@@ -152,6 +157,60 @@ class Charity extends Model
     {
         return $query->whereRaw('searchtext @@ to_tsquery(\'russian\', ?)', [$search])
             ->orderByRaw('ts_rank(searchtext, to_tsquery(\'russian\', ?)) DESC', [$search]);
+    }
+
+    // ban active charity for reason
+    public function banActivecharity($charity)
+    {
+        $charity->status_id = config('constants.ban');
+        $charity->ban_date = Carbon::now();
+        $charity->ban_reason = request()->get('reason');
+
+        $charity->save();
+    }
+
+    // unban charity and return active status
+    public function unbanCharity($charity)
+    {
+        $charity->status_id = config('constants.active');
+        $charity->ban_date = null;
+        $charity->ban_reason = null;
+
+        $charity->save();
+    }
+
+    // edit new charity in dashboard
+    public function editNewCharity($charity)
+    {
+        $charity->purpose = request()->get('purpose');
+        $charity->about = request()->get('about');
+        $charity->category_id = request()->get('category_id');
+
+        $charity->save();
+    }
+
+    // publish new charity (change its status to active)
+    public function publishNewCharity($charity)
+    {
+        $charity->status_id = config('constants.active');
+        $charity->start_date = Carbon::now();
+
+        $charity->save();
+    }
+
+    // delete new charity in dashboard
+    public function deleteNewCharity($charity)
+    {
+        $this->deleteImage($charity->img_path);
+        $charity->delete();
+    }
+
+    // return charity status draft
+    public function returnNewCharity($charity)
+    {
+        $charity->status_id = config('constants.returned');
+
+        $charity->save();
     }
 }
 

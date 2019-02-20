@@ -37,4 +37,9 @@ class Client extends Authenticatable
 //    {
 //        return $this->hasMany(Mark::class, 'client_id');
 //    }
+
+    public function scopeGetClients($query)
+    {
+        return $query->latest()->get();
+    }
 }

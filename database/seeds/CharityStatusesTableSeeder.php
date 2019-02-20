@@ -13,9 +13,10 @@ class CharityStatusesTableSeeder extends Seeder
     {
         DB::table('charity_statuses')->insert([
             ['id' => 1, 'status' => 'draft'],
-            ['id' => 2, 'status' => 'active'],
-            ['id' => 3, 'status' => 'done'],
-            ['id' => 4, 'status' => 'ban']
+            ['id' => 2, 'status' => 'returned'],
+            ['id' => 3, 'status' => 'active'],
+            ['id' => 4, 'status' => 'done'],
+            ['id' => 5, 'status' => 'ban']
         ]);
     }
 }

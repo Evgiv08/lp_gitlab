@@ -21,7 +21,9 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        $clients = $this->client->getClients();
+
+        return view('dashboard.pages.user.index', compact('clients'));
     }
 
     /**
