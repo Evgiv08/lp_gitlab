@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Storage;
 
 class Document extends Model
 {
@@ -30,11 +31,11 @@ class Document extends Model
 
         foreach ($files as $title => $file) {
             $extension = $file->getClientOriginalExtension();
-            $title = uniqid($title.'_', false) . '.' . $extension;
+            $file_title = uniqid($title.'_', false) . '.' . $extension;
 
-            $file->move(storage_path() . '/app/public/'.$slug.'/documents/', $title);
+            $file->move(storage_path() . '/app/public/'.$slug.'/documents/', $file_title);
 
-            $path = $slug.'/documents/'.$title;
+            $path = $slug.'/documents/'.$file_title;
 
             $this->storeDocumentsInfo($charity_id, $title, $path);
         }
@@ -51,5 +52,17 @@ class Document extends Model
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
+    }
+
+    public function deleteAllCharityDocuments($charity)
+    {
+        $documents = $this->where('charity_id', $charity->id)->get();
+
+        foreach ($documents as $document) {
+            Storage::disk('public')->delete($document->file_path);
+        }
+
+        // TODO: fix it - dir'll be deleted
+        Storage::deleteDirectory($charity->slug);
     }
 }

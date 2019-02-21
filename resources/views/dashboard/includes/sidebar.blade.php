@@ -44,7 +44,7 @@
         </li>
 
         <li class="{{ Request::is('dashboard/users*') ? 'active' : '' }}">
-            <a href="{{ route('users')}}">Пользователи</a>
+            <a href="{{ route('client.index')}}">Пользователи</a>
         </li>
 
         @if(auth('staff')->user()->role == __('app.Admin'))
