@@ -9,4 +9,7 @@ return [
     // Default password for Admin
     'default' => 'adminpass',
 
+    // StaffRequest
+    'staff.create' => 'dashboard/staff/create',
+    'staff.update' => 'dashboard/staff/*/update',
 ];

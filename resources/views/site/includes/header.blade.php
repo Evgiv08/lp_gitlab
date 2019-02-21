@@ -61,9 +61,9 @@
                             </g>
                         </svg>
                     </a>
-            </button>
+                </button>
 
-            @if (auth('client')->check())
+                @if (auth('client')->check())
                     <ul class="navigation">
                         <li>
                             <a href="{{ route('client.show', auth('client')->user()->id) }}">
@@ -81,11 +81,11 @@
                     <form id="logout" action="{{ route('client.logout')}}" method="POST">
                         @csrf
                     </form>
-            @else
-                  <button class="header-login-popup">
-                      <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-                          <g>
-                              <path class="st0" d="M512,256C512,114.8,397.2,0,256,0S0,114.8,0,256c0,74.6,32.1,141.8,83.1,188.6l-0.2,0.2l8.3,7
+                @else
+                    <button class="header-login-popup">
+                        <svg id="Capa_1" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                            <g>
+                                <path class="st0" d="M512,256C512,114.8,397.2,0,256,0S0,114.8,0,256c0,74.6,32.1,141.8,83.1,188.6l-0.2,0.2l8.3,7
 		                                   c0.5,0.5,1.1,0.8,1.7,1.3c4.4,3.7,9,7.1,13.6,10.5c1.5,1.1,3,2.2,4.6,3.2c5,3.4,10.1,6.7,15.3,9.8c1.1,0.7,2.3,1.3,3.4,2
 		                                   c5.7,3.2,11.5,6.3,17.5,9.1c0.4,0.2,0.9,0.4,1.3,0.6c19.4,9,40.2,15.7,61.9,19.6c0.6,0.1,1.1,0.2,1.7,0.3
 		                                   c6.7,1.2,13.6,2.1,20.5,2.7c0.8,0.1,1.7,0.1,2.5,0.2c6.9,0.6,13.8,0.9,20.9,0.9c7,0,13.9-0.4,20.7-0.9c0.9-0.1,1.7-0.1,2.6-0.2
@@ -109,11 +109,10 @@
 		                                   C397.3,446.6,396.3,447.3,395.3,448.1z">
                                 </path>
                             </g>
-                      </svg>
-                  </button>
-            @endif
-
-          </div>
+                        </svg>
+                    </button>
+                @endif
+            </div>
         </div>
     </div>
 </header>

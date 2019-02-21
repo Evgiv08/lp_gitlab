@@ -107,7 +107,7 @@
 
                                                 <label class="label-select">
                                                     <span>Роль в комманде</span>
-                                                    <select name="role">
+                                                    <select name="role" {{ $employee->role == __('app.Admin') ? 'disabled' : ''}}>
                                                         <option value="{{__('app.SEO')}}"
                                                                 {{ $employee->role == __('app.SEO') ? 'selected' : ''}}
                                                         >

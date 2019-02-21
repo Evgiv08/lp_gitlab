@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Staff;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StaffRegisterRequest;
+use App\Http\Requests\StaffRequest;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 class StaffRegisterController extends Controller
@@ -20,10 +20,10 @@ class StaffRegisterController extends Controller
     /**
      * Create new member of Staff.
      *
-     * @param StaffRegisterRequest $request
+     * @param StaffRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function createStaff(StaffRegisterRequest $request)
+    protected function createStaff(StaffRequest $request)
     {
         Staff::create([
             'name'  => ucwords($request['name']),

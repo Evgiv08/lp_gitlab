@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\CategoryRequest;
 
 class CategoryController extends Controller
 {
@@ -33,32 +34,26 @@ class CategoryController extends Controller
     /**
      * Create new category in admin panel.
      *
+     * @param CategoryRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CategoryRequest $request)
     {
-        request()->validate([
-            'title' => 'required',
-        ]);
+        $this->category->create($request->all());
 
-        $this->category->create(request()->all());
-
-        return redirect('/dashboard/category');
+        return back();
     }
 
     /**
      * Update the category resource in admin panel.
      *
-     * @param Category $category
+     * @param CategoryRequest $request
+     * @param Category        $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        request()->validate([
-            'title' => 'required',
-        ]);
-
-        $category->update(request()->all());
+        $category->update($request->all());
 
         return redirect('/dashboard/category');
     }
@@ -75,17 +70,5 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect('/dashboard/category');
-    }
-
-    /**
-     * Show categories on the charity create page.
-     *
-     * @return array $categories
-     */
-    public function show()
-    {
-//        $categories = $this->category->all();
-//
-//        return view('site.pages.charities.create', compact('categories'));
     }
 }

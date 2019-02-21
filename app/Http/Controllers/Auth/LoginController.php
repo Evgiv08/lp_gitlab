@@ -39,6 +39,10 @@ class LoginController extends Controller
      */
     public function showStaffLoginForm()
     {
+        if (auth('staff')->check()) {
+            return back();
+        }
+
         return view('dashboard.pages.login');
     }
 

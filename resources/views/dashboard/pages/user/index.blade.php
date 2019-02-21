@@ -22,21 +22,16 @@
                 <th>Собрал</th>
                 <th>Действия</th>
             </tr>
-            @forelse($clients as $client)
             <tr>
-                <td>{{ $client->id }}</td>
-                <td>{{ $client->name }} {{ $client->surname }}</td>
+                <td>1</td>
+                <td>Камишанченко Оксана</td>
                 <td>
-                    {{ $client->email }}
+                    aezak@mi
                 </td>
                 <td>
-
-                    @forelse( $client->charities as $charity)
-                        <a href="#">{{ $charity->id }}</a>
-                    @empty
-                        Пользователь не оставлял заявок.
-                    @endforelse
-
+                    {{--<a href="{{ route('active.charity.show') }}">2112</a><br>--}}
+                    {{--<a href="{{ route('new_show') }}">12</a><br>--}}
+                    {{--<a href="{{ route('ban_show') }}">786</a>--}}
                 </td>
                 <td>
                     2 000$
@@ -54,11 +49,6 @@
                     </a>
                 </td>
             </tr>
-            @empty
-            <tr>
-                Пользователи не найдены.
-            </tr>
-            @endforelse
 
         </table>
     </div>

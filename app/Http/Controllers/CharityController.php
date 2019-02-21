@@ -5,9 +5,10 @@ namespace App\Http\Controllers;
 use App\Charity;
 use App\Document;
 use App\BanksInfo;
-use App\CharityStatuses;
 use App\Category;
-use Illuminate\Http\Request;
+use App\CharityStatuses;
+use App\Http\Requests\CharityRequest;
+//use Illuminate\Http\Request;
 
 class CharityController extends Controller
 {
@@ -47,16 +48,17 @@ class CharityController extends Controller
     public function create()
     {
         $categories = $this->category->getAllCategories();
+
         return view('site.pages.charities.create', compact('categories'));
     }
 
     /**
      * Store a newly created charity in bd and storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param CharityRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CharityRequest $request)
     {
         $charity = $this->charity->storeCharity($request);
         $this->document->storeDocuments($request, $charity->id, $charity->slug);
