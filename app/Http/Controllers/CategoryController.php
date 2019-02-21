@@ -41,7 +41,7 @@ class CategoryController extends Controller
     {
         $this->category->create($request->all());
 
-        return back();
+        return redirect()->route('category.index');
     }
 
     /**
@@ -55,7 +55,7 @@ class CategoryController extends Controller
     {
         $category->update($request->all());
 
-        return redirect('/dashboard/category');
+        return redirect()->route('category.index');
     }
 
     /**
@@ -69,6 +69,6 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect('/dashboard/category');
+        return redirect()->route('category.index');
     }
 }

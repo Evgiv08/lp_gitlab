@@ -51,7 +51,7 @@
                     <tr>
                         <td>{{$category->id}}</td>
                         <td>{{$category->title}}</td>
-                        <td>321</td>
+                        <td>{{ count($category->charities) }}</td>
                         <td class="button-block">
                             <div class="popup m--admin-edit-category hide-popup">
                                 <div class="popup-content-block">

@@ -40,6 +40,12 @@ class Charity extends Model
         return $this->belongsTo('App\Client', 'client_id');
     }
 
+    // get charities for category
+    public function category()
+    {
+        return $this->belongsTo('App\Category', 'category_id');
+    }
+
     // charity has ONLY one status
     public function status()
     {
@@ -144,12 +150,6 @@ class Charity extends Model
     public function deleteImage($img_path)
     {
         Storage::disk('public')->delete($img_path);
-    }
-
-    //charity belongs to category
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
     }
 
     // scope for search
