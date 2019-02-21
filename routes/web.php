@@ -62,10 +62,15 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         Route::post('{charity}/unban', 'BanCharityController@unban')->name('ban.charity.unban');
     });
 
-    // All categories in dashboard.
-    Route::resource('/category', 'CategoryController', [
-        'only' => ['index','store','update','destroy']
-    ]);
+    /**
+     * Category
+     */
+    Route::prefix('/category')->group(function () {
+        Route::get('/', 'CategoryController@index')->name('category.index');
+        Route::post('/store', 'CategoryController@store')->name('category.store');
+        Route::patch('/{category}/update', 'CategoryController@update')->name('category.update');
+        Route::delete('/{category}/delete', 'CategoryController@destroy')->name('category.destroy');
+    });
 
     // All appeals in dashboard.
     Route::get('/appeals', function () {

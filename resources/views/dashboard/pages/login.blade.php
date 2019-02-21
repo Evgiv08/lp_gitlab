@@ -19,6 +19,12 @@
                                 <input type="email" name="email" value="{{old('email')}}" required
                                     placeholder="admin@admin.com"
                                 >
+                                {{-- Display errors --}}
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                                 <span class="error"> Некорректный email. Попробуйте еще раз</span>
                             </label>
 
