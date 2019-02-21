@@ -10,10 +10,11 @@ class CharityStatuses extends Model
         'status'
     ];
 
+
     //status has many charities
     public function charities()
     {
-        return $this->hasMany('App\Charity', 'status_id');
+        return $this->hasMany('App\Charity', 'status_id', 'id');
     }
 
     // get all active charities for main page

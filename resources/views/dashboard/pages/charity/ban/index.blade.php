@@ -140,13 +140,13 @@
 
                 @forelse ($charities as $charity)
                     <tr>
-                        <td>{{ $charity->client_id }}</td>
-                        <td>{{ $charity->start_date->format('d/m/y') }}</td>
+                        <td>{{ $charity->client->name.' '.$charity->client->surname }}</td>
+                        <td>{{ $charity->start_date }}</td>
                         <td>{{ Carbon\Carbon::parse($charity->ban_date)->diffInDays($charity->finish_date) }}</td>
-                        <td>{{ $charity->ban_date->format('d/m/y') }}</td>
+                        <td>{{ $charity->ban_date }}</td>
                         <td>{{ $charity->ban_reason }}</td>
                         <td class="button-block">
-                            <a title="просмотр" href="{{ route('ban_show') }}">
+                            <a title="просмотр" href="{{ route('ban.charity.show', $charity->slug) }}">
                                 <svg aria-hidden="true" data-prefix="fas" data-icon="eye"
                                      class="svg-inline--fa fa-eye fa-w-18" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 576 512">
