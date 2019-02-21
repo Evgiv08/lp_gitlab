@@ -8,6 +8,12 @@ class Category extends Model
 {
     protected $fillable = ['title'];
 
+    // get charities for category
+    public function charities()
+    {
+        return $this->hasMany('App\Charity');
+    }
+
     // show all categories
     public function scopeGetAllCategories($query)
     {
