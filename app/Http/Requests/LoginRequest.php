@@ -28,4 +28,17 @@ class LoginRequest extends FormRequest
             'password' => 'required|min:6',
         ];
     }
+
+    /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages()
+    {
+        return [
+            'email.required'     => 'Поле (Ваша почта) обязательно для заполнения.',
+            'email.email'        => 'Почта должна быть валидной.',
+        ];
+    }
 }
