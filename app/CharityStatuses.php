@@ -28,6 +28,12 @@ class CharityStatuses extends Model
         return $this->where('status', 'draft')->first()->charities()->paginate(5);
     }
 
+    // get new charities number for sidebar
+    public function getNewCharitiesNumber()
+    {
+        return $this->where('status', 'draft')->first()->charities()->count();
+    }
+
     // get all active charities for dashboard with pagination
     public function getActiveCharities()
     {
