@@ -32,7 +32,7 @@
                 <td>
                     <a href="{{ route('active.charity.index') }}">2112</a><br>
                     <a href="{{ route('new.charity.index') }}">12</a><br>
-                    <a href="{{ route('ban_show') }}">786</a>
+                    <a href="{{ route('ban.charity.index') }}">786</a>
                 </td>
                 <td>
                     2 000$
