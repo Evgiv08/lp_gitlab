@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\CharityStatuses;
 use App\Charity;
+use App\CharityStatuses;
 
 class ActiveCharityController extends Controller
 {
     protected $status;
+    protected $charity;
 
-    public function __construct(CharityStatuses $status)
+    public function __construct(CharityStatuses $status, Charity $charity)
     {
         $this->status = $status;
+        $this->charity = $charity;
     }
 
     /**
@@ -34,5 +36,18 @@ class ActiveCharityController extends Controller
     public function show(Charity $charity)
     {
         return view('dashboard.pages.charity.active.show', compact('charity'));
+    }
+
+    /**
+     * Ban an active charity.
+     * @param   Charity $charity
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function ban(Charity $charity)
+    {
+        $this->charity->banActiveCharity($charity);
+
+        return redirect(route('active.charity.index'));
     }
 }

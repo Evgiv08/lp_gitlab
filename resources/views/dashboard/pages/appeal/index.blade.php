@@ -104,7 +104,11 @@
                     qui sit temporibus velit.
                 </td>
                 <td>
+<<<<<<< HEAD
                     <a href="{{ route('active.charity.index') }}">1123</a>
+=======
+                    <a href="#">1123</a>
+>>>>>>> fc97c659258ab4dee6482ed37d0cb44f6bfbf9e9
                 </td>
                 <td>
                     27.12.19
@@ -179,7 +183,11 @@
                     qui sit temporibus velit.
                 </td>
                 <td>
+<<<<<<< HEAD
                     <a href="{{ route('active.charity.index') }}">1123</a>
+=======
+                    <a href="#">1123</a>
+>>>>>>> fc97c659258ab4dee6482ed37d0cb44f6bfbf9e9
                 </td>
                 <td>
                     27.12.19

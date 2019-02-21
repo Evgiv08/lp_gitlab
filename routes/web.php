@@ -20,6 +20,14 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
 
         // Show one new charity in dashboard.
         Route::get('/{charity}/show/', 'NewCharityController@show')->name('new.charity.show');
+        // Show one new charity in dashboard.
+        Route::post('/{charity}/return/', 'NewCharityController@return')->name('new.charity.return');
+        // Show one new charity in dashboard.
+        Route::post('/{charity}/publish/', 'NewCharityController@publish')->name('new.charity.publish');
+        // Show one new charity in dashboard.
+        Route::post('/{charity}/edit/', 'NewCharityController@edit')->name('new.charity.edit');
+        // Show one new charity in dashboard.
+        Route::post('/{charity}/delete/', 'NewCharityController@delete')->name('new.charity.delete');
     });
 
     // All routes for active charity.
@@ -29,6 +37,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
 
         // Show one active charity in dashboard.
         Route::get('{charity}/show', 'ActiveCharityController@show')->name('active.charity.show');
+
+        Route::post('{charity}/ban', 'ActiveCharityController@ban')->name('active.charity.ban');
     });
 
     // All routes for completed charity.
@@ -37,9 +47,7 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         Route::get('/', 'CompletedCharityController@index')->name('completed.charity.index');
 
         // Show one completed charity in dashboard.
-        Route::get('/show', function () {
-            return view('dashboard.pages.charity.completed.show');
-        })->name('completed_show');
+        Route::get('{charity}/show', 'CompletedCharityController@show')->name('completed.charity.show');
     });
 
     // All routes for ban charity.
@@ -48,9 +56,10 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         Route::get('/', 'BanCharityController@index')->name('ban.charity.index');
 
         // Show one banned charity in dashboard.
-        Route::get('/show', function () {
-            return view('dashboard.pages.charity.ban.show');
-        })->name('ban_show');
+        Route::get('{charity}/show', 'BanCharityController@show')->name('ban.charity.show');
+
+        // Show one banned charity in dashboard.
+        Route::post('{charity}/unban', 'BanCharityController@unban')->name('ban.charity.unban');
     });
 
     // All categories in dashboard.
@@ -63,10 +72,8 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
         return view('dashboard.pages.appeal.index');
     })->name('appeals');
 
-    // All users in dashboard.
-    Route::get('/users', function () {
-        return view('dashboard.pages.user.index');
-    })->name('users');
+    // All clients in dashboard.
+    Route::get('/users', 'ClientController@index')->name('client.index');
 
     /**
      * Staff

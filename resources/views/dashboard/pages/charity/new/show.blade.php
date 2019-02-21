@@ -10,10 +10,11 @@
 
                 <div class="popup-step m--campaign-back hide-step">
 
-                    <form class="main-form" action="">
+                    <form class="main-form" method="POST" action="{{ route('new.charity.return', $charity->slug) }}">
+                        @csrf
                         <label class="label-input">
                             <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 1"></textarea>
+                            <textarea placeholder="Введите причину возврата сбора на доработку"></textarea>
                         </label>
                         <div class="button-wrapper">
                             <button type="submit" class="btn m--with-loader">
@@ -28,10 +29,12 @@
                 </div>
                 <div class="popup-step m--campaign-publish hide-step">
 
-                    <form class="main-form" action="">
+                    <form class="main-form" method="POST" action="{{ route('new.charity.publish', $charity->slug)
+                    }}">
+                        @csrf
                         <label class="label-input">
                             <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 2"></textarea>
+                            <textarea placeholder="Введите сообщение о публикации сбора"></textarea>
                         </label>
                         <div class="button-wrapper">
                             <button type="submit" class="btn m--with-loader">
@@ -46,10 +49,11 @@
                 </div>
                 <div class="popup-step m--campaign-delete hide-step">
 
-                    <form class="main-form" action="">
+                    <form class="main-form" method="POST" action="{{ route('new.charity.delete', $charity->slug) }}">
+                        @csrf
                         <label class="label-input">
                             <span>Введите сообщение: </span>
-                            <textarea placeholder="Введите сообщение здесь 3"></textarea>
+                            <textarea placeholder="Введите сообщение с причиной удаления нового сбора"></textarea>
                         </label>
                         <div class="button-wrapper">
                             <button type="submit" class="btn m--with-loader">
@@ -74,24 +78,17 @@
             </h1>
         </header>
         <div class="account-admin-campaign-wrapper">
-            <form action="" class="main-form new-campaign-form view-campaign">
+            <form class="main-form new-campaign-form view-campaign" method="POST" action="{{ route('new.charity.edit', $charity->slug) }}">
+                @csrf
                 <label class="label-input">
                     <span>Цель сбора средств:</span>
-                    <textarea disabled>{{ $charity->purpose }}</textarea>
+                    <textarea name="purpose" disabled>{{ $charity->purpose }}</textarea>
                 </label>
 
                 <div class="text-block">
                     <div>
                         <span>Сумма сбора: </span>
                         <span>{{ $charity->sum }}</span>
-                    </div>
-                    <div>
-                        <span>Дата создания сбора: </span>
-                        <span>{{ $charity->start_date }}</span>
-                    </div>
-                    <div>
-                        <span>Дата окончания сбора: </span>
-                        <span>{{ $charity->finish_date }}</span>
                     </div>
                 </div>
                 <div class="text-wrapper">
@@ -101,20 +98,20 @@
                             <span>{{ $charity->client->name . ' ' . $charity->client->surname }}</span>
                         </div>
                         <div class="text-item">
-                            <span>Название банка</span>
-                            <span>АО КБ «ПРИВАТБАНК»</span>
+                            <span>Название банка:</span>
+                            <span>{{ $charity->banks_info->bank_title }}</span>
                         </div>
                         <div class="text-item">
                             <span>Номер счета: </span>
-                            <span>4242 4242 4242 4242</span>
+                            <span>{{ $charity->banks_info->account_number }}</span>
                         </div>
                         <div class="text-item">
                             <span>МФО: </span>
-                            <span>434312</span>
+                            <span>{{ $charity->banks_info->mfo }}</span>
                         </div>
                         <div class="text-item">
                             <span>ИНН: </span>
-                            <span>0987654321</span>
+                            <span>{{ $charity->banks_info->inn }}</span>
                         </div>
                         <div class="text-item">
                             <span>email: </span>
@@ -149,15 +146,15 @@
 
                 <label class="label-select">
                     <span> Категория заболевания</span>
-                    <select disabled>
-                        <option value="">{{ $charity->category->title }}</option>
-                        <option value="">два</option>
-                        <option value="">три</option>
-                        <option value="">четыре</option>
-                        <option value="">пять</option>
-                        <option value="">шесть</option>
-                        <option value="">семь</option>
-                        <option value="">восемь</option>
+                    <select name="category_id">
+                        @if ($categories->count())
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}" {{ $category->id == $charity->category->id
+                                ? 'selected' : null}}>
+                                    {{$category->title }}
+                                </option>
+                            @endforeach
+                        @endif
                     </select>
                 </label>
 
@@ -165,12 +162,13 @@
                     <h3>
                         Фото обложки
                     </h3>
-                    <img src="{{ asset('img/card1.jpg') }}" alt="">
+                    <img src="{{ asset('storage/'. $charity->img_path)}}" alt="{{ $charity->full_name }}" title="{{
+        $charity->full_name }}">
                 </div>
 
                 <label class="label-input label-textarea">
                     <span>Основной текст заявки</span>
-                    <textarea disabled>{{ $charity->about }}</textarea>
+                    <textarea name="about" disabled>{{ $charity->about }}</textarea>
                 </label>
 
                 <div class="link-block">
@@ -179,7 +177,11 @@
                     </h3>
 
                     <div class="link-block-wrapper">
-                        <a href="">
+
+                        <a href="{{ asset('storage/'. $charity->documents()->where('title', 'client_passport')->first
+                        ()->file_path
+                      )}}" download>
+
                             <span>Img паспорта автора заявки:</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
@@ -189,24 +191,40 @@
                                       fill="#363636"/>
                             </svg>
                         </a>
-                        <a href="">
-                            <span>Img паспорта реципиента (больного):</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
-                                 height="512">
-                                <path d="M244.425 98.725c-93.4 0-178.1 51.1-240.6 134.1-5.1 6.8-5.1 16.3 0 23.1 62.5 83.1 147.2 134.2 240.6 134.2s178.1-51.1 240.6-134.1c5.1-6.8 5.1-16.3 0-23.1-62.5-83.1-147.2-134.2-240.6-134.2zm6.7 248.3c-62 3.9-113.2-47.2-109.3-109.3 3.2-51.2 44.7-92.7 95.9-95.9 62-3.9 113.2 47.2 109.3 109.3-3.3 51.1-44.8 92.6-95.9 95.9zm-3.1-47.4c-33.4 2.1-61-25.4-58.8-58.8 1.7-27.6 24.1-49.9 51.7-51.7 33.4-2.1 61 25.4 58.8 58.8-1.8 27.7-24.2 50-51.7 51.7z"
-                                      data-original="#000000" class="active-path" data-old_color="#000000"
-                                      fill="#363636"/>
-                            </svg>
-                        </a>
-                        <a href="">
-                            <span>Img больничных документов:</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
-                                 height="512">
-                                <path d="M244.425 98.725c-93.4 0-178.1 51.1-240.6 134.1-5.1 6.8-5.1 16.3 0 23.1 62.5 83.1 147.2 134.2 240.6 134.2s178.1-51.1 240.6-134.1c5.1-6.8 5.1-16.3 0-23.1-62.5-83.1-147.2-134.2-240.6-134.2zm6.7 248.3c-62 3.9-113.2-47.2-109.3-109.3 3.2-51.2 44.7-92.7 95.9-95.9 62-3.9 113.2 47.2 109.3 109.3-3.3 51.1-44.8 92.6-95.9 95.9zm-3.1-47.4c-33.4 2.1-61-25.4-58.8-58.8 1.7-27.6 24.1-49.9 51.7-51.7 33.4-2.1 61 25.4 58.8 58.8-1.8 27.7-24.2 50-51.7 51.7z"
-                                      data-original="#000000" class="active-path" data-old_color="#000000"
-                                      fill="#363636"/>
-                            </svg>
-                        </a>
+
+                        @if($charity->documents()->where('title', 'passport')->first() !== null)
+
+                            <a href="{{ asset('storage/'. $charity->documents()->where('title', 'passport')->first
+                        ()->file_path
+                      )}}" download>
+                                <span>Img паспорта реципиента (больного):</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
+                                     height="512">
+                                    <path d="M244.425 98.725c-93.4 0-178.1 51.1-240.6 134.1-5.1 6.8-5.1 16.3 0 23.1 62.5 83.1 147.2 134.2 240.6 134.2s178.1-51.1 240.6-134.1c5.1-6.8 5.1-16.3 0-23.1-62.5-83.1-147.2-134.2-240.6-134.2zm6.7 248.3c-62 3.9-113.2-47.2-109.3-109.3 3.2-51.2 44.7-92.7 95.9-95.9 62-3.9 113.2 47.2 109.3 109.3-3.3 51.1-44.8 92.6-95.9 95.9zm-3.1-47.4c-33.4 2.1-61-25.4-58.8-58.8 1.7-27.6 24.1-49.9 51.7-51.7 33.4-2.1 61 25.4 58.8 58.8-1.8 27.7-24.2 50-51.7 51.7z"
+                                          data-original="#000000" class="active-path" data-old_color="#000000"
+                                          fill="#363636"/>
+                                </svg>
+                            </a>
+
+                        @endif
+
+                        <span>Img больничных документов</span>
+                        @forelse( $charity->documents()->where([['title', '!=', 'passport'], ['title',
+                        '!=',
+                        'client_passport']])->get() as
+                        $document )
+                            <a href="{{ asset('storage/'. $document->file_path)}}" download>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488.85 488.85" width="512"
+                                     height="512">
+                                    <path d="M244.425 98.725c-93.4 0-178.1 51.1-240.6 134.1-5.1 6.8-5.1 16.3 0 23.1 62.5 83.1 147.2 134.2 240.6 134.2s178.1-51.1 240.6-134.1c5.1-6.8 5.1-16.3 0-23.1-62.5-83.1-147.2-134.2-240.6-134.2zm6.7 248.3c-62 3.9-113.2-47.2-109.3-109.3 3.2-51.2 44.7-92.7 95.9-95.9 62-3.9 113.2 47.2 109.3 109.3-3.3 51.1-44.8 92.6-95.9 95.9zm-3.1-47.4c-33.4 2.1-61-25.4-58.8-58.8 1.7-27.6 24.1-49.9 51.7-51.7 33.4-2.1 61 25.4 58.8 58.8-1.8 27.7-24.2 50-51.7 51.7z"
+                                          data-original="#000000" class="active-path" data-old_color="#000000"
+                                          fill="#363636"/>
+                                </svg>
+                            </a>
+                        @empty
+                            Больничные документы не найдены.
+                        @endforelse
+
                     </div>
 
                 </div>

@@ -22,11 +22,12 @@
                 <th>Собрал</th>
                 <th>Действия</th>
             </tr>
+            @forelse($clients as $client)
             <tr>
-                <td>1</td>
-                <td>Камишанченко Оксана</td>
+                <td>{{ $client->id }}</td>
+                <td>{{ $client->name }} {{ $client->surname }}</td>
                 <td>
-                    aezak@mi
+                    {{ $client->email }}
                 </td>
                 <td>
                     <a href="{{ route('active.charity.index') }}">2112</a><br>
@@ -49,6 +50,11 @@
                     </a>
                 </td>
             </tr>
+            @empty
+            <tr>
+                Пользователи не найдены.
+            </tr>
+            @endforelse
 
         </table>
     </div>
