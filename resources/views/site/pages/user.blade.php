@@ -536,15 +536,50 @@
                                         <h6>
                                             {{ $charity->purpose }}
                                         </h6>
+                                        @switch($charity->status_id)
 
-                                        <button class="btn btn-transparent m--noactive">
-                                            Закончить сбор средств
-                                        </button>
+                                            @case(config('constants.returned'))
+                                            <button class="btn btn-transparent">
+                                                Редактировать заявку
+                                            </button>
+                                            @break
 
-                                        <a href="/{{ $charity->slug }}" class="btn btn-transparent">
-                                            Подробнее
-                                        </a>
+                                            @case(config('constants.active'))
+                                            <button class="btn btn-transparent m--noactive">
+                                                Забрать деньги
+                                            </button>
 
+                                            <a href="/{{ $charity->slug }}" class="btn btn-transparent">
+                                                Подробнее
+                                            </a>
+                                            @break
+
+                                            @case(config('constants.done'))
+                                            <button class="btn btn-transparent m--noactive">
+                                                Завершенная
+                                            </button>
+
+                                            <button class="btn btn-transparent m--noactive">
+                                                Отчитаться о деньгах
+                                            </button>
+
+                                            <a href="/{{ $charity->slug }}" class="btn btn-transparent">
+                                                Подробнее
+                                            </a>
+                                            @break
+
+                                            @case(config('constants.ban'))
+                                            <button class="btn btn-transparent m--noactive">
+                                                Повторная модерация
+                                            </button>
+                                            @break
+
+                                            @default
+                                            <button class="btn btn-transparent m--noactive">
+                                                Cбор на модерации
+                                            </button>
+
+                                        @endswitch
                                         <div class="money-count">
                                             <div class="money-diagram">
                                                 <div class="top-line" data-money-diagram="75" style="width: 75%;"></div>
