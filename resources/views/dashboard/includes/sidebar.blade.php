@@ -1,3 +1,5 @@
+@inject('status', 'App\CharityStatuses')
+
 <div class="account-admin-side-menu">
     <ul class="account-admin-side-menu-list">
         <li class="active">
@@ -9,7 +11,7 @@
                             Новые
                         </span>
                         <span class="account-admin-side-menu-count">
-                            31
+                            {{ $status->getNewCharitiesNumber() }}
                         </span>
                     </a>
                 </li>
@@ -34,7 +36,7 @@
                     Жалобы
                 </span>
                 <span class="account-admin-side-menu-count">
-                    31
+                    3
                 </span>
             </a>
         </li>
