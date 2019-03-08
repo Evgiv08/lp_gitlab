@@ -7,7 +7,7 @@ use Illuminate\Database\Migrations\Migration;
 class AddCharitySearchIndex extends Migration
 {
     /**
-     * Run the migrations.
+     * Add Search Index for PostgreSQL.
      *
      * @return void
      */

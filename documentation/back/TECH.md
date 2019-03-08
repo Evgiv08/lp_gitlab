@@ -22,10 +22,13 @@ __Установка проекта__
 - Клонируем репозиторий (см. Дополнительные ресурсы). 
 - Для загрузки библиотек Laravel запускаем в терминале из под директории проекта composer install. 
 - Генерируем APP_KEY командой `php artisan key:generate`.
-- Настраиваем `.env`
-- Запускаем проект. 
-- для входа в админку необходимо сделать
+- Настраиваем `.env`  
+- для корректной работы необходимо сделать:  
+`php artisan db:seed --class RolesTableSeeder`  
 `php artisan db:seed --class=StaffTableSeeder`  
+`php artisan db:seed --class CharityStatusesTableSeeder`  
+- Запускаем проект. 
+ 
   
 __Архитектурные решения__  
 Система - за основу взята архитектура фреймворка Laravel (MVC). Все в лучших традициях сообщества.  

@@ -13,9 +13,9 @@ class ClientTableSeeder extends Seeder
     {
         DB::table('clients')->insert([
             'name'     => 'Adam',
-            'surname' => 'Smith',
+            'surname'  => 'Smith',
             'email'    => 'adam@smith.com',
-            'password' => bcrypt(__('app.default'))
+            'password' => bcrypt(__('app.default')),
         ]);
     }
 }

@@ -40,10 +40,7 @@ class StaffController extends Controller
      */
     public function update(StaffRequest $request, Staff $staff)
     {
-        $staff['role'] = $request['role'];
-        $staff['password'] = bcrypt($request['password']);
-
-        $staff->save();
+        $this->staff->editStaff($request, $staff);
 
         return redirect()->route('staff.index');
     }

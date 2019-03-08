@@ -17,6 +17,12 @@ class LoginController extends Controller
         $this->middleware('guest:staff')->except('staffLogout');
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard Login
+    |--------------------------------------------------------------------------
+    */
+
     /**
      * Specify redirect path for users
      * with different roles.
@@ -72,6 +78,12 @@ class LoginController extends Controller
 
         return redirect('/doorway');
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Site Login
+    |--------------------------------------------------------------------------
+    */
 
     /**
      * Handle a login request to the dashboard.

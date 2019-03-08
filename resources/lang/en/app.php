@@ -2,9 +2,8 @@
 
 return [
     // Select staff role item.
-    'SEO'       => 'СЕО',
-    'Moderator' => 'Модератор',
-    'Admin'     => 'Администратор',
+    'admin'     => 'Администратор',
+    'accountant' => 'Бухгалтер',
 
     // Default password for Admin
     'default' => 'adminpass',

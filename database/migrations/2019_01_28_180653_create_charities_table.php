@@ -25,12 +25,10 @@ class CreateCharitiesTable extends Migration
             $table->text('about');
             $table->integer('category_id');
             $table->decimal('sum');
-            $table->integer('term');
-            $table->date('start_date')->nullable();
-            $table->date('finish_date')->nullable();
             $table->string('slug');
             $table->string('img_path')->nullable();
             $table->integer('status_id');
+            $table->date('start_date')->nullable();
             $table->text('ban_reason')->nullable();
             $table->date('ban_date')->nullable();
             $table->timestamps();
