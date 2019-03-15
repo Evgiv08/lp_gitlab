@@ -21,11 +21,11 @@ $factory->define(App\Charity::class, function (Faker\Generator $faker) {
         'about' => $faker->unique()->text(500),
         'category_id' => $faker->numberBetween(1,4),
         'sum' => $faker->numberBetween(100000,1000),
-        'term' => $faker->numberBetween(14,86),
         'start_date' => $faker->dateTimeThisYear($max = 'now', $timezone = null),
-        'finish_date' => $faker->dateTimeThisYear($max = '2019-11-27 20:52:14', $timezone = null),
         'slug' => $faker->numberBetween(10000,40000),
         'status_id' => $faker->numberBetween(1,3),
         'created_at' => Carbon::now()
+//        'term' => $faker->numberBetween(14,86),
+//        'finish_date' => $faker->dateTimeThisYear($max = '2019-11-27 20:52:14', $timezone = null),
     ];
 });

@@ -24,6 +24,7 @@ __Установка проекта__
 - Генерируем APP_KEY командой `php artisan key:generate`.
 - Настраиваем `.env`  
 - для корректной работы необходимо сделать:  
+`php artisan db:seed`  
 `php artisan db:seed --class RolesTableSeeder`  
 `php artisan db:seed --class=StaffTableSeeder`  
 `php artisan db:seed --class CharityStatusesTableSeeder`  

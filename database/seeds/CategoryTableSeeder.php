@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use Carbon\Carbon;
+use Illuminate\Database\Seeder;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -13,10 +13,10 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            ['id' => 1, 'title' => 'Coronary heart disease', 'created_at' => Carbon::now()],
-            ['id' => 2, 'title' => 'Coccidioidomycosis', 'created_at' => Carbon::now()],
-            ['id' => 3, 'title' => 'Dehydration', 'created_at' => Carbon::now()],
-            ['id' => 4, 'title' => 'Epilepsy', 'created_at' => Carbon::now()]
+            ['title' => 'Coronary heart disease', 'created_at' => Carbon::now()],
+            ['title' => 'Coccidioidomycosis', 'created_at' => Carbon::now()],
+            ['title' => 'Dehydration', 'created_at' => Carbon::now()],
+            ['title' => 'Epilepsy', 'created_at' => Carbon::now()]
         ]);
     }
 }

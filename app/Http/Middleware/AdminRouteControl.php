@@ -15,7 +15,7 @@ class AdminRouteControl
      */
     public function handle($request, Closure $next)
     {
-        if (auth('staff')->user()->role != __('app.Admin')) {
+        if (auth('staff')->user()->role_id != config('constants.admin')) {
             return back();
         }
 

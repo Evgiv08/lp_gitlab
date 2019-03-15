@@ -16,16 +16,15 @@
 
                             <label class="label-input">
                                 <span>Ваша почта:</span>
-                                <input type="email" name="email" value="{{old('email')}}" required
+                                <input type="email" name="email" value="{{ old('email') }}" required
                                     placeholder="admin@admin.com"
                                 >
                                 {{-- Display errors --}}
                                 @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="error" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
-                                <span class="error"> Некорректный email. Попробуйте еще раз</span>
                             </label>
 
                             <div class="label-password-top-block">
@@ -35,7 +34,12 @@
                                 <input type="password" name="password" required
                                     placeholder="adminpass"
                                 >
-                                <span class="error">Неверный пароль. Введите еще раз</span>
+                                {{-- Display errors --}}
+                                @if ($errors->has('password'))
+                                    <span class="error" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </label>
 
                             <div class="button-wrapper">

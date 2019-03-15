@@ -13,8 +13,8 @@ class LoginController extends Controller
     // Initialize middleware.
     public function __construct()
     {
-        $this->middleware('guest:client')->except('logout');
         $this->middleware('guest:staff')->except('staffLogout');
+        $this->middleware('guest:client')->except('clientLogout');
     }
 
     /*
@@ -22,21 +22,6 @@ class LoginController extends Controller
     | Dashboard Login
     |--------------------------------------------------------------------------
     */
-
-    /**
-     * Specify redirect path for users
-     * with different roles.
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
-    public function redirectTo()
-    {
-        if (auth('staff')->user()->role ==__('app.Admin')) {
-            return redirect()->route('staff.index');
-        }
-
-        return redirect()->route('new.charity.index');
-    }
 
     /**
      * Show login form for enter in Dashboard.
@@ -53,7 +38,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Handle a login request to the dashboard.
+     * Handle a login request to the Dashboard.
      *
      * @param LoginRequest $request
      * @return \Illuminate\Http\RedirectResponse
@@ -65,6 +50,21 @@ class LoginController extends Controller
         }
 
         return back()->withInput();
+    }
+
+    /**
+     * Specify redirect path for authenticated staff
+     * with different roles.
+     *
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function redirectTo()
+    {
+        if (auth('staff')->user()->role_id == config('constants.admin')) {
+            return redirect()->route('staff.index');
+        }
+
+        return redirect()->route('new.charity.index');
     }
 
     /**

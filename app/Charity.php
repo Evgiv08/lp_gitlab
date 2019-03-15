@@ -19,9 +19,7 @@ class Charity extends Model
         'about',
         'category_id',
         'sum',
-        'term',
         'start_date',
-        'finish_date',
         'slug',
         'img_path',
         'status_id',
@@ -97,7 +95,6 @@ class Charity extends Model
         $this->about = $request->about;
         $this->category_id = $request->category_id;
         $this->sum = $request->sum;
-        $this->term = $request->term;
         $this->status_id = config('constants.draft');
 
         // create slug from full_name

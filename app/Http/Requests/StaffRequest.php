@@ -39,7 +39,7 @@ class StaffRequest extends FormRequest
     {
         return [
             'email' => ['exists:staff'],
-            'role'     => ['required', 'string'],
+            'role_id'     => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ];
     }
@@ -54,7 +54,7 @@ class StaffRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:staff'],
-            'role' => ['required', 'string'],
+            'role_id' => ['required', 'numeric'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ];
     }

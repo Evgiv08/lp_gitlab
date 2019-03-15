@@ -28,11 +28,7 @@ class ClientRegisterRequest extends FormRequest
             'surname'  => ['nullable', 'string', 'max:80'],
             'email'    => ['required', 'unique:clients', 'string', 'email', 'max:255'],
             'phone'    => ['nullable', 'string', 'max:25'],
-            'password' => [
-                'required', 'string', 'min:6',
-                'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/',
-                'confirmed',
-            ],
+            'password' => ['required', 'string', 'min:6', 'confirmed'],
             'confirm'  => ['accepted'],
         ];
     }

@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Charity;
 use App\Document;
-use App\BanksInfo;
 use App\Category;
+use App\BanksInfo;
 use App\CharityStatuses;
 use App\Http\Requests\CharityRequest;
-//use Illuminate\Http\Request;
 
 class CharityController extends Controller
 {
@@ -18,8 +17,13 @@ class CharityController extends Controller
     protected $status;
     protected $category;
 
-    public function __construct(Charity $charity, Document $document, BanksInfo $banksInfo, CharityStatuses $status,
-                                Category $category)
+    public function __construct(
+        Charity $charity,
+        Document $document,
+        BanksInfo $banksInfo,
+        CharityStatuses $status,
+        Category $category
+    )
     {
         $this->charity = $charity;
         $this->document= $document;

@@ -37,11 +37,10 @@
                       <input type="text" required placeholder="Василий" name="name" value="{{ old('name') }}">
                       {{-- Display errors --}}
                       @if ($errors->has('name'))
-                          <span class="invalid-feedback" role="alert">
+                          <span class="error" role="alert">
                               <strong>{{ $errors->first('name') }}</strong>
                           </span>
                       @endif
-                      <span class="error"> Поле не заполнено</span>
                   </label>
 
                   <label class="label-input">
@@ -49,7 +48,7 @@
                       <input type="text" placeholder="Васильев" name="surname" value="{{ old('surname') }}">
                       {{-- Display errors --}}
                       @if ($errors->has('surname'))
-                          <span class="invalid-feedback" role="alert">
+                          <span class="error" role="alert">
                               <strong>{{ $errors->first('surname') }}</strong>
                           </span>
                       @endif
@@ -64,11 +63,10 @@
                       >
                       {{-- Display errors --}}
                       @if ($errors->has('email'))
-                          <span class="invalid-feedback" role="alert">
+                          <span class="error" role="alert">
                               <strong>{{ $errors->first('email') }}</strong>
                           </span>
                       @endif
-                      <span class="error"> Некорректный email. Попробуйте еще раз</span>
                   </label>
 
                   <label class="label-input">
@@ -77,11 +75,10 @@
                       <span class="info">Ваш номер телефона - конфиденциальная информация. Он не будет доступен другим пользователям</span>
                       {{-- Display errors --}}
                       @if ($errors->has('phone'))
-                          <span class="invalid-feedback" role="alert">
+                          <span class="error" role="alert">
                               <strong>{{ $errors->first('phone') }}</strong>
                           </span>
                       @endif
-                      <span class="error"> Неправильный ввод номера. Попробуйте еще раз</span>
                   </label>
               </div>
 
@@ -91,17 +88,15 @@
                   <span class="info">Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
                   {{-- Display errors --}}
                   @if ($errors->has('password'))
-                      <span class="invalid-feedback" role="alert">
+                      <span class="error" role="alert">
                               <strong>{{ $errors->first('password') }}</strong>
                           </span>
                   @endif
-                  <span class="error"> Пароль должен состоять из букв и цифер, содержать минимум 6 знаков, 3 из которых уникальные</span>
               </label>
 
               <label class="label-input m--password">
                   <span>Повторите пароль:</span>
                   <input type="password" required placeholder="Введите пароль" name="password_confirmation">
-                  <span class="error"> Пароли не совпадают. Повторите еще раз</span>
               </label>
 
               <label class="label-checkbox">
@@ -112,7 +107,7 @@
                           <br>
                           {{-- Display errors --}}
                           @if ($errors->has('confirm'))
-                              <span class="invalid-feedback" role="alert">
+                              <span class="error" role="alert">
                               <strong>{{ $errors->first('confirm') }}</strong>
                           </span>
                           @endif

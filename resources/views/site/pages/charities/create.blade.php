@@ -189,35 +189,6 @@
                   </label>
               </div>
 
-              <div class="campaign-duration">
-
-                  <span class="title">
-                      На какой срок Вы хотите разместить публикацию?
-                  </span>
-
-                  <div class="campaign-duration-wrapper">
-                      <label class="label-radio">
-                          <input type="radio" name="term" value="14" checked="">
-                          <span>2 недели</span>
-                      </label>
-
-                      <label class="label-radio">
-                          <input type="radio" name="term" value="28">
-                          <span>4 недели</span>
-                      </label>
-
-                      <label class="label-radio">
-                          <input type="radio" name="term" value="56">
-                          <span>8 недель</span>
-                      </label>
-
-                      <label class="label-radio">
-                          <input type="radio" name="term" value="168">
-                          <span>8-24 недели</span>
-                      </label>
-                  </div>
-              </div>
-
               <div class="block-line"></div>
 
               <label class="label-select">

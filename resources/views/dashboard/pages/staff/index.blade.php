@@ -28,10 +28,9 @@
 
                             <label class="label-select">
                                 <span>Роль в комманде</span>
-                                <select name="role" id="">
-                                    <option value="{{__('app.SEO')}}">СЕО</option>
-                                    <option value="{{__('app.Moderator')}}">Модератор</option>
-                                    <option value="{{__('app.Admin')}}">Администратор</option>
+                                <select name="role_id" id="">
+                                    <option value="{{ config('constants.admin') }}">Администратор</option>
+                                    <option value="{{ config('constants.accountant') }}">Бухгалтер</option>
                                 </select>
                             </label>
 
@@ -84,7 +83,7 @@
                     <tr>
                         <td>{{ $employee->id }}</td>
                         <td>{{ $employee->name }} - {{ $employee->email }}</td>
-                        <td>{{ $employee->role }}</td>
+                        <td>{{ $employee->role->title }}</td>
                         <td class="button-block">
                             <div class="popup m--admin-edit-staff hide-popup">
                                 <div class="popup-content-block">
@@ -107,22 +106,16 @@
 
                                                 <label class="label-select">
                                                     <span>Роль в комманде</span>
-                                                    <select name="role" {{ $employee->role == __('app.Admin') ? 'disabled' : ''}}>
-                                                        <option value="{{__('app.SEO')}}"
-                                                                {{ $employee->role == __('app.SEO') ? 'selected' : ''}}
+                                                    <select name="role_id" {{ $employee->role->title == __('app.admin') ? 'disabled' : ''}}>
+                                                        <option value="{{ config('constants.admin') }}"
+                                                                {{ $employee->role->title == __('app.admin') ? 'selected' : ''}}
                                                         >
-                                                            СЕО
+                                                            {{ __('app.admin') }}
                                                         </option>
 
-                                                        <option value="{{__('app.Moderator')}}"
-                                                                {{ $employee->role == __('app.Moderator') ? 'selected' : ''}}>
-                                                            Модератор
-                                                        </option>
-
-                                                        <option value="{{__('app.Admin')}}"
-                                                                {{ $employee->role == __('app.Admin') ? 'selected' : ''}}
-                                                        >
-                                                            Администратор
+                                                        <option value="{{ config('constants.accountant') }}"
+                                                                {{ $employee->role->title == __('app.accountant') ? 'selected' : ''}}>
+                                                            {{ __('app.accountant') }}
                                                         </option>
                                                     </select>
                                                 </label>
@@ -154,22 +147,14 @@
                             </div>
 
                             <button class="admin-edit-staff">
-                                <svg aria-hidden="true" data-prefix="fas" data-icon="pen-square"
-                                     class="svg-inline--fa fa-pen-square fa-w-14" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 448 512">
-                                    <path d="M400 480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48v352c0 26.5-21.5 48-48 48zM238.1 177.9L102.4 313.6l-6.3 57.1c-.8 7.6 5.6 14.1 13.3 13.3l57.1-6.3L302.2 242c2.3-2.3 2.3-6.1 0-8.5L246.7 178c-2.5-2.4-6.3-2.4-8.6-.1zM345 165.1L314.9 135c-9.4-9.4-24.6-9.4-33.9 0l-23.1 23.1c-2.3 2.3-2.3 6.1 0 8.5l55.5 55.5c2.3 2.3 6.1 2.3 8.5 0L345 199c9.3-9.3 9.3-24.5 0-33.9z"/>
-                                </svg>
+                                @include('dashboard.elements.edit')
                             </button>
 
                             {{--Delete Staff--}}
                             <a href="{{ route('staff.destroy', $employee->id)}}"
                                onclick="event.preventDefault();
                                        document.getElementById('delete-staff-{{ $employee->id }}').submit();">
-                                <svg aria-hidden="true" data-prefix="fas" data-icon="ban"
-                                     class="svg-inline--fa fa-ban fa-w-16" xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 512 512">
-                                    <path d="M256 8C119.034 8 8 119.033 8 256s111.034 248 248 248 248-111.034 248-248S392.967 8 256 8zm130.108 117.892c65.448 65.448 70 165.481 20.677 235.637L150.47 105.216c70.204-49.356 170.226-44.735 235.638 20.676zM125.892 386.108c-65.448-65.448-70-165.481-20.677-235.637L361.53 406.784c-70.203 49.356-170.226 44.736-235.638-20.676z"/>
-                                </svg>
+                                @include('dashboard.elements.delete')
                             </a>
 
                             <form id="delete-staff-{{ $employee->id }}" action="{{ route('staff.destroy', $employee->id)}}"
@@ -182,7 +167,6 @@
                 @empty
                     <tr><td colspan="4">Комманды нет...</td></tr>
                 @endforelse
-
             </table>
         </div>
     </div>
