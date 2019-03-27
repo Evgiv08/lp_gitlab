@@ -11,12 +11,6 @@ class StaffRegisterController extends Controller
 {
     use RegistersUsers;
 
-    // Initialize middleware.
-    public function __construct()
-    {
-        $this->middleware('guest:staff');
-    }
-
     /**
      * Create new member of Staff.
      *
@@ -28,8 +22,8 @@ class StaffRegisterController extends Controller
         Staff::create([
             'name'  => ucwords($request['name']),
             'email' => strtolower($request['email']),
-            'role' => $request['role'],
             'password' => bcrypt($request['password']),
+            'role_id' => $request['role_id'],
         ]);
 
         return redirect()->route('staff.index');

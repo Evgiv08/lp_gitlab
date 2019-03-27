@@ -39,6 +39,7 @@ class LoginRequest extends FormRequest
         return [
             'email.required'     => 'Поле (Ваша почта) обязательно для заполнения.',
             'email.email'        => 'Почта должна быть валидной.',
+            'min' => 'Пароль должен содержать не менее 6 символов.',
         ];
     }
 }

@@ -49,7 +49,7 @@
             <a href="{{ route('client.index')}}">Пользователи</a>
         </li>
 
-        @if(auth('staff')->user()->role == __('app.Admin'))
+        @if (auth('staff')->user()->role_id == config('constants.admin'))
             <li class="{{ Request::is('dashboard/staff*') ? 'active' : '' }}">
                 <a href="{{ route('staff.index')}}">Команда</a>
             </li>

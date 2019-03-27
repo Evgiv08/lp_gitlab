@@ -7,7 +7,7 @@
         </div>
         <div class="button-block">
             @auth('staff')
-                <span>{{ Auth::guard('staff')->user()->email }}</span>
+                <span>{{ auth('staff')->user()->email }}</span>
 
                 <a class="dropdown-item" href="{{ route('staff.logout') }}"
                    onclick="event.preventDefault();

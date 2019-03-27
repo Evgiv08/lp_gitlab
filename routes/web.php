@@ -1,7 +1,7 @@
 <?php
 
 // Login/Logout to Dashboard page
-Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway');
+Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway')->middleware('guest');
     Route::post('/staff/login', 'Auth\LoginController@staffLogin')->name('staff.login');
     Route::post('/staff/logout', 'Auth\LoginController@staffLogout')->name('staff.logout');
 
@@ -11,7 +11,6 @@ Route::get('/doorway', 'Auth\LoginController@showStaffLoginForm')->name('doorway
 |--------------------------------------------------------------------------
 */
 Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function () {
-//Route::group(['prefix' => 'dashboard'], function () {
 
     // All routes for new charity.
     Route::prefix('/new')->group(function () {
