@@ -7,7 +7,7 @@ import accountAdmin from './account-admin'
 import faq from './faq'
 import donate from './donate-page'
 
-console.log('some test 1122');
+console.log('some test 11fsdfsd22');
 
 if ($('.money-count')) {
     $('.single-card .top-line, .shortInfoBlock .top-line').each(function () {

@@ -99,6 +99,11 @@ Route::group(['prefix' => 'dashboard','middleware' => ['auth:staff']], function 
 // Main page.
 Route::get('/', 'CharityController@index')->name('mainpage');
 
+// Donate.
+Route::get('/donate', function () {
+    return view('site.pages.donate');
+})->name('donate');
+
 /**
  * Register/Login/Logout
  */
