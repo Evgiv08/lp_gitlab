@@ -81,11 +81,10 @@ time, mark, audio, video {
   background-color: #e96b17;
   color: #e5e5e5;
   font-family: "Montserrat", sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  height: 60px;
-  line-height: 60px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 50px;
+  line-height: 50px;
   padding-left: 50px;
   padding-right: 50px;
   position: relative;
@@ -682,7 +681,7 @@ a.link-bottom-hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.24);
   background-color: rgba(54, 54, 54, 0.98);
   opacity: 0.99;
-  height: 100px;
+  height: 80px;
   position: fixed;
   left: 0;
   right: 0;
@@ -702,8 +701,7 @@ a.link-bottom-hover {
       .main-header .main-header-wrapper .navigation-side .navigation {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-right: 90px; }
+        align-items: center; }
         .main-header .main-header-wrapper .navigation-side .navigation .hover-submenu {
           position: relative; }
           .main-header .main-header-wrapper .navigation-side .navigation .hover-submenu:hover .submenu {
@@ -748,7 +746,8 @@ a.link-bottom-hover {
               .main-header .main-header-wrapper .navigation-side .navigation li a:hover > .sub-menu {
                 display: block; }
       .main-header .main-header-wrapper .navigation-side .button-block {
-        display: flex; }
+        display: flex;
+        margin-left: 50px; }
         .main-header .main-header-wrapper .navigation-side .button-block .header-search {
           margin-right: 20px; }
           .main-header .main-header-wrapper .navigation-side .button-block .header-search svg {
@@ -772,7 +771,7 @@ a.link-bottom-hover {
     margin-right: 0; }
 
 .jumbotron {
-  height: 900px;
+  height: 700px;
   position: relative;
   display: flex;
   align-items: center; }
@@ -924,7 +923,7 @@ a.link-bottom-hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 370px; }
+  height: 300px; }
   .subscribe-block img {
     position: absolute;
     top: 0;
@@ -933,7 +932,7 @@ a.link-bottom-hover {
     right: 0;
     z-index: 1;
     width: 100%;
-    height: 370px;
+    height: 300px;
     object-fit: cover; }
   .subscribe-block .subscribe-block-wrapper {
     width: 806px;
@@ -951,13 +950,13 @@ a.link-bottom-hover {
       align-items: center; }
       .subscribe-block .subscribe-block-wrapper form label input {
         width: 479px;
-        height: 53px;
+        height: 50px;
         box-shadow: 0 1px 1px rgba(0, 0, 0, 0.24);
         border: 1px solid #eaeae8;
         background-color: #ffffff;
         padding: 0 30px;
         font-family: "Roboto", sans-serif;
-        font-size: 21px;
+        font-size: 18px;
         color: #252526; }
         .subscribe-block .subscribe-block-wrapper form label input::-webkit-input-placeholder {
           color: #cccbca; }
@@ -1705,7 +1704,7 @@ a.link-bottom-hover {
   margin-bottom: 10px; }
 
 .faq-block {
-  padding: 120px 80px 50px 80px; }
+  padding: 150px 80px 50px 80px; }
   .faq-block .faq-block-link {
     display: flex;
     flex-wrap: wrap;

@@ -15,7 +15,7 @@
                 </li>
 
                 <li>
-                    <a href="/">
+                    <a href="/faq">
                         F.A.Q.
                     </a>
                 </li>

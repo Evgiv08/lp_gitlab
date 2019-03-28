@@ -104,6 +104,12 @@ Route::get('/donate', function () {
     return view('site.pages.donate');
 })->name('donate');
 
+// FAQ.
+Route::get('/faq', function () {
+    return view('site.pages.faq');
+})->name('faq');
+
+
 /**
  * Register/Login/Logout
  */

@@ -3,7 +3,7 @@
 @section('content')
 <div class="jumbotron">
   <div class="container">
-    <img src="{{ asset('img/head-background.jpg') }}" alt="">
+    <img src="{{ asset('img/header-baner3.jpg') }}" alt="">
     <div class="back-layer"></div>
     <div class="jumbotron-wrapper">
       <h1>
@@ -20,7 +20,7 @@
           Начать помогать
         </a>
         <a class="btn btn-transparent" href="{{ route('charity.create') }}">
-          начать сбор средств
+          Начать сбор средств
         </a>
       </div>
     </div>
